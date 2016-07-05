@@ -17,7 +17,33 @@
 <script src="footprint30.js?1467475395896"></script>
 <script>
 var canvas, stage, fp;
-var butMenuEggs;
+
+
+/* other vars */
+var curItem;
+var oldItem;
+var curItemMC;
+var curScreen;
+var moveDir;
+var moveTo;
+var curFactCardState;
+var curMusicState;
+var avgLifetime;
+var avgTimeframe;
+var yourAvg;
+var curVidState;
+var arrBehindPho;
+var curPho;
+var phoCount;
+var rawJapanAvg;
+var rawUSAvg;
+var rawWorldAvg;
+var rawYourAvg;
+var doEnter = false;
+
+
+
+
 function init() {
 	canvas = document.getElementById("canvas");
 	createjs.MotionGuidePlugin.install();
@@ -83,10 +109,35 @@ function handleComplete(evt) {
 	stage.enableMouseOver(10);
 	
 	
+	
+
+	// init vars
+	curScreen = "intro";
+	curItem = 99;
+	oldItem = 99;
+	moveDir = "move_left";
+	moveTo = "question";
+	curFactCardState = "off";
+	curMusicState = "on";
+	avgLifetime = 77.75;
+	avgTimeframe = 52;
+	// set other text
+	//setOtherContent();
+	// start audio
+	//auIntro.start();
+	//auGame.start(0, 999);
+	// init intro
 	hideAll();
+	//showIntro()
+	showMenu();
+	
+	
+	//hideAll();
 	//showIntro()
 	//showMenu();
 	//var ppc = new createjs.PlayPropsConfig().set({interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1, volume: 0.01})
+	
+	
 	
 	var myInstance = createjs.Sound.play("background_loop", {loop:-1});
 	 myInstance.volume = 0.3;
@@ -111,13 +162,77 @@ function handleComplete(evt) {
 	});
 	
 	// buttons
-/*fp.mcMenuMoves.mcMenu.butMenuSlices.onPress = function() {
-	menuClick(9, "menu");
-}*/
+	/*fp.mcMenuMoves.mcMenu.butMenuSlices.onPress = function() {
+		menuClick(9, "menu");
+	}*/
 
-fp.mcMenuMoves.on("rollover", function(evt) {
+// menu buttons rollovers
+fp.mcMenuMoves.mcMenu.butMenuEggs.on("rollover", function(evt) {
 		playSound("m_menu_rollover", false);
 	});
+fp.mcMenuMoves.mcMenu.butMenuNewspapers.on("rollover", function(evt) {
+		playSound("m_menu_rollover", false);
+	});
+fp.mcMenuMoves.mcMenu.butMenuMilks.on("rollover", function(evt) {
+		playSound("m_menu_rollover", false);
+	});
+fp.mcMenuMoves.mcMenu.butMenuCarMiles.on("rollover", function(evt) {
+		playSound("m_menu_rollover", false);
+	});
+fp.mcMenuMoves.mcMenu.butMenuBananas.on("rollover", function(evt) {
+		playSound("m_menu_rollover", false);
+	});
+fp.mcMenuMoves.mcMenu.butMenuSodas.on("rollover", function(evt) {
+		playSound("m_menu_rollover", false);
+	});
+fp.mcMenuMoves.mcMenu.butMenuShowers.on("rollover", function(evt) {
+		playSound("m_menu_rollover", false);
+	});
+fp.mcMenuMoves.mcMenu.butMenuPotatoes.on("rollover", function(evt) {
+		playSound("m_menu_rollover", false);
+	});
+fp.mcMenuMoves.mcMenu.butMenuDiapers.on("rollover", function(evt) {
+		playSound("m_menu_rollover", false);
+	});
+fp.mcMenuMoves.mcMenu.butMenuSlices.on("rollover", function(evt) {
+		playSound("m_menu_rollover", false);
+	});
+		
+	
+
+fp.mcMenuMoves.mcMenu.butMenuEggs.on("click", function(evt) {
+	menuClick(0, "menu");
+	});
+fp.mcMenuMoves.mcMenu.butMenuNewspapers.on("click", function(evt) {
+	menuClick(1, "menu");
+	});
+fp.mcMenuMoves.mcMenu.butMenuMilks.on("click", function(evt) {
+	menuClick(2, "menu");
+	});
+fp.mcMenuMoves.mcMenu.butMenuCarMiles.on("click", function(evt) {
+	menuClick(3, "menu");
+	});
+fp.mcMenuMoves.mcMenu.butMenuBananas.on("click", function(evt) {
+	menuClick(4, "menu");
+	});
+fp.mcMenuMoves.mcMenu.butMenuSodas.on("click", function(evt) {
+	menuClick(5, "menu");
+	});
+fp.mcMenuMoves.mcMenu.butMenuShowers.on("click", function(evt) {
+	menuClick(6, "menu");
+	});
+fp.mcMenuMoves.mcMenu.butMenuPotatoes.on("click", function(evt) {
+	menuClick(7, "menu");
+	});
+fp.mcMenuMoves.mcMenu.butMenuDiapers.on("click", function(evt) {
+	menuClick(8, "menu");
+	});
+fp.mcMenuMoves.mcMenu.butMenuSlices.on("click", function(evt) {
+	menuClick(9, "menu");
+	});
+	
+	
+		
 
 /*butMenuNext.onPress = function() {
 	var nextItem:Number;
@@ -207,6 +322,72 @@ function playSound(id, loop) {
 
 /*------------------------------------------------------------------------------------------*/
 
+
+
+/* intro function */
+function showIntro() {
+	setIntroContent();
+	mcIntro._visible = true;
+}
+
+
+function menuClick(item, but) {
+	hideMenu();
+	//if (curItem != item) {
+		//hideMessages();
+		fp.mcEggs.gotoAndStop("stop");
+		//if (curMusicState == "on") {
+			//auTransition.start();
+		//}
+		//stopVid();
+		curScreen = "question";
+		//txtInput.text = "";
+		//oldItem = curItem;
+		//curItem = item;
+		if (but == "last") {
+			moveDir = "move_left";
+		} else if (but == "next") {
+			moveDir = "move_right";
+		} else {
+			if (curItem > oldItem) {
+				moveDir = "move_right";
+			} else {
+				moveDir = "move_left";
+			}
+		}
+		moveEnvironment(moveDir);
+	//}
+}
+
+function setIntroContent() {
+	xmlNodeHandler = xmlRootHandler[0].childNodes;
+	var txtfIntroHea:TextFormat = new TextFormat();
+	txtfIntroHea.letterSpacing = -1.5;
+	txtfIntroHea.kerning = true;
+	txtIntroHea.setNewTextFormat(txtfIntroHea);
+	txtIntroHea.htmlText = xmlNodeHandler[0].firstChild.nodeValue;
+	var txtfIntroTxt:TextFormat = new TextFormat();
+	txtfIntroTxt.letterSpacing = -.05;
+	txtfIntroTxt.kerning = true;
+	txtIntroTxt.setNewTextFormat(txtfIntroTxt);
+	txtIntroTxt.htmlText = xmlNodeHandler[1].firstChild.nodeValue;
+}
+
+
+function moveEnvironment(dir) {
+	hideAll();
+	doEnter = false;
+	fp.mcCloud1Moves.gotoAndPlay(dir);
+	fp.mcCloud2Moves.gotoAndPlay(dir);
+	fp.mcGroundMoves.gotoAndPlay(dir);
+	fp.mcMountainMoves.gotoAndPlay(dir);
+	fp.mcTreesMoves.gotoAndPlay(dir);
+}
+
+
+	//curItemMC.gotoAndStop("stop");
+	//mcIntro._visible = false;
+
 function hideAll() {
 	//hideMenu();
 	fp.mcBehind.visible = false;
@@ -230,6 +411,10 @@ function hideAll() {
 	fp.mcSlices.visible = false;
 	//fp.mcMenuMoves.visible = false;
 	//fp.mcMenuMoves.mcMenu.butMenuLast.visible = false;
+	fp.mcMenuMoves.mcMenu.mcMenuLast.visible = false;
+	fp.mcMenuMoves.mcMenu.butMenuLast.visible = false;
+	fp.mcMenuMoves.mcMenu.mcMenuNext.visible = false;
+	fp.mcMenuMoves.mcMenu.butMenuNext.visible = false;
 	
 }
 
