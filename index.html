@@ -128,7 +128,7 @@ function handleComplete(evt) {
 	//auGame.start(0, 999);
 	// init intro
 	hideAll();
-	//showIntro()
+	showIntro()
 	showMenu();
 	
 	
@@ -231,7 +231,15 @@ fp.mcMenuMoves.mcMenu.butMenuSlices.on("click", function(evt) {
 	menuClick(9, "menu");
 	});
 	
+
 	
+fp.mcMenuMoves.butMenu.on("rollover", function(evt) {
+	//showMenu();
+	});	
+fp.mcMenuMoves.butMenu.on("click", function(evt) {
+	showMenu();
+	});
+		
 		
 
 /*butMenuNext.onPress = function() {
@@ -270,47 +278,6 @@ fp.mcMenuMoves.mcMenu.butMenuSlices.on("click", function(evt) {
 		hideMenu();
 	});*/
 	
-	
-	var txt1 = new createjs.Text("", "38px Arial", "#4c4c4c");
-	txt1.text = "When you eat an egg, you’re not just eating an egg.\n\n";
-	txt1.lineWidth = 960;
-	txt1.lineHeight = 50;
-	txt1.textBaseline = "top";
-	txt1.textAlign = "center";
-	txt1.x = 480;
-	txt1.y = 190;
-	stage.addChild(txt1);
-	
-	var txt2 = new createjs.Text("", "18px Arial", "#4c4c4c");
-	txt2.text += "You’re eating the gas the truck used to deliver that egg, the coal used to generate electricity for it’s refrigeration, and resources used to boil, fry or poach that yummy egg. And that’s you're human footprint — how much of the world you use in your lifetime. So, use the menu above to see how many of each item you consume during your lifetime and how that measures up with the rest of the world.\n\n";
-	txt2.lineWidth = 815;
-	txt2.lineHeight = 28;
-	txt2.textBaseline = "top";
-	txt2.textAlign = "left";
-	txt2.x = 80;
-	txt2.y = 241;
-	stage.addChild(txt2);
-	
-	var txt3 = new createjs.Text("", "bold 24px Arial", "#4c4c4c");
-	txt3.text += "USE\n\n";
-	txt3.lineWidth = 100;
-	txt3.lineHeight = 22;
-	txt3.textBaseline = "top";
-	txt3.textAlign = "left";
-	txt3.x = 802;
-	txt3.y = 90;
-	stage.addChild(txt3);
-	
-	var txt4 = new createjs.Text("", "bold 12px Arial", "#4c4c4c");
-	txt4.text += "THIS MENU TO BEGIN AND TO GET AROUND.";
-	txt4.lineWidth = 92;
-	txt4.lineHeight = 12;
-	txt4.textBaseline = "top";
-	txt4textAlign = "left";
-	txt4.x = 802;
-	txt4.y = 114;
-	stage.addChild(txt4);
-
 
 }
 function tick(event) {
@@ -326,9 +293,10 @@ function playSound(id, loop) {
 
 /* intro function */
 function showIntro() {
-	setIntroContent();
-	mcIntro._visible = true;
+	//setIntroContent();
+	fp.mcIntro.visible = true;
 }
+
 
 
 function menuClick(item, but) {
@@ -377,11 +345,13 @@ function menuClick(item, but) {
 function moveEnvironment(dir) {
 	hideAll();
 	doEnter = false;
+	console.log(dir);
 	fp.mcCloud1Moves.gotoAndPlay(dir);
 	fp.mcCloud2Moves.gotoAndPlay(dir);
 	fp.mcGroundMoves.gotoAndPlay(dir);
 	fp.mcMountainMoves.gotoAndPlay(dir);
 	fp.mcTreesMoves.gotoAndPlay(dir);
+	console.log("end moveEnviro");
 }
 
 
@@ -396,7 +366,7 @@ function hideAll() {
 	fp.mcFactCardMoves.gotoAndStop(1);
 	fp.curFactCardState = "off";
 	//fp.curItemMC.gotoAndStop("stop");
-	//fp.mcIntro.visible = false;
+	fp.mcIntro.visible = false;
 	fp.mcQuestion.visible = false;
 	// items (in menu order)
 	fp.mcEggs.visible = false;
