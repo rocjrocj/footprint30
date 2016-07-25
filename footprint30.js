@@ -12669,20 +12669,22 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 		}
 		*/
 		this.stop();
-		console.log("trees_move end 49")
-		if (fp.curScreen == "question") {
-			fp.showQuestion();
-			console.log("fp.curScreen: " + fp.curScreen)
-			console.log("fp.showQuestion")
-		} else if (fp.curScreen == "question-answer") {
-			fp.showQuestionAnswer();
-			console.log("fp.curScreen: " + fp.curScreen)
-			console.log("fp.showQuestionAnswer")
+		//alert("stop");
+		fp.test();
+		/*this.getStage().fp.console.log("trees_move end 49");
+		if (this.getStage().fp.curScreen == "question") {
+			this.getStage().fp.showQuestion();
+			//this.getStage().getChildAt(0).console.log("fp.curScreen: " + fp.curScreen)
+			//this.getStage().getChildAt(0).console.log("fp.showQuestion")
+		} else if (this.getStage().fp.curScreen == "question-answer") {
+			this.getStage().fp.showQuestionAnswer();
+			//this.getStage().getChildAt(0).console.log("fp.curScreen: " + fp.curScreen)
+			//this.getStage().getChildAt(0).console.log("fp.showQuestionAnswer")
 		} else {
-			fp.showBehind();
-			console.log("fp.curScreen: " + fp.curScreen)
-			console.log("fp.showBehind")
-		}
+			this.getStage().fp.showBehind();
+			//this.getStage().getChildAt(0).console.log("fp.curScreen: " + fp.curScreen)
+			//this.getStage().getChildAt(0).console.log("fp.showBehind")
+		}*/
 	}
 	this.frame_50 = function() {
 		/* stop();

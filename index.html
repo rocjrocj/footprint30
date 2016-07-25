@@ -239,8 +239,6 @@ fp.mcMenuMoves.butMenu.on("rollover", function(evt) {
 fp.mcMenuMoves.butMenu.on("click", function(evt) {
 	showMenu();
 	});
-		
-		
 
 /*butMenuNext.onPress = function() {
 	var nextItem:Number;
@@ -290,6 +288,10 @@ function playSound(id, loop) {
 /*------------------------------------------------------------------------------------------*/
 
 
+		
+	function test() {
+		console.log("test!");
+	}
 
 /* intro function */
 function showIntro() {
@@ -351,6 +353,7 @@ function moveEnvironment(dir) {
 	fp.mcGroundMoves.gotoAndPlay(dir);
 	fp.mcMountainMoves.gotoAndPlay(dir);
 	fp.mcTreesMoves.gotoAndPlay(dir);
+	//fp.mcTreesMoves.onAnimationEnd = test();
 	console.log("end moveEnviro");
 }
 
