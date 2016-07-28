@@ -1,6 +1,6 @@
 <!--
 	NOTES:
-	1. All tokens are represented by '$' sign in the template.
+	1. All tokens are represented by '$' sign in the template.curItemMC
 	2. You can write your code only wherever mentioned.
 	3. All occurrences of existing tokens will be replaced by their appropriate values.
 	4. Blank lines will be removed automatically.
@@ -15,6 +15,7 @@
 <!-- write your code here -->
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 <script src="footprint30.js?1467475395896"></script>
+<script src="TextInput.js"></script>
 <script>
 var canvas, stage, fp;
 
@@ -111,9 +112,12 @@ function handleComplete(evt) {
 	var showme = this;
 	console.log("this: " + showme);
 	
+	curItemMC = new createjs.MovieClip(null, 0, false);
+	
 
 	// init vars
 	curScreen = "intro";
+	console.log("curScreen: " + curScreen);
 	curItem = 99;
 	oldItem = 99;
 	moveDir = "move_left";
@@ -132,12 +136,18 @@ function handleComplete(evt) {
 	showIntro()
 	showMenu();
 	
+	// Create and place our text field on the canvas
+const textField = new TextInput();
+textField.y = textField.x = 100;
+textField.placeHolder = "Input Field"; // updates the default text
+stage.addChild(textField);
 	
-	var myInstance = createjs.Sound.play("background_loop", {loop:-1});
-	 myInstance.volume = 0.3;
 	
-	var myInstance = createjs.Sound.play("m_intro");
-	 myInstance.volume = 0.2;
+	var myInstance1 = createjs.Sound.play("background_loop", {loop:-1});
+	 myInstance1.volume = 0.3;
+	
+	var myInstance2 = createjs.Sound.play("m_intro");
+	 myInstance2.volume = 0.2;
 	
 	fp.mcMenuMoves.mcMenu.butMenuNext.on("click", function(evt) {
 		console.log("butMenuNext clicked");
@@ -242,6 +252,7 @@ function test() {
 function showIntro() {
 	//setIntroContent();
 	fp.mcIntro.visible = true;
+	console.log("curScreen: " + curScreen);
 }
 
 /* main functions */
@@ -253,12 +264,13 @@ function showAnswer() {
 
 function showQuestion() {
 	doEnter = true;
-	curItemMC = getItem();
-	curItemMC.visible = true;
-	curItemMC.gotoAndPlay("play");
-	setQuestionContent();
-	mcQuestion.visible = true;
-	Selection.setFocus("txtInput");
+	fp.curItemMC = getItem();
+	console.log("curItemMC: " + curItemMC);
+	fp.curItemMC.visible = true;
+	fp.curItemMC.gotoAndPlay("play");
+	//setQuestionContent();
+	fp.mcQuestion.visible = true;
+	//Selection.setFocus("txtInput");
 }
 
 function showQuestionAnswer() {
@@ -299,7 +311,7 @@ function hideMessages() {
 	}
 }
 
-function menuClick(item, but) {
+function menuClickx(item, but) {
 	//fp.mcEggs.visible = true;
 	hideMenu();
 	//if (curItem != item) {
@@ -309,6 +321,7 @@ function menuClick(item, but) {
 		console.log("fp.mcEggs.gotoAndStop called");
 		//if (curMusicState == "on") {
 			//auTransition.start();
+		playSound("m_transition", false);
 		//}
 		//stopVid();
 		curScreen = "question";
@@ -334,6 +347,36 @@ function menuClick(item, but) {
 }
 
 
+function menuClick(item, but) {
+	console.log("item: " + item);
+	hideMenu();
+	if (curItem != item) {
+		//hideMessages();
+		//fp.curItemMC.gotoAndStop("stop");
+		/*if (curMusicState == "on") {
+			auTransition.start();
+		}
+		stopVid();*/
+		var auTransition = playSound("m_transition", false);
+		auTransition.volume = 0.2;
+		curScreen = "question";
+		//txtInput.text = "";
+		oldItem = curItem;
+		curItem = item;
+		if (but == "last") {
+			moveDir = "move_left";
+		} else if (but == "next") {
+			moveDir = "move_right";
+		} else {
+			if (curItem > oldItem) {
+				moveDir = "move_right";
+			} else {
+				moveDir = "move_left";
+			}
+		}
+		moveEnvironment(moveDir);
+	}
+}
 
 //this.showBehind = function() {}
 //this.pulse();
@@ -383,25 +426,25 @@ function moveEnvironment(dir) {
 
 function getItem() {
 	if (curItem == 0) {
-		return mcEggs;
+		return fp.mcEggs;
 	} else if (curItem == 1) {
-		return mcNewspapers;
+		return fp.mcNewspapers;
 	} else if (curItem == 2) {
-		return mcMilks;
+		return fp.mcMilks;
 	} else if (curItem == 3) {
-		return mcCarMiles;
+		return fp.mcCarMiles;
 	} else if (curItem == 4) {
-		return mcBananas;
+		return fp.mcBananas;
 	} else if (curItem == 5) {
-		return mcSodas;
+		return fp.mcSodas;
 	} else if (curItem == 6) {
-		return mcShowers;
+		return fp.mcShowers;
 	} else if (curItem == 7) {
-		return mcPotatoes;
+		return fp.mcPotatoes;
 	} else if (curItem == 8) {
-		return mcDiapers;
+		return fp.mcDiapers;
 	} else if (curItem == 9) {
-		return mcSlices;
+		return fp.mcSlices;
 	}
 }
 	//curItemMC.gotoAndStop("stop");

@@ -1537,6 +1537,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,8.5,86.3);
 	this.frame_39 = function() {
 		/* stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -4348,6 +4349,7 @@ p.nominalBounds = null;
 	this.frame_1 = function() {
 		/* play();
 		*/
+		this.play();
 	}
 	this.frame_39 = function() {
 		/* 
@@ -4382,6 +4384,7 @@ p.nominalBounds = null;
 	this.frame_195 = function() {
 		/* stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -4692,6 +4695,7 @@ p.nominalBounds = new cjs.Rectangle(204.8,403,105.6,299);
 	this.frame_39 = function() {
 		/* stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -4834,6 +4838,7 @@ p.nominalBounds = new cjs.Rectangle(-207,-321.4,173.2,122);
 	this.frame_19 = function() {
 		/* stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -4874,6 +4879,7 @@ p.nominalBounds = new cjs.Rectangle(-16.3,-22.5,33.5,46.7);
 	this.frame_1 = function() {
 		/* play();
 		*/
+		this.play();
 	}
 	this.frame_129 = function() {
 		/* 
@@ -4889,6 +4895,7 @@ p.nominalBounds = new cjs.Rectangle(-16.3,-22.5,33.5,46.7);
 		
 		stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -5182,10 +5189,10 @@ p.nominalBounds = new cjs.Rectangle(150.9,-72.3,405.4,476.7);
 	this.frame_1 = function() {
 		/* play();
 		*/
+		this.play();
 	}
 	this.frame_130 = function() {
-		/* gotoAndPlay(2);
-		*/
+		this.gotoAndPlay(2);
 	}
 
 	// actions tween:
@@ -5246,6 +5253,9 @@ p.nominalBounds = null;
 		
 		stop();
 		*/
+		//var myInstance23 = createjs.Sound.play("egg");
+	 	//myInstance23.volume = 0.2;
+		//playSound("egg", false);
 		this.stop();
 	}
 	this.frame_1 = function() {
@@ -5256,6 +5266,7 @@ p.nominalBounds = null;
 		
 		play();
 		*/
+		//playSound("egg", false);
 		this.play();
 	}
 	this.frame_39 = function() {
@@ -5329,6 +5340,7 @@ p.nominalBounds = new cjs.Rectangle(-44.9,-60.2,94.5,58.9);
 	this.frame_1 = function() {
 		/* play();
 		*/
+		this.play();
 	}
 	this.frame_8 = function() {
 		/* 
@@ -5349,7 +5361,7 @@ p.nominalBounds = new cjs.Rectangle(-44.9,-60.2,94.5,58.9);
 		}*/
 	}
 	this.frame_255 = function() {
-		/* gotoAndPlay(2);*/
+		this.gotoAndPlay(2);
 	}
 
 	// actions tween:
@@ -5644,6 +5656,7 @@ p.nominalBounds = new cjs.Rectangle(-1.3,1.1,2.3,5.9);
 	this.frame_232 = function() {
 		/* stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -5973,30 +5986,39 @@ p.nominalBounds = null;
 	}
 	this.frame_1 = function() {
 		/* stop();*/
+		this.stop();
 	}
 	this.frame_2 = function() {
 		/* stop();*/
+		this.stop();
 	}
 	this.frame_3 = function() {
 		/* stop();*/
+		this.stop();
 	}
 	this.frame_4 = function() {
 		/* stop();*/
+		this.stop();
 	}
 	this.frame_5 = function() {
 		/* stop();*/
+		this.stop();
 	}
 	this.frame_6 = function() {
 		/* stop();*/
+		this.stop();
 	}
 	this.frame_7 = function() {
 		/* stop();*/
+		this.stop();
 	}
 	this.frame_8 = function() {
 		/* stop();*/
+		this.stop();
 	}
 	this.frame_9 = function() {
 		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -8245,6 +8267,7 @@ p.nominalBounds = new cjs.Rectangle(-25.7,-36.9,1477.9,37);
 	}
 	this.frame_1 = function() {
 		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -8629,6 +8652,7 @@ p.nominalBounds = new cjs.Rectangle(0,-18,966.1,548);
 	}
 	this.frame_9 = function() {
 		/* stop();*/
+		this.stop();
 	}
 	this.frame_19 = function() {
 		/* 
@@ -9596,6 +9620,7 @@ p.nominalBounds = new cjs.Rectangle(0,0.1,960,58.9);
 	this.frame_1 = function() {
 		/* play();
 		*/
+		this.play();
 	}
 	this.frame_7 = function() {
 		/* 
@@ -9606,6 +9631,7 @@ p.nominalBounds = new cjs.Rectangle(0,0.1,960,58.9);
 	this.frame_60 = function() {
 		/* stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -9746,6 +9772,7 @@ p.nominalBounds = new cjs.Rectangle(-5.3,-8.8,970,529.7);
 	this.frame_279 = function() {
 		/* stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -9963,6 +9990,7 @@ p.nominalBounds = new cjs.Rectangle(44.2,420.3,301.6,39.6);
 	this.frame_1 = function() {
 		/* play();
 		*/
+		this.play();
 	}
 	this.frame_158 = function() {
 		/* 
@@ -9985,6 +10013,7 @@ p.nominalBounds = new cjs.Rectangle(44.2,420.3,301.6,39.6);
 	this.frame_504 = function() {
 		/* stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -12159,6 +12188,7 @@ p.nominalBounds = new cjs.Rectangle(-0.2,-15.6,339.8,514.7);
 	this.frame_1 = function() {
 		/* play();
 		*/
+		this.play();
 	}
 	this.frame_4 = function() {
 		/* 
@@ -12175,6 +12205,7 @@ p.nominalBounds = new cjs.Rectangle(-0.2,-15.6,339.8,514.7);
 	this.frame_39 = function() {
 		/* stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -12437,19 +12468,23 @@ p.nominalBounds = new cjs.Rectangle(2,-0.8,959.8,430.8);
 	this.frame_1 = function() {
 		/* play();
 		*/
+		this.play();
 	}
 	this.frame_6 = function() {
-		/* this.leavesflying1.gotoAndPlay("on");*/
+		this.leavesflying1.gotoAndPlay("on");
 	}
 	this.frame_10 = function() {
 		/* stop();*/
+		this.stop();
 	}
 	this.frame_11 = function() {
 		/* play();
 		*/
+		this.play();
 	}
 	this.frame_14 = function() {
 		/* //stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -12674,8 +12709,14 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 		}
 		*/
 		console.log("trees_move end 49");
-		//fp.mcEggs.visible = true;
-		//fp.mcEggs.gotoAndPlay("play");
+		console.log("parent.curScreen: " + parent.curScreen);
+		if (parent.curScreen == "question") {
+			parent.showQuestion();
+		} else if (parent.curScreen == "question-answer") {
+			parent.showQuestionAnswer();
+		} else {
+			parent.showBehind();
+		}
 		this.stop();
 		
 		
@@ -12725,7 +12766,7 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 		
 		//parent.showBehind();
 		//parent.test();
-		console.log("curScreen: " + parent.curScreen);
+		console.log("curScreen from trees: " + parent.curScreen);
 		if (parent.curScreen == "question") {
 			parent.showQuestion();
 		} else if (parent.curScreen == "question-answer") {
@@ -12904,6 +12945,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,84.8);
 	this.frame_299 = function() {
 		/* stop();
 		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -12955,11 +12997,12 @@ p.nominalBounds = new cjs.Rectangle(-485.3,1.2,970,744.8);
 		*/
 	}
 	this.frame_68 = function() {
-		/* stop();
-		this.mcFactcard.gotoAndPlay("enter");*/
+		/* stop();*/
+		this.stop();
+		this.mcFactcard.gotoAndPlay("enter");
 	}
 	this.frame_70 = function() {
-		/* this.dirtfalling2.gotoAndPlay("on");*/
+		this.dirtfalling2.gotoAndPlay("on");
 	}
 
 	// actions tween:
