@@ -133,17 +133,39 @@ function handleComplete(evt) {
 	showMenu();
 	
 	
+	//hideAll();
+	//showIntro()
+	//showMenu();
+	//var ppc = new createjs.PlayPropsConfig().set({interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1, volume: 0.01})
+	
+	
+	
 	var myInstance = createjs.Sound.play("background_loop", {loop:-1});
 	 myInstance.volume = 0.3;
+	 //function handleLoop(event) {
+     //myInstance.volume = myInstance.volume * 0.3;
+ //}
+	//playSound("background_loop", {interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1, volume: 1});
+	
 	
 	var myInstance = createjs.Sound.play("m_intro");
 	 myInstance.volume = 0.2;
+	//playSound("m_intro", false);
+	
+	//var myInstance = createjs.Sound.play("myID", {interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
+	
+	
+	//fp.mcMenuMoves
 	
 	fp.mcMenuMoves.mcMenu.butMenuNext.on("click", function(evt) {
 		console.log("butMenuNext clicked");
 		showMenu();
 	});
 	
+	// buttons
+	/*fp.mcMenuMoves.mcMenu.butMenuSlices.onPress = function() {
+		menuClick(9, "menu");
+	}*/
 
 // menu buttons rollovers
 fp.mcMenuMoves.mcMenu.butMenuEggs.on("rollover", function(evt) {
@@ -222,6 +244,43 @@ fp.mcMenuMoves.butMenu.on("click", function(evt) {
 	showMenu();
 	});
 
+/*butMenuNext.onPress = function() {
+	var nextItem:Number;
+	if (curItem < 9) {
+		nextItem = curItem + 1;
+	} else {
+		nextItem = 0;
+	}
+	menuClick(nextItem, "next");
+}*/
+
+/*butMenuNext.onRollOver = function() {
+	if (curMusicState == "on") {
+		playSound("m_menu_rollover", false);
+	}
+}*/
+	
+	//butMenuEggs = new lib.but_menuhighlight();
+	//this.butMenuEggs.setTransform(208.9,0.1,0.795,1);
+	//new createjs.ButtonHelper(this.butMenuEggs, 0, 1, 2);
+	//stage.addChild(butMenuEggs);
+	
+	
+	//var helper = new createjs.ButtonHelper(myInstance, "out", "over", "down", false, myInstance, "hit");
+ //myInstance.addEventListener("click", handleClick);
+ //function handleClick(event) {
+     // Click Happened.
+ //}
+	
+	//fp.mcMenuMoves.
+	//fp.mcMenuMoves.gotoAndStop(0);
+	
+	/*fp.on("click", function(evt) {
+		console.log("stage clicked");
+		hideMenu();
+	});*/
+	
+
 }
 function tick(event) {
 	stage.update();
@@ -234,9 +293,9 @@ function playSound(id, loop) {
 
 
 		
-function test() {
-	console.log("test!");
-}
+	function test() {
+		console.log("test!");
+	}
 
 /* intro function */
 function showIntro() {
@@ -244,60 +303,7 @@ function showIntro() {
 	fp.mcIntro.visible = true;
 }
 
-/* main functions */
-function showAnswer() {
-	if (yourAvg != -1) {
-		showData();
-	}
-}
 
-function showQuestion() {
-	doEnter = true;
-	curItemMC = getItem();
-	curItemMC.visible = true;
-	curItemMC.gotoAndPlay("play");
-	setQuestionContent();
-	mcQuestion.visible = true;
-	Selection.setFocus("txtInput");
-}
-
-function showQuestionAnswer() {
-	doEnter = true;
-	curItemMC = getItem();
-	curItemMC.gotoAndPlay("play");
-	curItemMC.visible = true;
-	setQuestionContent();
-	mcQuestion.visible = true;
-	if (curFactCardState == "off") {
-		curFactCardState = "on";
-		mcFactCard.gotoAndStop(1);
-		mcFactCardMoves.gotoAndStop(1);
-		mcFactCardMoves.gotoAndPlay("enter");
-	}
-	showData(false);
-}
-
-/*function showMessages(msg:Number) {
-	doEnter = false;
-	butEnter.enabled = false;
-	xmlNodeHandler = xmlRootHandler[2].childNodes;
-	var txtfMessages:TextFormat = new TextFormat();
-	txtfMessages.letterSpacing = -.7;
-	txtfMessages.kerning = true;
-	txtMessages.setNewTextFormat(txtfMessages);
-	txtMessages.htmlText = xmlNodeHandler[msg].firstChild.nodeValue;
-	mcMessagesMove.gotoAndPlay("enter");
-}*/
-
-function hideMessages() {
-	if (mcMessagesMove._currentframe == 10) {
-		doEnter = true;
-		butEnter.enabled = true;
-		txtInput.text = "";
-		Selection.setFocus("txtInput");
-		mcMessagesMove.gotoAndPlay("exit");
-	}
-}
 
 function menuClick(item, but) {
 	//fp.mcEggs.visible = true;
@@ -380,30 +386,6 @@ function moveEnvironment(dir) {
 }
 
 
-
-function getItem() {
-	if (curItem == 0) {
-		return mcEggs;
-	} else if (curItem == 1) {
-		return mcNewspapers;
-	} else if (curItem == 2) {
-		return mcMilks;
-	} else if (curItem == 3) {
-		return mcCarMiles;
-	} else if (curItem == 4) {
-		return mcBananas;
-	} else if (curItem == 5) {
-		return mcSodas;
-	} else if (curItem == 6) {
-		return mcShowers;
-	} else if (curItem == 7) {
-		return mcPotatoes;
-	} else if (curItem == 8) {
-		return mcDiapers;
-	} else if (curItem == 9) {
-		return mcSlices;
-	}
-}
 	//curItemMC.gotoAndStop("stop");
 	//mcIntro._visible = false;
 

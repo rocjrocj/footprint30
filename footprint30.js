@@ -5256,6 +5256,7 @@ p.nominalBounds = null;
 		
 		play();
 		*/
+		this.play();
 	}
 	this.frame_39 = function() {
 		/* 
@@ -5266,6 +5267,7 @@ p.nominalBounds = null;
 		
 		play();
 		*/
+		this.play();
 	}
 	this.frame_214 = function() {
 		/* //stop();
@@ -5273,6 +5275,7 @@ p.nominalBounds = null;
 		
 		
 		*/
+		this.gotoAndPlay(40);
 	}
 
 	// actions tween:
@@ -12646,11 +12649,13 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 	this.frame_0 = function() {
 		/* stop();
 		*/
+		console.log("trees_move 0");
 		this.stop();
 	}
 	this.frame_1 = function() {
 		/* play();
 		*/
+		console.log("trees_move 1");
 		this.play();
 	}
 	this.frame_49 = function() {
@@ -12668,27 +12673,37 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 			_parent.showBehind();
 		}
 		*/
+		console.log("trees_move end 49");
+		//fp.mcEggs.visible = true;
+		//fp.mcEggs.gotoAndPlay("play");
 		this.stop();
+		
+		
+		
+		
 		//alert("stop");
-		fp.test();
+		//fp.test();
 		/*this.getStage().fp.console.log("trees_move end 49");
-		if (this.getStage().fp.curScreen == "question") {
-			this.getStage().fp.showQuestion();
-			//this.getStage().getChildAt(0).console.log("fp.curScreen: " + fp.curScreen)
-			//this.getStage().getChildAt(0).console.log("fp.showQuestion")
-		} else if (this.getStage().fp.curScreen == "question-answer") {
-			this.getStage().fp.showQuestionAnswer();
-			//this.getStage().getChildAt(0).console.log("fp.curScreen: " + fp.curScreen)
-			//this.getStage().getChildAt(0).console.log("fp.showQuestionAnswer")
+		if (fp.curScreen == "question") {
+			fp.showQuestion();
+			console.log("fp.curScreen: " + fp.curScreen)
+			console.log("fp.showQuestion")
+		} else if (fp.curScreen == "question-answer") {
+			fp.showQuestionAnswer();
+			console.log("fp.curScreen: " + fp.curScreen)
+			console.log("fp.showQuestionAnswer")
 		} else {
-			this.getStage().fp.showBehind();
-			//this.getStage().getChildAt(0).console.log("fp.curScreen: " + fp.curScreen)
-			//this.getStage().getChildAt(0).console.log("fp.showBehind")
+			//fp.showBehind();
+			//console.log("fp.curScreen: " + fp.curScreen)
+			//console.log("fp.showBehind")
 		}*/
 	}
 	this.frame_50 = function() {
 		/* stop();
 		*/
+		console.log("trees_move end 50");
+		//fp.mcEggs.visible = true;
+		//fp.mcEggs.gotoAndPlay("play");
 		this.stop();
 	}
 	this.frame_51 = function() {
@@ -12697,7 +12712,7 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 		this.play();
 	}
 	this.frame_99 = function() {
-		/* stop();
+		/* stop();*/
 		
 		//if (_parent.curScreen == "intro" || _parent.curScreen == "question" || _parent.curScreen == "answer") {
 		////if (_parent.curScreen == "behind") {
@@ -12708,14 +12723,19 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 		//	//_parent.showQuestion();
 		//}
 		
-		trace(_parent.curScreen);
-		if (_parent.curScreen == "question") {
-			_parent.showQuestion();
-		} else if (_parent.curScreen == "question-answer") {
-			_parent.showQuestionAnswer();
+		//parent.showBehind();
+		//parent.test();
+		console.log("curScreen: " + parent.curScreen);
+		if (parent.curScreen == "question") {
+			parent.showQuestion();
+		} else if (parent.curScreen == "question-answer") {
+			parent.showQuestionAnswer();
 		} else {
-			_parent.showBehind();
-		}*/
+			parent.showBehind();
+		}
+		console.log("trees_move end 99");
+		//fp.mcEggs.visible = true;
+		//fp.mcEggs.gotoAndPlay("play");
 		this.stop();
 	}
 
