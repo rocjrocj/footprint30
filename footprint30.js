@@ -728,7 +728,7 @@ p.nominalBounds = null;
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer 1
-	this.txtClose = new cjs.Text("", "16px 'Times'", "#CCCCCC");
+	this.txtClose = new cjs.Text("", "16px 'franklin-gothic-urw'", "#CCCCCC");
 	this.txtClose.name = "txtClose";
 	this.txtClose.textAlign = "center";
 	this.txtClose.lineHeight = 17;
@@ -758,7 +758,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,191.7,23.4);
 	this.shape.graphics.f("rgba(71,156,184,0.498)").s().p("AgthcIBbBcIhbBdg");
 	this.shape.setTransform(46.7,21.4);
 
-	this.txtMenuNext = new cjs.Text("", "14px 'Times'", "#479CB8");
+	this.txtMenuNext = new cjs.Text("", "14px 'franklin-gothic-urw'", "#479CB8");
 	this.txtMenuNext.name = "txtMenuNext";
 	this.txtMenuNext.textAlign = "right";
 	this.txtMenuNext.lineHeight = 12;
@@ -788,7 +788,7 @@ p.nominalBounds = new cjs.Rectangle(0,-2,51.4,53);
 	this.shape.graphics.f("rgba(71,156,184,0.498)").s().p("AguAAIBchcIAAC5g");
 	this.shape.setTransform(4.7,21.4);
 
-	this.txtMenuLast = new cjs.Text("", "14px 'Times'", "#479CB8");
+	this.txtMenuLast = new cjs.Text("", "14px 'franklin-gothic-urw'", "#479CB8");
 	this.txtMenuLast.name = "txtMenuLast";
 	this.txtMenuLast.lineHeight = 12;
 	this.txtMenuLast.lineWidth = 33;
@@ -804,7 +804,7 @@ p.nominalBounds = new cjs.Rectangle(0,-2,48.1,53);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.txtMenu = new cjs.Text("", "14px 'Times'", "#81BDD5");
+	this.txtMenu = new cjs.Text("", "14px 'franklin-gothic-urw'", "#81BDD5");
 	this.txtMenu.name = "txtMenu";
 	this.txtMenu.textAlign = "center";
 	this.txtMenu.lineHeight = 13;
@@ -844,13 +844,13 @@ p.nominalBounds = new cjs.Rectangle(0,0,64.8,57);
 	this.shape.graphics.f("#EBC55E").s().p("AguAAIBchcIAAC5g");
 	this.shape.setTransform(4.7,31.3);
 
-	this.txtYourAvgOther = new cjs.Text("", "12px 'Times'", "#4C4C4C");
+	this.txtYourAvgOther = new cjs.Text("", "12px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtYourAvgOther.name = "txtYourAvgOther";
 	this.txtYourAvgOther.lineHeight = 10;
 	this.txtYourAvgOther.lineWidth = 105;
 	this.txtYourAvgOther.setTransform(21.4,32.1);
 
-	this.txtYourAvg = new cjs.Text("", "26px 'Times'", "#4C4C4C");
+	this.txtYourAvg = new cjs.Text("", "26px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtYourAvg.name = "txtYourAvg";
 	this.txtYourAvg.lineHeight = 27;
 	this.txtYourAvg.lineWidth = 108;
@@ -870,13 +870,13 @@ p.nominalBounds = new cjs.Rectangle(0,0,134.8,69);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.txtWorldAvgOther = new cjs.Text("", "12px 'Times'", "#479CB8");
+	this.txtWorldAvgOther = new cjs.Text("", "12px 'franklin-gothic-urw'", "#479CB8");
 	this.txtWorldAvgOther.name = "txtWorldAvgOther";
 	this.txtWorldAvgOther.lineHeight = 10;
 	this.txtWorldAvgOther.lineWidth = 111;
 	this.txtWorldAvgOther.setTransform(20.4,33.2);
 
-	this.txtWorldAvg = new cjs.Text("", "26px 'Times'", "#479CB8");
+	this.txtWorldAvg = new cjs.Text("", "26px 'franklin-gothic-urw'", "#479CB8");
 	this.txtWorldAvg.name = "txtWorldAvg";
 	this.txtWorldAvg.lineHeight = 27;
 	this.txtWorldAvg.lineWidth = 121;
@@ -896,13 +896,13 @@ p.nominalBounds = new cjs.Rectangle(0,2,142.9,71);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.txtUSAvgOther = new cjs.Text("", "12px 'Times'", "#479CB8");
+	this.txtUSAvgOther = new cjs.Text("", "12px 'franklin-gothic-urw'", "#479CB8");
 	this.txtUSAvgOther.name = "txtUSAvgOther";
 	this.txtUSAvgOther.lineHeight = 10;
 	this.txtUSAvgOther.lineWidth = 111;
 	this.txtUSAvgOther.setTransform(20.4,33.2);
 
-	this.txtUSAvg = new cjs.Text("", "26px 'Times'", "#479CB8");
+	this.txtUSAvg = new cjs.Text("", "26px 'franklin-gothic-urw'", "#479CB8");
 	this.txtUSAvg.name = "txtUSAvg";
 	this.txtUSAvg.lineHeight = 27;
 	this.txtUSAvg.lineWidth = 119;
@@ -922,13 +922,13 @@ p.nominalBounds = new cjs.Rectangle(0,2,140.9,71);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.txtJapanAvgOther = new cjs.Text("", "12px 'Times'", "#479CB8");
+	this.txtJapanAvgOther = new cjs.Text("", "12px 'franklin-gothic-urw'", "#479CB8");
 	this.txtJapanAvgOther.name = "txtJapanAvgOther";
 	this.txtJapanAvgOther.lineHeight = 10;
 	this.txtJapanAvgOther.lineWidth = 115;
 	this.txtJapanAvgOther.setTransform(20.4,33.2);
 
-	this.txtJapanAvg = new cjs.Text("", "26px 'Times'", "#479CB8");
+	this.txtJapanAvg = new cjs.Text("", "26px 'franklin-gothic-urw'", "#479CB8");
 	this.txtJapanAvg.name = "txtJapanAvg";
 	this.txtJapanAvg.lineHeight = 27;
 	this.txtJapanAvg.lineWidth = 121;
@@ -972,7 +972,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,86,50);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer 1
-	this.txtEnter = new cjs.Text("", "28px 'Times'", "#4C4C4C");
+	this.txtEnter = new cjs.Text("", "28px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtEnter.name = "txtEnter";
 	this.txtEnter.lineHeight = 30;
 	this.txtEnter.lineWidth = 120;
@@ -4093,7 +4093,7 @@ p.nominalBounds = new cjs.Rectangle(-1.4,-0.6,2.8,1.2);
 	this.initialize(mode,startPosition,loop,{});
 
 	// message
-	this.txtMessages = new cjs.Text("", "33px 'Times'", "#FFFFFF");
+	this.txtMessages = new cjs.Text("", "33px 'franklin-gothic-urw'", "#FFFFFF");
 	this.txtMessages.name = "txtMessages";
 	this.txtMessages.textAlign = "center";
 	this.txtMessages.lineHeight = 33;
@@ -4153,7 +4153,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,64.8,57);
 	this.initialize(mode,startPosition,loop,{});
 
 	// question txt
-	this.txtQuestion = new cjs.Text("", "65px 'Times'", "#4C4C4C");
+	this.txtQuestion = new cjs.Text("", "65px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtQuestion.name = "txtQuestion";
 	this.txtQuestion.lineHeight = 50;
 	this.txtQuestion.lineWidth = 797;
@@ -4168,7 +4168,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,64.8,57);
 	this.timeline.addTween(cjs.Tween.get(this.butEnter).wait(1));
 
 	// txt input
-	this.txtInput = new cjs.Text("", "32px 'Times'", "#990000");
+	this.txtInput = new cjs.Text("", "32px 'franklin-gothic-urw'", "#990000");
 	this.txtInput.name = "txtInput";
 	this.txtInput.lineHeight = 33;
 	this.txtInput.lineWidth = 69;
@@ -7528,7 +7528,7 @@ p.nominalBounds = null;
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 	// text
-	this.txtBehind = new cjs.Text("", "17px 'Times'", "#FFFFFF");
+	this.txtBehind = new cjs.Text("", "17px 'franklin-gothic-urw'", "#FFFFFF");
 	this.txtBehind.name = "txtBehind";
 	this.txtBehind.textAlign = "center";
 	this.txtBehind.lineHeight = 11;
@@ -8563,7 +8563,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,1499.3,203.9);
 	this.mcNextArrow.setTransform(120.9,9.4,1,1.003,0,0,180,4.7,9.3);
 	this.mcNextArrow.alpha = 0.5;
 
-	this.txtBehindNextPho = new cjs.Text("", "12px 'Times'", "#4C4C4C");
+	this.txtBehindNextPho = new cjs.Text("", "12px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtBehindNextPho.name = "txtBehindNextPho";
 	this.txtBehindNextPho.textAlign = "right";
 	this.txtBehindNextPho.lineHeight = 13;
@@ -8587,7 +8587,7 @@ p.nominalBounds = new cjs.Rectangle(-3,0.1,128.6,19.5);
 	this.timeline.addTween(cjs.Tween.get(this.mcBakArrow).wait(1));
 
 	// txt
-	this.txtBackToFacts = new cjs.Text("", "12px 'Times'", "#4C4C4C");
+	this.txtBackToFacts = new cjs.Text("", "12px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtBackToFacts.name = "txtBackToFacts";
 	this.txtBackToFacts.lineHeight = 13;
 	this.txtBackToFacts.lineWidth = 130;
@@ -8622,14 +8622,14 @@ p.nominalBounds = new cjs.Rectangle(0,0,145.1,19.6);
 	this.butBackToFacts = new lib.but_backtofacts();
 	this.butBackToFacts.setTransform(821,0);
 
-	this.txtBehindTxt = new cjs.Text("", "16px 'Times'", "#4C4C4C");
+	this.txtBehindTxt = new cjs.Text("", "16px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtBehindTxt.name = "txtBehindTxt";
 	this.txtBehindTxt.textAlign = "center";
 	this.txtBehindTxt.lineHeight = 11;
 	this.txtBehindTxt.lineWidth = 957;
 	this.txtBehindTxt.setTransform(480.5,102);
 
-	this.txtBehindHea = new cjs.Text("", "45px 'Times'", "#4C4C4C");
+	this.txtBehindHea = new cjs.Text("", "45px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtBehindHea.name = "txtBehindHea";
 	this.txtBehindHea.textAlign = "center";
 	this.txtBehindHea.lineHeight = 40;
@@ -12413,14 +12413,14 @@ p.nominalBounds = new cjs.Rectangle(-127.7,-1088,497.8,1095.8);
 	this.shape.graphics.f().s("#4C4C4C").ss(1.1,1,1).p("AD2DIIhaAAImRmP");
 	this.shape.setTransform(775.9,20.2);
 
-	this.txtThisMenu = new cjs.Text("", "13px 'Times'", "#4C4C4C");
+	this.txtThisMenu = new cjs.Text("", "13px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtThisMenu.name = "txtThisMenu";
 	this.txtThisMenu.lineHeight = 11;
 	this.txtThisMenu.lineWidth = 83;
 	this.txtThisMenu.setTransform(806.5,53.4);
 	this.txtThisMenu.text = "THIS MENU TO BEGIN AND TO GET AROUND.";
 
-	this.txtUse = new cjs.Text("", "28px 'Times'", "#4C4C4C");
+	this.txtUse = new cjs.Text("", "28px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtUse.name = "txtUse";
 	this.txtUse.lineHeight = 23;
 	this.txtUse.lineWidth = 69;
@@ -12430,14 +12430,13 @@ p.nominalBounds = new cjs.Rectangle(-127.7,-1088,497.8,1095.8);
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.txtUse},{t:this.txtThisMenu},{t:this.shape}]}).wait(1));
 
 	// Layer 1
-	this.txtIntroTxt = new cjs.Text("", "18px 'Times'", "#4C4C4C");
 	this.txtIntroTxt.name = "txtIntroTxt";
 	this.txtIntroTxt.lineHeight = 26;
 	this.txtIntroTxt.lineWidth = 801;
 	this.txtIntroTxt.setTransform(82.8,190.6);
 	this.txtIntroTxt.text += "You’re eating the gas the truck used to deliver that egg, the coal used to generate electricity for it’s refrigeration, and resources used to boil, fry or poach that yummy egg. And that’s you're human footprint — how much of the world you use in your lifetime. So, use the menu above to see how many of each item you consume during your lifetime and how that measures up with the rest of the world.\n\n";
 
-	this.txtIntroHea = new cjs.Text("", "43px 'Times'", "#4C4C4C");
+	this.txtIntroHea = new cjs.Text("", "43px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtIntroHea.name = "txtIntroHea";	
 	this.txtIntroHea.textAlign = "center";
 	this.txtIntroHea.lineHeight = 38;
@@ -12491,25 +12490,25 @@ p.nominalBounds = new cjs.Rectangle(2,-0.8,959.8,430.8);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(5).call(this.frame_6).wait(4).call(this.frame_10).wait(1).call(this.frame_11).wait(3).call(this.frame_14).wait(1));
 
 	// text
-	this.txtFactTxt2 = new cjs.Text("", "15px 'Times'", "#D1CBB9");
+	this.txtFactTxt2 = new cjs.Text("", "15px 'franklin-gothic-urw'", "#D1CBB9");
 	this.txtFactTxt2.name = "txtFactTxt2";
 	this.txtFactTxt2.lineHeight = 15;
 	this.txtFactTxt2.lineWidth = 285;
 	this.txtFactTxt2.setTransform(-205.6,-137.3);
 
-	this.txtFactTxt3 = new cjs.Text("", "15px 'Times'", "#D1CBB9");
+	this.txtFactTxt3 = new cjs.Text("", "15px 'franklin-gothic-urw'", "#D1CBB9");
 	this.txtFactTxt3.name = "txtFactTxt3";
 	this.txtFactTxt3.lineHeight = 15;
 	this.txtFactTxt3.lineWidth = 285;
 	this.txtFactTxt3.setTransform(-205.6,-90.6);
 
-	this.txtFactTxt1 = new cjs.Text("", "15px 'Times'", "#D1CBB9");
+	this.txtFactTxt1 = new cjs.Text("", "15px 'franklin-gothic-urw'", "#D1CBB9");
 	this.txtFactTxt1.name = "txtFactTxt1";
 	this.txtFactTxt1.lineHeight = 15;
 	this.txtFactTxt1.lineWidth = 285;
 	this.txtFactTxt1.setTransform(-205.6,-182.3);
 
-	this.txtFactHea = new cjs.Text("", "28px 'Times'", "#F4F2EE");
+	this.txtFactHea = new cjs.Text("", "28px 'franklin-gothic-urw'", "#F4F2EE");
 	this.txtFactHea.name = "txtFactHea";
 	this.txtFactHea.lineHeight = 22;
 	this.txtFactHea.lineWidth = 422;
@@ -14072,17 +14071,17 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{gam
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// fonts
-	this.text = new cjs.Text("regular bold italic", "18px 'Arial'", "#4C4C4C");
+	this.text = new cjs.Text("regular bold italic", "18px 'franklin-gothic-urw'", "#4C4C4C");
 	this.text.lineHeight = 30;
 	this.text.lineWidth = 392;
 	this.text.setTransform(-446.9,41.5);
 
-	this.text_1 = new cjs.Text("regular bold italic", "18px 'Arial'", "#4C4C4C");
+	this.text_1 = new cjs.Text("regular bold italic", "18px 'franklin-gothic-urw'", "#4C4C4C");
 	this.text_1.lineHeight = 30;
 	this.text_1.lineWidth = 392;
 	this.text_1.setTransform(-446.9,11.5);
 
-	this.text_2 = new cjs.Text("regular bold italic", "18px 'Arial'", "#4C4C4C");
+	this.text_2 = new cjs.Text("regular bold italic", "18px 'franklin-gothic-urw'", "#4C4C4C");
 	this.text_2.lineHeight = 30;
 	this.text_2.lineWidth = 392;
 	this.text_2.setTransform(-446.9,-18.5);

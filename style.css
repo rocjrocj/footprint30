@@ -1,0 +1,13 @@
+/* CSS Document */
+
+.dataInput {
+	background-color: red;
+	width: 73px;
+	height: 42px;
+	color: #990000;
+	font-size: 31px;
+	position: absolute;
+	top: 130px;
+	left: 13px;
+	display: none;
+}

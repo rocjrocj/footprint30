@@ -13,9 +13,12 @@
 <meta name="authoring-tool" content="Adobe_Animate_CC">
 <title>footprint30</title>
 <!-- write your code here -->
+<script src="https://use.typekit.net/kiv1woh.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 <script src="footprint30.js?1467475395896"></script>
-<script src="TextInput.js"></script>
+<script src="CanvasInput.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
 <script>
 var canvas, stage, fp;
 
@@ -137,10 +140,26 @@ function handleComplete(evt) {
 	showMenu();
 	
 	// Create and place our text field on the canvas
-const textField = new TextInput();
+/*const textField = new TextInput();
 textField.y = textField.x = 100;
 textField.placeHolder = "Input Field"; // updates the default text
-stage.addChild(textField);
+stage.addChild(textField);*/
+
+/*var input = new CanvasInput({
+  canvas: document.getElementById('canvas'),
+  fontSize: 18,
+  fontFamily: 'franklin-gothic-urw',
+  fontColor: '#212121',
+  fontWeight: 'bold',
+  width: 300,
+  padding: 8,
+  borderWidth: 1,
+  borderColor: '#000',
+  borderRadius: 3,
+  boxShadow: '1px 1px 0px #fff',
+  innerShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
+  placeHolder: 'Enter message here...'
+});*/
 	
 	
 	var myInstance1 = createjs.Sound.play("background_loop", {loop:-1});
@@ -240,6 +259,8 @@ function playSound(id, loop) {
 	return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
 }
 
+
+
 /*------------------------------------------------------------------------------------------*/
 
 
@@ -268,8 +289,9 @@ function showQuestion() {
 	console.log("curItemMC: " + curItemMC);
 	fp.curItemMC.visible = true;
 	fp.curItemMC.gotoAndPlay("play");
-	//setQuestionContent();
+	setQuestionContent();
 	fp.mcQuestion.visible = true;
+	
 	//Selection.setFocus("txtInput");
 }
 
@@ -375,6 +397,23 @@ function menuClick(item, but) {
 			}
 		}
 		moveEnvironment(moveDir);
+/*var input = new CanvasInput({
+  canvas: document.getElementById('canvas'),
+  x: 200,
+  y: 200,
+  fontSize: 18,
+  fontFamily: 'franklin-gothic-urw',
+  fontColor: '#212121',
+  fontWeight: 'bold',
+  width: 300,
+  padding: 8,
+  borderWidth: 1,
+  borderColor: '#000',
+  borderRadius: 3,
+  boxShadow: '1px 1px 0px #fff',
+  innerShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
+  placeHolder: 'Enter message here...'
+});*/
 	}
 }
 
@@ -420,6 +459,39 @@ function moveEnvironment(dir) {
 	fp.mcTreesMoves.gotoAndPlay(dir);
 	//fp.mcTreesMoves.onAnimationEnd = test();
 	console.log("end moveEnviro");
+}
+
+
+
+function setQuestionContent() {
+	//xmlNodeHandler = xmlRootHandler[1].childNodes;
+	//xmlNodeHandler2 = xmlNodeHandler[curItem].childNodes;
+	//var txtfQuestion:TextFormat = new TextFormat();
+	//txtfQuestion.letterSpacing = -1.7;
+	//txtfQuestion.kerning = true;
+	//txtQuestion.setNewTextFormat(txtfQuestion);
+	//txtQuestion.htmlText = xmlNodeHandler2[0].firstChild.nodeValue;
+	if (curItem == 0) {
+		fp.mcQuestion.txtQuestion.text = "How many eggs do\ryou eat each week?";
+	} else if (curItem == 1) {
+		fp.mcQuestion.txtQuestion.text = "How many newspapers\rdo you read each week?";
+	} else if (curItem == 2) {
+		fp.mcQuestion.txtQuestion.text = "How many cups of milk do\ryou drink each week?";
+	} else if (curItem == 3) {
+		fp.mcQuestion.txtQuestion.text = "How many miles do you\rdrive each day?";
+	} else if (curItem == 4) {
+		fp.mcQuestion.txtQuestion.text = "How many bananas\rdo you eat each week?";
+	} else if (curItem == 5) {
+		fp.mcQuestion.txtQuestion.text = "How many cans of soda do\ryou drink each week?";
+	} else if (curItem == 6) {
+		fp.mcQuestion.txtQuestion.text = "How many showers do\ryou take each week?";
+	} else if (curItem == 7) {
+		fp.mcQuestion.txtQuestion.text = "How many potatoes do\ryou eat each week?";
+	} else if (curItem == 8) {
+		fp.mcQuestion.txtQuestion.text = "How many diapers do you think a baby needs each day?";
+	} else if (curItem == 9) {
+		fp.mcQuestion.txtQuestion.text = "How many slices of bread\rdo you eat each day?";
+	}
 }
 
 
@@ -501,6 +573,7 @@ function showMenu() {
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
+	<div class="dataInput"><input id="setData" type="text"><label>enter</label></div>
 	<canvas id="canvas" width="960" height="535" style="display: block; background-color:rgba(142, 228, 255, 1.00)"></canvas>
 </body>
 </html>
