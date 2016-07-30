@@ -12430,6 +12430,7 @@ p.nominalBounds = new cjs.Rectangle(-127.7,-1088,497.8,1095.8);
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.txtUse},{t:this.txtThisMenu},{t:this.shape}]}).wait(1));
 
 	// Layer 1
+	this.txtIntroTxt = new cjs.Text("", "18px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtIntroTxt.name = "txtIntroTxt";
 	this.txtIntroTxt.lineHeight = 26;
 	this.txtIntroTxt.lineWidth = 801;
