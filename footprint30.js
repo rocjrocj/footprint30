@@ -810,7 +810,7 @@ p.nominalBounds = new cjs.Rectangle(0,-2,48.1,53);
 	this.txtMenu.lineHeight = 13;
 	this.txtMenu.lineWidth = 58;
 	this.txtMenu.setTransform(30.9,5.7);
-	this.txtMenu.text = "MENU";
+	//this.txtMenu.text = "MENU";
 
 	this.shape = new cjs.Shape();
 	this.shape.graphics.f("rgba(255,255,255,0.498)").s().p("AkCCKQgWAAgOgOQgPgPAAgVIAAjhIJqAAIAADhQAAAVgOAPQgPAOgVAAg");
@@ -12418,14 +12418,14 @@ p.nominalBounds = new cjs.Rectangle(-127.7,-1088,497.8,1095.8);
 	this.txtThisMenu.lineHeight = 11;
 	this.txtThisMenu.lineWidth = 83;
 	this.txtThisMenu.setTransform(806.5,53.4);
-	this.txtThisMenu.text = "THIS MENU TO BEGIN AND TO GET AROUND.";
+	//this.txtThisMenu.text = "THIS MENU TO BEGIN AND TO GET AROUND.";
 
 	this.txtUse = new cjs.Text("", "28px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtUse.name = "txtUse";
 	this.txtUse.lineHeight = 23;
 	this.txtUse.lineWidth = 69;
 	this.txtUse.setTransform(804,26.9);
-	this.txtUse.text = "USE";
+	//this.txtUse.text = "USE";
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.txtUse},{t:this.txtThisMenu},{t:this.shape}]}).wait(1));
 
@@ -12435,7 +12435,7 @@ p.nominalBounds = new cjs.Rectangle(-127.7,-1088,497.8,1095.8);
 	this.txtIntroTxt.lineHeight = 26;
 	this.txtIntroTxt.lineWidth = 801;
 	this.txtIntroTxt.setTransform(82.8,190.6);
-	this.txtIntroTxt.text += "You’re eating the gas the truck used to deliver that egg, the coal used to generate electricity for it’s refrigeration, and resources used to boil, fry or poach that yummy egg. And that’s you're human footprint — how much of the world you use in your lifetime. So, use the menu above to see how many of each item you consume during your lifetime and how that measures up with the rest of the world.\n\n";
+	//this.txtIntroTxt.text += "You’re eating the gas the truck used to deliver that egg, the coal used to generate electricity for it’s refrigeration, and resources used to boil, fry or poach that yummy egg. And that’s you're human footprint — how much of the world you use in your lifetime. So, use the menu above to see how many of each item you consume during your lifetime and how that measures up with the rest of the world.\n\n";
 
 	this.txtIntroHea = new cjs.Text("", "43px 'franklin-gothic-urw'", "#4C4C4C");
 	this.txtIntroHea.name = "txtIntroHea";	
@@ -12443,7 +12443,7 @@ p.nominalBounds = new cjs.Rectangle(-127.7,-1088,497.8,1095.8);
 	this.txtIntroHea.lineHeight = 38;
 	this.txtIntroHea.lineWidth = 956;
 	this.txtIntroHea.setTransform(481.9,128.4);
-	this.txtIntroHea.text = "When you eat an egg, you’re not just eating an egg.\n\n";
+	//this.txtIntroHea.text = "When you eat an egg, you’re not just eating an egg.\n\n";
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.txtIntroHea},{t:this.txtIntroTxt}]}).wait(1));
 
@@ -12684,13 +12684,13 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 	this.frame_0 = function() {
 		/* stop();
 		*/
-		console.log("trees_move 0");
+		//console.log("trees_move 0");
 		this.stop();
 	}
 	this.frame_1 = function() {
 		/* play();
 		*/
-		console.log("trees_move 1");
+		//console.log("trees_move 1");
 		this.play();
 	}
 	this.frame_49 = function() {
@@ -12708,8 +12708,8 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 			_parent.showBehind();
 		}
 		*/
-		console.log("trees_move end 49");
-		console.log("parent.curScreen: " + parent.curScreen);
+		//console.log("trees_move end 49");
+		//console.log("parent.curScreen: " + parent.curScreen);
 		if (parent.curScreen == "question") {
 			parent.showQuestion();
 		} else if (parent.curScreen == "question-answer") {
@@ -12742,7 +12742,7 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 	this.frame_50 = function() {
 		/* stop();
 		*/
-		console.log("trees_move end 50");
+		//console.log("trees_move end 50");
 		//fp.mcEggs.visible = true;
 		//fp.mcEggs.gotoAndPlay("play");
 		this.stop();
@@ -12766,7 +12766,7 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 		
 		//parent.showBehind();
 		//parent.test();
-		console.log("curScreen from trees: " + parent.curScreen);
+		//console.log("curScreen from trees: " + parent.curScreen);
 		if (parent.curScreen == "question") {
 			parent.showQuestion();
 		} else if (parent.curScreen == "question-answer") {
@@ -12774,7 +12774,7 @@ p.nominalBounds = new cjs.Rectangle(-227.2,-285.2,510.9,284.2);
 		} else {
 			parent.showBehind();
 		}
-		console.log("trees_move end 99");
+		//console.log("trees_move end 99");
 		//fp.mcEggs.visible = true;
 		//fp.mcEggs.gotoAndPlay("play");
 		this.stop();

@@ -23,7 +23,7 @@
 var canvas, stage, fp;
 
 
-/* other vars */
+/* other fp vars */
 var curItem;
 var oldItem;
 var curItemMC;
@@ -45,6 +45,166 @@ var rawWorldAvg;
 var rawYourAvg;
 var doEnter = false;
 
+// content setting
+
+	
+var vIntroHea = "When you eat an egg, you’re not just eating an egg.";
+var vIntroContent = "You’re eating the gas the truck used to deliver that egg, the coal used to generate electricity for it’s refrigeration, and resources used to boil, fry or poach that yummy egg. And that’s you're human footprint -- how much of the world you use in your lifetime. So, use the menu above to see how many of each item you consume during your lifetime and how that measures up with the rest of the world.";
+
+var v0question = "How many eggs do<br>you eat each week?";
+var v0us-average = "19826";
+var v0world-average = "19000";
+var v0fact-hea = "Which came first - the chicken or the 1.3 tons of eggs?";
+var v0fact-txt1 = "19,826 eggs weighs 1.3 tons - that's about the curb weight of a Mini Cooper.";
+var v0fact-txt2 = "You’d need almost 57 hens laying eggs for one year for your lifetime’s consumption.";
+var v0fact-txt3 = "Hens produce about 211 million per day, that's 77 billion eggs every year.";
+var v0behind-hea = "How do you get 19,826 eggs in a dump truck?";
+var v0behind-txt = "This is the <b>Behind the Scenes</b> video and photos of how we got all those eggs and what we did with them afterwards.";
+var v0behind-vid = "05129_00_Human-Footprint-_001.flv";
+var v0behind-photos = "flash/1egg.jpg,flash/2egg.jpg,flash/3egg.jpg,flash/4egg.jpg,flash/5egg.jpg";
+var v0japan-average = "19000";
+
+var v1question = "How many newspapers<br>do you read each week?";
+var v1us-average = "5054";
+var v1world-average = "5000";
+var v1fact-hea = "Newspapers don't grow on trees. It takes a whole forest.";
+var v1fact-txt1 = "It takes about 43 trees to make a lifetime of newspapers for each U.S. citizen.";
+var v1fact-txt2 = "To make all of the U.S. newspapers for one year it takes 191,000,000 trees.";
+var v1fact-txt3 = "1000 tons more carbon dioxide a day is released in the air without these trees.";
+var v1behind-hea = "Did one kid deliver the 5,054 newspapers?";
+var v1behind-txt = "This is the <b>Behind the Scenes</b> video and photos of what we did with all those newspapers after we read them all.";
+var v1behind-vid = "05142_00_Human-Footprint-_001.flv";
+var v1behind-photos = "flash/1newspaper.jpg,flash/2newspaper.jpg,flash/3newspaper.jpg,flash/4newspaper.jpg,flash/5newspaper.jpg";
+var v1japan-average = "19000";
+			
+var v2question = "How many cups of milk do<br>you drink each week?";
+var v2us-average = "26112";
+var v2world-average = "26000";
+var v2fact-hea = "It takes a lot of cows to make the land of milk and honey.";
+var v2fact-txt1 = "From the 65,000 dairy farms in the U.S. each cow pumps out 6.5 gallons each day.";
+var v2fact-txt2 = "There are 9.2 million American cows hard at work keeping our cereal tasty.";
+var v2fact-txt3 = "Collectively, dairy cows occupy a chunk of America about the size of Louisiana.";
+var v2behind-hea = "Was the due date the same on all that milk?";
+var v2behind-txt = "This is the <b>Behind the Scenes</b> video and photos of what we did with all those delicious cartons of milk afterwards.";
+var v2behind-vid = "05128_00_Human-Footprint-_001.flv";
+var v2behind-photos = "flash/1milk.jpg,flash/2milk.jpg,flash/3milk.jpg,flash/4milk.jpg,flash/5milk.jpg";
+var v2japan-average = "19000";
+		
+
+var v3question = "How many miles do you<br>drive each day?";
+var v3us-average = "627000";
+var v3world-average = "627111";
+var v3fact-hea = "It's too bad you can't expense that 627,000 miles all at once.";
+var v3fact-txt1 = "It takes about 43 trees to make a lifetime of newspapers for each U.S. citizen.";
+var v3fact-txt2 = "To make all of the U.S. newspapers for one year it takes 191,000,000 trees.";
+var v3fact-txt3 = "1000 tons more carbon dioxide a day is released in the air without these trees.";
+var v3behind-hea = "Where do all those car parts come from?";
+var v3behind-txt> = "This is the <b>Behind the Scenes</b> video and photos of where we got those car parts and how we got rid of them.";
+var v3behind-vid = "05143_00_Human-Footprint-_001.flv";
+var v3behind-photos = "flash/1car.jpg,flash/2car.jpg,flash/3car.jpg,flash/4car.jpg,flash/5car.jpg";
+var v3japan-average = "19000";
+		
+var v4question = "How many bananas<br>do you eat each week?";
+var v4us-average = "5067";
+var v4world-average = "5000";
+var v4fact-hea = "The only thing funnier than one banana peel is 5,067 of them.";
+var v4fact-txt1 = "5,607 bananas will travel 11 million air miles to reach each of our mouths.";
+var v4fact-txt2 = "The U.S. average equals 28 pounds per year, or 1.1 tons over a lifetime.";
+var v4fact-txt3 = "A year's supply for the entire U.S. would take up 894 square miles.";
+var v4behind-hea = "Were there injuries from 5,067 banana peels?";
+var v4behind-txt = "This is the <b>Behind the Scenes</b> video and photos of where we got all those bananas and where we retired them.";
+var v4behind-vid = "05127_00_Human-Footprint-_001.flv";
+var v4behind-photos = "flash/1banana.jpg,flash/2banana.jpg,flash/3banana.jpg,flash/4banana.jpg,flash/5banana.jpg";
+var v4japan-average = "19000";
+
+var v5question = "How many cans of soda do<br>you drink each week?";
+var v5us-average = "43371";
+var v5world-average = "25000";
+var v5fact-hea = "If they made a 43,371-pack it would be a lot more convenient.";
+var v5fact-txt1 = "U.S. lifetime of soda cans stretch 3.42 miles. That's 50 football fields with end zones.";
+var v5fact-txt2 = "Yearly, Americans recycle enough cans to power 1,118,000 homes for one year.";
+var v5fact-txt3 = "Soda and beer cans are recycled at a higher rate than other aluminum containers.";
+var v5behind-hea = "How long did it take to line up those cans?";
+var v5behind-txt = "This is the <b>Behind the Scenes</b> video and photos of how we stacked and lined up all those aluminum cans.";
+var v5behind-vid = "05126_00_Human-Footprint-_001.flv";
+var v5behind-photos = "flash/1soda.jpg,flash/2soda.jpg,flash/3soda.jpg,flash/4soda.jpg,flash/5soda.jpg";
+var v5japan-average = "19000";
+
+var v6question = "How many showers do<br>you take each week?";
+var v6us-average = "28433";
+var v6world-average = "28000";
+var v6fact-hea = "It's a good thing there is more water than land on the earth.";
+var v6fact-txt1 = "28,433 5-minute showers equals running the water nonstop for 98 days.";
+var v6fact-txt2 = "28,433 7-minute showers equals running the water nonstop for 136 days.";
+var v6fact-txt3 = "The U.S. average equals 25 gallons of water per shower, or 700,000 in a lifetime.";
+var v6behind-hea = "Where did you get all those rubber ducks?";
+var v6behind-txt = "This is the <b>Behind the Scenes</b> video and photos of how we acquired and dispensed with all the rubber ducks.";
+var v6behind-vid = "05130_00_Human-Footprint-_001.flv";
+var v6behind-photos = "flash/1shower.jpg,flash/2shower.jpg,flash/3shower.jpg,flash/4shower.jpg,flash/5shower.jpg";
+var v6japan-average = "19000";
+
+var v7question = "How many potatoes do<br>you eat each week?";
+var v7us-average = "20000";
+var v7world-average = "20111";
+var v7fact-hea = "A potato by any other name is most probably a french fry.";
+var v7fact-txt1 = "20,000 potatoes equals 8, 917 pounds or 4.96 tons of potatoes.";
+var v7fact-txt2 = "Ireland’s annual potato harvest supplies a lifetime of potatos for only 91,000 Americans.";
+var v7fact-txt3 = "In a lifetime American's eat 3,500 pounds of fresh potatoes, and 6,920 processed.";
+var v7behind-hea = "Where do you get that many potatoes?";
+var v7behind-txt = "This is the <b>Behind the Scenes</b> video and photos of how we collected and then removed all of those potatoes.";
+var v7behind-vid = "05131_00_Human-Footprint-_001.flv";
+var v7behind-photos = "flash/1potato.jpg,flash/2potato.jpg,flash/3potato.jpg,flash/4potato.jpg";
+var v7japan-average = "19000";
+
+var v8question = "How many diapers do you think a baby needs each day?";
+var v8us-average = "3796";
+var v8world-average = "3000";
+var v8fact-hea = "It seems diapers hold more crude items than you'd think.";
+var v8fact-txt1 = "A U.S. lifetime of diapers uses 715 pounds of plastics. That's over a third of a ton.";
+var v8fact-txt2 = "It takes 5.65 barrels of crude oil to make one American's lifetime supply of diapers.";
+var v8fact-txt3 = "It takes 6 tankers worth of crude oil to manufacture one year of diapers for American babies.";
+var v8behind-hea = "I hope all those diapers were clean.";
+var v8behind-txt = "This is the <b>Behind the Scenes</b> video and photos of which babies we got the diapers from and then what happened.";
+var v8behind-vid = "05125_00_Human-Footprint-_001.flv";
+var v8behind-photos = "flash/1diaper.jpg,flash/2diaper.jpg,flash/3diaper.jpg,flash/4diaper.jpg";
+var v8japan-average = "19000";
+
+var v9question = "How many slices of bread<br>do you eat each day?";
+var v9us-average = "87520";
+var v9world-average = "87000";
+var v9fact-hea = "An 87,520 slice sandwich would most likely need extra mayo.";
+var v9fact-txt1 = "87,520 slices of bread is about 3,796 loaves or just over 2 tons.";
+var v9fact-txt2 = "The average American eats his or her weight in bread about every 3 years.";
+var v9fact-txt3 = "Wheat consumption fell from 146 pounds per person in 2000 to 133 pounds.";
+var v9behind-hea = "Did you have toast for lunch that day?";
+var v9behind-txt = "This is the <b>Behind the Scenes</b> video and photos of what was really in those bread packages and how we got rid of them.";
+var v9behind-vid = "05124_00_Human-Footprint-_001.flv";
+var v9behind-photos = "flash/1bread.jpg,flash/2bread.jpg,flash/3bread.jpg,flash/4bread.jpg,flash/5bread.jpg";
+var v9japan-average = "19000";
+
+	/*<messages>
+	  var v0message><![CDATA[Well, you obviously don’t use<br>that many numbers. But numbers is all we can use.]]></message>
+	  var v1message><![CDATA[Wow, that’s impressive.<br>But we don’t believe you.<br>Give us a more realistic number.]]></message>
+	</messages>
+
+	<other>
+	  <item><![CDATA[MENU]]></item>
+	  <item><![CDATA[THE LAST ONE]]></item>
+	  <item><![CDATA[THE NEXT ONE]]></item>
+	  <item><![CDATA[enter]]></item>
+	  <item><![CDATA[BACK TO THE FACTS]]></item>
+	  <item><![CDATA[NEXT PHOTO]]></item>
+	  <item><![CDATA[Look behind the scenes]]></item>
+	  <item><![CDATA[U.S. AVERAGE FOR ONE LIFETIME]]></item>
+	  <item><![CDATA[WORLD AVERAGE FOR ONE LIFETIME]]></item>
+	  <item><![CDATA[YOUR AVERAGE FOR YOUR LIFETIME]]></item>
+	  <item><![CDATA[LIFETIME AVERAGE FOR YOUR ANSWER]]></item>
+	  <item><![CDATA[CLOSE]]></item>
+	  <item><![CDATA[JAPAN AVERAGE<br>FOR ONE LIFETIME]]></item>
+	  <item><![CDATA[USE]]></item>
+	  <item><![CDATA[THIS MENU TO BEGIN AND TO GET AROUND.]]></item>
+	</other>
+*/
 
 
 
@@ -112,17 +272,18 @@ function handleComplete(evt) {
 	
 	stage.enableMouseOver(10);
 	
-	var showme = this;
-	console.log("this: " + showme);
+	//var showme = this;
+	//console.log("this: " + showme);
 	
-	curItemMC = new createjs.MovieClip(null, 0, false);
 	
-
+	// init functions
 	// init vars
 	curScreen = "intro";
 	console.log("curScreen: " + curScreen);
 	curItem = 99;
 	oldItem = 99;
+	fp.curItemMC = new createjs.MovieClip(null, 0, false);
+	fp.curItemMC = fp.mcEggs;
 	moveDir = "move_left";
 	moveTo = "question";
 	curFactCardState = "off";
@@ -130,8 +291,12 @@ function handleComplete(evt) {
 	avgLifetime = 77.75;
 	avgTimeframe = 52;
 	// set other text
-	//setOtherContent();
+	setOtherContent();
 	// start audio
+	var auGame = createjs.Sound.play("background_loop", {loop:-1});
+	auGame.volume = 0.3;
+	var auIntro = createjs.Sound.play("m_intro");
+	auIntro.volume = 0.2;
 	//auIntro.start();
 	//auGame.start(0, 999);
 	// init intro
@@ -161,17 +326,6 @@ stage.addChild(textField);*/
   placeHolder: 'Enter message here...'
 });*/
 	
-	
-	var myInstance1 = createjs.Sound.play("background_loop", {loop:-1});
-	 myInstance1.volume = 0.3;
-	
-	var myInstance2 = createjs.Sound.play("m_intro");
-	 myInstance2.volume = 0.2;
-	
-	fp.mcMenuMoves.mcMenu.butMenuNext.on("click", function(evt) {
-		console.log("butMenuNext clicked");
-		showMenu();
-	});
 	
 
 // menu buttons rollovers
@@ -207,7 +361,11 @@ fp.mcMenuMoves.mcMenu.butMenuSlices.on("rollover", function(evt) {
 	});
 		
 	
-
+// menu buttons click
+//fp.mcMenuMoves.mcMenu.butMenuNext.on("click", function(evt) {
+//	//console.log("butMenuNext clicked");
+//	showMenu();
+//});
 fp.mcMenuMoves.mcMenu.butMenuEggs.on("click", function(evt) {
 	menuClick(0, "menu");
 	});
@@ -238,20 +396,62 @@ fp.mcMenuMoves.mcMenu.butMenuDiapers.on("click", function(evt) {
 fp.mcMenuMoves.mcMenu.butMenuSlices.on("click", function(evt) {
 	menuClick(9, "menu");
 	});
-	
-		
-this.test = function () {
-		console.log("test!");
-	}
-	
-fp.mcMenuMoves.butMenu.on("rollover", function(evt) {
-	//showMenu();
-	});	
+//fp.mcMenuMoves.butMenu.on("rollover", function(evt) {
+//	//showMenu();
+//	});	
 fp.mcMenuMoves.butMenu.on("click", function(evt) {
 	showMenu();
 	});
 
+/* buttons */
+fp.mcQuestion.butEnter.on("click", function(evt) {
+	//var colorEnter = new Color(txtEnter);
+	//colorEnter.setRGB(0x4c4c4c);
+	hideMenu();
+	calculateAvg();
+	curScreen = "answer";
+	showAnswer();
+});
+
+fp.mcMessagesMove.mcMessages.butMessagesClose.on("click", function(evt) {
+	//var colorClose:Color = new Color(txtClose);
+	//colorClose.setRGB(0xcccccc)
+	console.log("close clicked");
+	hideMessages();
+});
+
+/*butMessagesClose.onRollOver = function() {
+	var colorClose:Color = new Color(txtClose);
+	colorClose.setRGB(0xffffff);
 }
+
+butMessagesClose.onRollOut = function() {
+	var colorClose:Color = new Color(txtClose);
+	colorClose.setRGB(0xcccccc);
+}*/
+
+}
+
+/*fp.mcQuestion.butEnter.on("click", function(evt) {
+	var colorEnter = new Color(txtEnter);
+	colorEnter.setRGB(0x4c4c4c);
+}
+
+fp.mcQuestion.butEnter.on("click", function(evt) {
+	var colorEnter = new Color(txtEnter);
+	colorEnter.setRGB(0x4c4c4c);
+}
+
+fp.mcQuestion.butEnter.on("click", function(evt) {
+	var colorEnter = new Color(txtEnter);
+	colorEnter.setRGB(0x990000);
+}
+
+fp.mcQuestion.butEnter.onR("click", function(evt) {
+	var colorEnter = new Color(txtEnter);
+	colorEnter.setRGB(0x4c4c4c);
+}*/
+
 function tick(event) {
 	stage.update();
 }
@@ -259,19 +459,17 @@ function playSound(id, loop) {
 	return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
 }
 
-
-
 /*------------------------------------------------------------------------------------------*/
 
 
 		
-function test() {
+/*function test() {
 	console.log("test!");
-}
+}*/
 
 /* intro function */
 function showIntro() {
-	//setIntroContent();
+	setIntroContent();
 	fp.mcIntro.visible = true;
 	console.log("curScreen: " + curScreen);
 }
@@ -283,6 +481,27 @@ function showAnswer() {
 	}
 }
 
+function showBehind() {
+	doEnter = false;
+	// stop music
+	//if (curMusicState == "on") {
+		//auGame.stop();
+	//}
+	fp.curItemMC.gotoAndStop("stop");
+	setBehindContent();
+	fp.mcBehind.visible = true;
+}
+
+function showData(ani) {
+	setAvgContent();
+	fp.mcData.visible = true;
+	if (ani != false) {
+		animateData();
+	}
+	setFactContent();
+	mcFactCardMoves.visible = true;
+}
+
 function showQuestion() {
 	doEnter = true;
 	fp.curItemMC = getItem();
@@ -291,96 +510,65 @@ function showQuestion() {
 	fp.curItemMC.gotoAndPlay("play");
 	setQuestionContent();
 	fp.mcQuestion.visible = true;
-	
 	//Selection.setFocus("txtInput");
 }
 
 function showQuestionAnswer() {
 	doEnter = true;
-	curItemMC = getItem();
-	curItemMC.gotoAndPlay("play");
-	curItemMC.visible = true;
+	fp.curItemMC = getItem();
+	fp.curItemMC.gotoAndPlay("play");
+	fp.curItemMC.visible = true;
 	setQuestionContent();
-	mcQuestion.visible = true;
+	fp.mcQuestion.visible = true;
 	if (curFactCardState == "off") {
 		curFactCardState = "on";
-		mcFactCard.gotoAndStop(1);
-		mcFactCardMoves.gotoAndStop(1);
-		mcFactCardMoves.gotoAndPlay("enter");
+		fp.mcFactCardMoves.mcFactCard.gotoAndStop(1);
+		fp.mcFactCardMoves.gotoAndStop(1);
+		fp.mcFactCardMoves.gotoAndPlay("enter");
 	}
 	showData(false);
 }
 
-/*function showMessages(msg:Number) {
+function showMessages(msg) {
 	doEnter = false;
-	butEnter.enabled = false;
-	xmlNodeHandler = xmlRootHandler[2].childNodes;
-	var txtfMessages:TextFormat = new TextFormat();
-	txtfMessages.letterSpacing = -.7;
-	txtfMessages.kerning = true;
-	txtMessages.setNewTextFormat(txtfMessages);
-	txtMessages.htmlText = xmlNodeHandler[msg].firstChild.nodeValue;
-	mcMessagesMove.gotoAndPlay("enter");
-}*/
+	fp.mcQuestion.butEnter.enabled = false;
+	//xmlNodeHandler = xmlRootHandler[2].childNodes;
+	//var txtfMessages:TextFormat = new TextFormat();
+	//txtfMessages.letterSpacing = -.7;
+	//txtfMessages.kerning = true;
+	//txtMessages.setNewTextFormat(txtfMessages);
+	if (msg == 0) {
+		fp.mcMessagesMove.mcMessages.txtMessages.text = "Well, you obviously don’t use\rthat many numbers. But numbers is all we can use.";
+	} else {
+		fp.mcMessagesMove.mcMessages.txtMessages.text = "Wow, that’s impressive\rBut we don’t believe you.<br>Give us a more realistic number.";
+	}
+	fp.mcMessagesMove.gotoAndPlay("enter");
+}
 
 function hideMessages() {
-	if (mcMessagesMove._currentframe == 10) {
+	console.log("hideMessages called");
+	console.log("curframe: " + fp.mcMessagesMove.currentFrame);
+	if (fp.mcMessagesMove.currentFrame == 9) {
 		doEnter = true;
-		butEnter.enabled = true;
-		txtInput.text = "";
-		Selection.setFocus("txtInput");
-		mcMessagesMove.gotoAndPlay("exit");
+		fp.mcQuestion.butEnter.enabled = true;
+		//txtInput.text = "";
+		//Selection.setFocus("txtInput");
+		fp.mcMessagesMove.gotoAndPlay("exit");
 	}
 }
 
-function menuClickx(item, but) {
-	//fp.mcEggs.visible = true;
-	hideMenu();
-	//if (curItem != item) {
-		//hideMessages();
-		
-		
-		console.log("fp.mcEggs.gotoAndStop called");
-		//if (curMusicState == "on") {
-			//auTransition.start();
-		playSound("m_transition", false);
-		//}
-		//stopVid();
-		curScreen = "question";
-		//txtInput.text = "";
-		//oldItem = curItem;
-		//curItem = item;
-		if (but == "last") {
-			moveDir = "move_left";
-		} else if (but == "next") {
-			moveDir = "move_right";
-		} else {
-			if (curItem > oldItem) {
-				moveDir = "move_right";
-			} else {
-				moveDir = "move_left";
-			}
-		}
-		moveEnvironment(moveDir);
-		
-	//fp.mcEggs.visible = true;
-	//fp.mcEggs.gotoAndPlay("play");
-	//}
-}
-
-
 function menuClick(item, but) {
-	console.log("item: " + item);
+	console.log("itemx: " + item);
 	hideMenu();
 	if (curItem != item) {
-		//hideMessages();
-		//fp.curItemMC.gotoAndStop("stop");
+		hideMessages();
+		fp.curItemMC.gotoAndStop("stop");
 		/*if (curMusicState == "on") {
 			auTransition.start();
 		}
 		stopVid();*/
-		var auTransition = playSound("m_transition", false);
-		auTransition.volume = 0.2;
+		//var auTransition = playSound("m_transition", false);
+		//auTransition.volume = 0.2;
 		curScreen = "question";
 		//txtInput.text = "";
 		oldItem = curItem;
@@ -397,23 +585,6 @@ function menuClick(item, but) {
 			}
 		}
 		moveEnvironment(moveDir);
-/*var input = new CanvasInput({
-  canvas: document.getElementById('canvas'),
-  x: 200,
-  y: 200,
-  fontSize: 18,
-  fontFamily: 'franklin-gothic-urw',
-  fontColor: '#212121',
-  fontWeight: 'bold',
-  width: 300,
-  padding: 8,
-  borderWidth: 1,
-  borderColor: '#000',
-  borderRadius: 3,
-  boxShadow: '1px 1px 0px #fff',
-  innerShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
-  placeHolder: 'Enter message here...'
-});*/
 	}
 }
 
@@ -426,50 +597,84 @@ this.showBehind = function() {
 	//if (curMusicState == "on") {
 	//	auGame.stop();
 	//}
-	//curItemMC.gotoAndStop("stop");
-	//setBehindContent();
+	fp.curItemMC.gotoAndStop("stop");
+	setBehindContent();
 	fp.mcEggs.visible = true;
 	fp.mcEggs.gotoAndPlay("play");
 	fp.mcBehind.visible = true;
 }
 
-/*function setIntroContent() {
-	xmlNodeHandler = xmlRootHandler[0].childNodes;
-	var txtfIntroHea:TextFormat = new TextFormat();
-	txtfIntroHea.letterSpacing = -1.5;
-	txtfIntroHea.kerning = true;
-	txtIntroHea.setNewTextFormat(txtfIntroHea);
-	txtIntroHea.htmlText = xmlNodeHandler[0].firstChild.nodeValue;
-	var txtfIntroTxt:TextFormat = new TextFormat();
-	txtfIntroTxt.letterSpacing = -.05;
-	txtfIntroTxt.kerning = true;
-	txtIntroTxt.setNewTextFormat(txtfIntroTxt);
-	txtIntroTxt.htmlText = xmlNodeHandler[1].firstChild.nodeValue;
-}*/
-
-
 function moveEnvironment(dir) {
 	hideAll();
 	doEnter = false;
-	console.log(dir);
+	//console.log(dir);
 	fp.mcCloud1Moves.gotoAndPlay(dir);
 	fp.mcCloud2Moves.gotoAndPlay(dir);
 	fp.mcGroundMoves.gotoAndPlay(dir);
 	fp.mcMountainMoves.gotoAndPlay(dir);
 	fp.mcTreesMoves.gotoAndPlay(dir);
 	//fp.mcTreesMoves.onAnimationEnd = test();
-	console.log("end moveEnviro");
+	//console.log("end moveEnviro");
+}
+
+// content
+function setIntroContent() {
+	//xmlNodeHandler = xmlRootHandler[0].childNodes;
+	//var txtfIntroHea = new TextFormat();
+	//txtfIntroHea.letterSpacing = -1.5;
+	//txtfIntroHea.kerning = true;
+	//fp.mcIntro.txtIntroHea.setNewTextFormat(txtfIntroHea);
+	fp.mcIntro.txtIntroHea.text = "When you eat an egg, you’re not just eating an egg.\n\n";
+	//var txtfIntroTxt = new TextFormat();
+	//txtfIntroTxt.letterSpacing = -.05;
+	//txtfIntroTxt.kerning = true;
+	//fp.mcIntro.txtIntroTxt.setNewTextFormat(txtfIntroTxt);
+	fp.mcIntro.txtIntroTxt.text = "You’re eating the gas the truck used to deliver that egg, the coal used to generate electricity for it’s refrigeration, and resources used to boil, fry or poach that yummy egg. And that’s you're human footprint — how much of the world you use in your lifetime. So, use the menu above to see how many of each item you consume during your lifetime and how that measures up with the rest of the world.\n\n";
 }
 
 
+function setOtherContent() {
+	//xmlNodeHandler = xmlRootHandler[3].childNodes;
+	//var txtfOther = new TextFormat();
+	//txtfOther.letterSpacing = -.5;
+	//txtfOther.kerning = true;
+	fp.mcMenuMoves.butMenu.txtMenu.text = "MENU";
+	//fp.txtMenuLast.setNewTextFormat(txtfOther);
+	fp.mcMenuMoves.mcMenu.mcMenuLast.txtMenuLast.text = "THE LAST ONE";
+	//fp.txtMenuNext.setNewTextFormat(txtfOther);
+	fp.mcMenuMoves.mcMenu.mcMenuNext.txtMenuNext.text = "THE NEXT ONE";
+	fp.mcQuestion.butEnter.txtEnter.text = "enter";
+	fp.mcBehind.butBackToFacts.txtBackToFacts.text = "BACK TO THE FACTS";
+	fp.mcBehind.butBehindNextPho.txtBehindNextPho.text = "NEXT PHOTO";
+	//fp.txtBehind.setNewTextFormat(txtfOther);
+	fp.mcFactCardMoves.mcFactcard.butBehind.txtBehind.text = "Look behind the scenes";
+	fp.mcFactCardMoves.mcFactcard.butBehind.txtBehind.alpha = 80;
+	//fp.txtJapanAvgOther.setNewTextFormat(txtfOther);
+	fp.mcData.mcJapanAvg.txtJapanAvgOther.text = "JAPAN AVERAGE\rFOR ONE LIFETIME";
+	//fp.txtUSAvgOther.setNewTextFormat(txtfOther);
+	fp.mcData.mcUSAvg.txtUSAvgOther.text = "U.S. AVERAGE FOR ONE LIFETIME";	
+	//fp.txtWorldAvgOther.setNewTextFormat(txtfOther);
+	fp.mcData.mcWorldAvg.txtWorldAvgOther.text = "WORLD AVERAGE FOR ONE LIFETIME";
+	//fp.txtYourAvgOther.setNewTextFormat(txtfOther);
+	fp.mcData.mcYourAvg.txtYourAvgOther.text = "YOUR AVERAGE FOR YOUR LIFETIME";
+	//var txtfClose = new TextFormat();
+	//txtfClose.letterSpacing = 2;
+	//txtfClose.kerning = true;
+	//fp.txtClose.setNewTextFormat(txtfClose);
+	fp.mcMessagesMove.mcMessages.butMessagesClose.txtClose.text = "CLOSE";	
+	//fp.txtUse.setNewTextFormat(txtfOther);
+	fp.mcIntro.txtUse.text = "USE";
+	//fp.txtThisMenu.setNewTextFormat(txtfOther);
+	fp.mcIntro.txtThisMenu.text = "THIS MENU TO BEGIN AND TO GET AROUND.";
+}
 
 function setQuestionContent() {
 	//xmlNodeHandler = xmlRootHandler[1].childNodes;
 	//xmlNodeHandler2 = xmlNodeHandler[curItem].childNodes;
-	//var txtfQuestion:TextFormat = new TextFormat();
+	//var txtfQuestion = new TextFormat();
 	//txtfQuestion.letterSpacing = -1.7;
 	//txtfQuestion.kerning = true;
-	//txtQuestion.setNewTextFormat(txtfQuestion);
+	//fp.mcQuestion.txtQuestion.setNewTextFormat(txtfQuestion);
 	//txtQuestion.htmlText = xmlNodeHandler2[0].firstChild.nodeValue;
 	if (curItem == 0) {
 		fp.mcQuestion.txtQuestion.text = "How many eggs do\ryou eat each week?";
@@ -491,6 +696,30 @@ function setQuestionContent() {
 		fp.mcQuestion.txtQuestion.text = "How many diapers do you think a baby needs each day?";
 	} else if (curItem == 9) {
 		fp.mcQuestion.txtQuestion.text = "How many slices of bread\rdo you eat each day?";
+	}
+}
+
+function setAvgContent() {
+	//xmlNodeHandler = xmlRootHandler[1].childNodes;
+	//xmlNodeHandler2 = xmlNodeHandler[curItem].childNodes;
+	rawUSAvg = xmlNodeHandler2[1].firstChild.nodeValue;
+	var strUSAvg = addCommas(rawUSAvg);
+	txtUSAvg.text = strUSAvg;
+	rawWorldAvg = xmlNodeHandler2[2].firstChild.nodeValue;
+	var strWorldAvg = addCommas(rawWorldAvg);
+	txtWorldAvg.text = strWorldAvg;
+	rawJapanAvg = xmlNodeHandler2[11].firstChild.nodeValue;
+	var strJapanAvg = addCommas(rawJapanAvg);
+	txtJapanAvg.text = strJapanAvg;
+	rawYourAvg = yourAvg;
+	var strYourAvg = addCommas(rawYourAvg);
+	txtYourAvg.text = strYourAvg;
+	if (curItem == 8) {
+		xmlNodeHandler = xmlRootHandler[3].childNodes;
+		txtYourAvgOther.htmlText = xmlNodeHandler[10].firstChild.nodeValue;
+	} else {
+		xmlNodeHandler = xmlRootHandler[3].childNodes;
+		txtYourAvgOther.htmlText = xmlNodeHandler[9].firstChild.nodeValue;
 	}
 }
 
@@ -567,6 +796,57 @@ function showMenu() {
 	//fp.mcMenuMoves.visible = true;
 	fp.mcMenuMoves.gotoAndPlay("enter");
 	console.log("showMenu");
+}
+
+
+/* helper functions */
+function calculateAvg() {
+	//var strInput = txtInput.text;
+	var strInput = 3;
+	if (strInput == "0")	{
+		yourAvg = 0;
+	//} else if (int(strInput) == 0) {
+	} else if (strInput == null) {
+		yourAvg = -1;
+		showMessages(0);
+	} else {
+		if (curItem == 3) { // car
+			avgLifetime = 61.75;
+			avgTimeframe = 365;
+		} else if (curItem == 8) { // diapers
+			avgLifetime = 3;
+			avgTimeframe = 365;
+		} else if (curItem == 9) { // bread
+			avgTimeframe = 365;
+		} else {	
+			avgLifetime = 77.75;
+			avgTimeframe = 52;
+		}
+		yourAvg = Math.round((Number(strInput) * avgTimeframe) * avgLifetime);
+		if (yourAvg > 999999) {
+			yourAvg = -1;
+			showMessages(1);
+		}
+	}
+}
+
+function addCommas(theNumber) {
+	numString = theNumber + ""; //convert # to string
+	newString = ""; //return string
+	index = 1; // string index
+	trip = 0; // trip, as in triple.
+	while(numString.length >= index){
+  	   if (trip!=3){ //haven't reached 3 chars yet
+	      newString = numString.charAt(numString.length - index) + newString; //add char	
+	      index++;
+	      trip++;
+	   }
+	   else{ //reached 3 chars, add comma
+	      newString = "," + newString;
+	      trip=0;
+	   }
+	}
+	return (newString);
 }
 
 </script>
