@@ -424,6 +424,17 @@ fp.mcMessagesMove.mcMessages.butMessagesClose.on("click", function(evt) {
 	hideMessages();
 });
 
+	///////// good code commented out to supress error
+fp.mcFactCardMoves.mcFactcard.butBehind.butBehindBut.on("click", function(evt) {
+	//if (curMusicState == "on") {
+		//auBehindForward.start();
+	//}
+	console.log("butBehind clicked");
+	fp.mcFactCardMoves.mcFactcard.butBehind.txtBehind.alpha = 80;
+	curScreen = "behind";
+	moveEnvironment(moveDir);
+});
+
 /*butMessagesClose.onRollOver = function() {
 	var colorClose:Color = new Color(txtClose);
 	colorClose.setRGB(0xffffff);
@@ -458,16 +469,7 @@ fp.mcQuestion.butEnter.onR("click", function(evt) {
 
 //fp.mcQuestion.butEnter.on("click", function(evt) {
 	
-	///////// good code commented out to supress error
-fp.mcFactCardMoves.mcFactcard.butBehind.on("click", function(evt) {
-	//if (curMusicState == "on") {
-		//auBehindForward.start();
-	//}
-	console.log("butBehind clicked");
-	fp.mcFactCardMoves.mcFactcard.butBehind.txtBehind.alpha = 80;
-	curScreen = "behind";
-	moveEnvironment(moveDir);
-});
+
 
 
 /*butBehind.onRollOver = function() {
@@ -703,8 +705,8 @@ function animateData() {
 		console.log("curFactCardState: " + curFactCardState);
 		if (curFactCardState == "off") {
 			curFactCardState = "on";
-			fp.mcFactCardMoves.gotoAndStop(1);
-			fp.mcFactCardMoves.mcFactcard.gotoAndStop(1);
+			fp.mcFactCardMoves.gotoAndStop(0);
+			fp.mcFactCardMoves.mcFactcard.gotoAndStop(0);
 			fp.mcFactCardMoves.gotoAndPlay("enter");
 		}
 	//}
@@ -731,8 +733,8 @@ function showQuestionAnswer() {
 	fp.mcQuestion.visible = true;
 	if (curFactCardState == "off") {
 		curFactCardState = "on";
-		fp.mcFactCardMoves.mcFactcard.gotoAndStop(1);
-		fp.mcFactCardMoves.gotoAndStop(1);
+		fp.mcFactCardMoves.mcFactcard.gotoAndStop(0);
+		fp.mcFactCardMoves.gotoAndStop(0);
 		fp.mcFactCardMoves.gotoAndPlay("enter");
 	}
 	showData(false);
@@ -1014,16 +1016,16 @@ function setBehindContent() {
 	//txtfBehindHea.letterSpacing = -1.3;
 	//txtfBehindHea.kerning = true;
 	//txtBehindHea.setNewTextFormat(txtfBehindHea);
-	fp.mcBehind.txtBehindHea.text = v0behindHea;
+	fp.mcBehind.txtBehindHea.text = eval("v" + curItem + "behindHea");
 	//var txtfBehindTxt:TextFormat = new TextFormat();
 	//txtfBehindTxt.letterSpacing = .2;
 	//txtfBehindTxt.kerning = true;
 	//txtBehindTxt.setNewTextFormat(txtfBehindTxt);
-	fp.mcBehind.txtBehindTxt.text = v0behindTxt;
+	fp.mcBehind.txtBehindTxt.text = eval("v" + curItem + "behindTxt");
 	//var strBehindVid = xmlNodeHandler2[9].firstChild.nodeValue;
 	//flvBehindVid.contentPath = strBehindVid;
 	//restartVid();
-	var strBehindPho = v0behindPhotos;
+	var strBehindPho = eval("v" + curItem + "behindPhotos");
 	arrBehindPho = strBehindPho.split(",");
 	curPho = 0;
 	phoCount = arrBehindPho.length;
@@ -1067,7 +1069,7 @@ function hideAll() {
 	fp.mcBehind.visible = false;
 	fp.mcData.visible = false;
 	fp.mcFactCardMoves.visible = false;
-	fp.mcFactCardMoves.gotoAndStop(1);
+	fp.mcFactCardMoves.gotoAndStop(0);
 	curFactCardState = "off";
 	fp.curItemMC.gotoAndStop("stop");
 	fp.mcIntro.visible = false;

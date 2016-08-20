@@ -7521,11 +7521,17 @@ p.nominalBounds = null;
 	this.initialize(mode,startPosition,loop,{});
 
 	// button
-	this.instance = new lib.but_invisible();
+	/*this.instance = new lib.but_invisible();
 	this.instance.setTransform(-68.2,-52.1,2.685,1);
 	new cjs.ButtonHelper(this.instance, 0, 1, 2, false, new lib.but_invisible(), 3);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));*/
+	
+	this.butBehindBut = new lib.but_invisible();
+	this.butBehindBut.setTransform(-68.2,-52.1,2.685,1);
+	new cjs.ButtonHelper(this.butBehindBut, 0, 1, 2, false, new lib.but_invisible(), 3);
+
+	this.timeline.addTween(cjs.Tween.get(this.butBehindBut).wait(1));
 
 	// text
 	this.txtBehind = new cjs.Text("", "17px 'franklin-gothic-urw'", "#FFFFFF");
@@ -12464,11 +12470,13 @@ p.nominalBounds = new cjs.Rectangle(2,-0.8,959.8,430.8);
 	this.frame_0 = function() {
 		/* stop();*/
 		this.stop();
+		console.log("factcard behind stop on 0");
 	}
 	this.frame_1 = function() {
 		/* play();
 		*/
 		this.play();
+		console.log("factcard behind play on 1");
 	}
 	this.frame_6 = function() {
 		this.leavesflying1.gotoAndPlay("on");
@@ -12476,6 +12484,7 @@ p.nominalBounds = new cjs.Rectangle(2,-0.8,959.8,430.8);
 	this.frame_10 = function() {
 		/* stop();*/
 		this.stop();
+		console.log("factcard behind stop on 10");
 	}
 	this.frame_11 = function() {
 		/* play();
