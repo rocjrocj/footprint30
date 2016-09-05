@@ -727,6 +727,13 @@ p.nominalBounds = null;
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
+	// Layer 3
+	this.butMessagesCloseBut = new lib.but_invisible();
+	this.butMessagesCloseBut.setTransform(0,0,3.593,0.463);
+	new cjs.ButtonHelper(this.butMessagesCloseBut, 0, 1, 2, false, new lib.but_invisible(), 3);
+
+	this.timeline.addTween(cjs.Tween.get(this.butMessagesCloseBut).wait(1));
+
 	// Layer 1
 	this.txtClose = new cjs.Text("", "16px 'franklin-gothic-urw'", "#CCCCCC");
 	this.txtClose.name = "txtClose";
@@ -972,11 +979,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,86,50);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer 1
-	this.txtEnter = new cjs.Text("", "28px 'franklin-gothic-urw'", "#4C4C4C");
+	this.txtEnter = new TextLink("", "28px 'franklin-gothic-urw'", "#4C4C4C", "#990000");
 	this.txtEnter.name = "txtEnter";
 	this.txtEnter.lineHeight = 30;
 	this.txtEnter.lineWidth = 120;
 	this.txtEnter.setTransform(2,2);
+	this.txtEnter.cursor = "pointer";
 
 	this.timeline.addTween(cjs.Tween.get(this.txtEnter).wait(1));
 
@@ -8279,6 +8287,13 @@ p.nominalBounds = new cjs.Rectangle(-25.7,-36.9,1477.9,37);
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1));
 
+	// button
+	this.butMuteBut = new lib.but_invisible();
+	this.butMuteBut.setTransform(-1.2,-1.2,0.361,0.31);
+	new cjs.ButtonHelper(this.butMuteBut, 0, 1, 2, false, new lib.but_invisible(), 3);
+
+	this.timeline.addTween(cjs.Tween.get(this.butMuteBut).wait(2));
+
 	// sq
 	this.instance = new lib.sq();
 	this.instance.setTransform(-1.3,-1.3,1.444,1.244);
@@ -8564,6 +8579,13 @@ p.nominalBounds = new cjs.Rectangle(0,0,1499.3,203.9);
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
+	// Layer 3
+	this.butBehindNextPhoBut = new lib.but_invisible();
+	this.butBehindNextPhoBut.setTransform(-2,0,2.426,0.407);
+	new cjs.ButtonHelper(this.butBehindNextPhoBut, 0, 1, 2, false, new lib.but_invisible(), 3);
+
+	this.timeline.addTween(cjs.Tween.get(this.butBehindNextPhoBut).wait(1));
+
 	// Layer 1
 	this.mcNextArrow = new lib.bakarrow();
 	this.mcNextArrow.setTransform(120.9,9.4,1,1.003,0,0,180,4.7,9.3);
@@ -8584,6 +8606,19 @@ p.nominalBounds = new cjs.Rectangle(-3,0.1,128.6,19.5);
 
 (lib.but_backtofacts = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
+	
+	/*this.butBackToFactsBut = new lib.but_invisible();
+	this.butBackToFactsBut.setTransform(-68.2,-52.1,2.685,1);
+	new cjs.ButtonHelper(this.butBackToFactsBut, 0, 1, 2, false, new lib.but_invisible(), 3);
+
+	this.timeline.addTween(cjs.Tween.get(this.butBackToFactsBut).wait(1));*/
+
+	// Layer 5
+	this.butBackToFactsBut = new lib.but_invisible();
+	this.butBackToFactsBut.setTransform(0,0,2.611,0.407);
+	new cjs.ButtonHelper(this.butBackToFactsBut, 0, 1, 2, false, new lib.but_invisible(), 3);
+
+	this.timeline.addTween(cjs.Tween.get(this.butBackToFactsBut).wait(1));
 
 	// arrow
 	this.mcBakArrow = new lib.bakarrow();
@@ -8664,6 +8699,10 @@ p.nominalBounds = new cjs.Rectangle(0,-18,966.1,548);
 		/* 
 		Selection.setFocus("_parent.txtInput");
 		*/
+		var setData = document.getElementById("setData");
+		setData.style.display = "block";
+		setData.value = "";
+		setData.focus();
 	}
 
 	// actions tween:
@@ -8727,57 +8766,6 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	this.shape_10.setTransform(209.5,29.1);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_10},{t:this.shape_9},{t:this.shape_8},{t:this.shape_7},{t:this.shape_6},{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
-
-	// button
-	this.butMenuNext = new lib.but_menuhighlight();
-	this.butMenuNext.setTransform(753.5,0.1,0.935,1);
-	new cjs.ButtonHelper(this.butMenuNext, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuSlices = new lib.but_menuhighlight();
-	this.butMenuSlices.setTransform(700.7,0.1,0.815,1);
-	new cjs.ButtonHelper(this.butMenuSlices, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuDiapers = new lib.but_menuhighlight();
-	this.butMenuDiapers.setTransform(636.2,0.1,0.997,1);
-	new cjs.ButtonHelper(this.butMenuDiapers, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuPotatoes = new lib.but_menuhighlight();
-	this.butMenuPotatoes.setTransform(578,0.1,0.898,1);
-	new cjs.ButtonHelper(this.butMenuPotatoes, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuShowers = new lib.but_menuhighlight();
-	this.butMenuShowers.setTransform(519.4,0.1,0.903,1);
-	new cjs.ButtonHelper(this.butMenuShowers, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuSodas = new lib.but_menuhighlight();
-	this.butMenuSodas.setTransform(475.9,0.1,0.671,1);
-	new cjs.ButtonHelper(this.butMenuSodas, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuBananas = new lib.but_menuhighlight();
-	this.butMenuBananas.setTransform(423.9,0.1,0.804,1);
-	new cjs.ButtonHelper(this.butMenuBananas, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuCarMiles = new lib.but_menuhighlight();
-	this.butMenuCarMiles.setTransform(359.6,0.1,0.994,1);
-	new cjs.ButtonHelper(this.butMenuCarMiles, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuMilks = new lib.but_menuhighlight();
-	this.butMenuMilks.setTransform(316.1,0.1,0.671,1);
-	new cjs.ButtonHelper(this.butMenuMilks, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuNewspapers = new lib.but_menuhighlight();
-	this.butMenuNewspapers.setTransform(260.4,0.1,0.859,1);
-	new cjs.ButtonHelper(this.butMenuNewspapers, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuEggs = new lib.but_menuhighlight();
-	this.butMenuEggs.setTransform(208.9,0.1,0.795,1);
-	new cjs.ButtonHelper(this.butMenuEggs, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.butMenuLast = new lib.but_menuhighlight();
-	this.butMenuLast.setTransform(144.1,0.1);
-	new cjs.ButtonHelper(this.butMenuLast, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.butMenuLast},{t:this.butMenuEggs},{t:this.butMenuNewspapers},{t:this.butMenuMilks},{t:this.butMenuCarMiles},{t:this.butMenuBananas},{t:this.butMenuSodas},{t:this.butMenuShowers},{t:this.butMenuPotatoes},{t:this.butMenuDiapers},{t:this.butMenuSlices},{t:this.butMenuNext}]}).wait(1));
 
 	// items
 	this.shape_11 = new cjs.Shape();
@@ -9595,6 +9583,60 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	this.shape_209.setTransform(235,29.9);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_209},{t:this.shape_208},{t:this.shape_207},{t:this.shape_206},{t:this.shape_205},{t:this.shape_204},{t:this.shape_203},{t:this.shape_202},{t:this.shape_201},{t:this.shape_200},{t:this.shape_199},{t:this.shape_198},{t:this.shape_197},{t:this.shape_196},{t:this.shape_195},{t:this.shape_194},{t:this.shape_193},{t:this.shape_192},{t:this.shape_191},{t:this.shape_190},{t:this.shape_189},{t:this.shape_188},{t:this.shape_187},{t:this.shape_186},{t:this.shape_185},{t:this.shape_184},{t:this.shape_183},{t:this.shape_182},{t:this.shape_181},{t:this.shape_180},{t:this.shape_179},{t:this.shape_178},{t:this.shape_177},{t:this.shape_176},{t:this.shape_175},{t:this.shape_174},{t:this.shape_173},{t:this.shape_172},{t:this.shape_171},{t:this.shape_170},{t:this.shape_169},{t:this.shape_168},{t:this.shape_167},{t:this.shape_166},{t:this.shape_165},{t:this.shape_164},{t:this.shape_163},{t:this.shape_162},{t:this.shape_161},{t:this.shape_160},{t:this.shape_159},{t:this.shape_158},{t:this.shape_157},{t:this.instance_3},{t:this.shape_156},{t:this.shape_155},{t:this.instance_2},{t:this.instance_1},{t:this.shape_154},{t:this.shape_153},{t:this.shape_152},{t:this.shape_151},{t:this.shape_150},{t:this.shape_149},{t:this.instance},{t:this.shape_148},{t:this.shape_147},{t:this.shape_146},{t:this.shape_145},{t:this.shape_144},{t:this.shape_143},{t:this.shape_142},{t:this.shape_141},{t:this.shape_140},{t:this.shape_139},{t:this.shape_138},{t:this.shape_137},{t:this.shape_136},{t:this.shape_135},{t:this.shape_134},{t:this.shape_133},{t:this.shape_132},{t:this.shape_131},{t:this.shape_130},{t:this.shape_129},{t:this.shape_128},{t:this.shape_127},{t:this.shape_126},{t:this.shape_125},{t:this.shape_124},{t:this.shape_123},{t:this.shape_122},{t:this.shape_121},{t:this.shape_120},{t:this.shape_119},{t:this.shape_118},{t:this.shape_117},{t:this.shape_116},{t:this.shape_115},{t:this.shape_114},{t:this.shape_113},{t:this.shape_112},{t:this.shape_111},{t:this.shape_110},{t:this.shape_109},{t:this.shape_108},{t:this.shape_107},{t:this.shape_106},{t:this.shape_105},{t:this.shape_104},{t:this.shape_103},{t:this.shape_102},{t:this.shape_101},{t:this.shape_100},{t:this.shape_99},{t:this.shape_98},{t:this.shape_97},{t:this.shape_96},{t:this.shape_95},{t:this.shape_94},{t:this.shape_93},{t:this.shape_92},{t:this.shape_91},{t:this.shape_90},{t:this.shape_89},{t:this.shape_88},{t:this.shape_87},{t:this.shape_86},{t:this.shape_85},{t:this.shape_84},{t:this.shape_83},{t:this.shape_82},{t:this.shape_81},{t:this.shape_80},{t:this.shape_79},{t:this.shape_78},{t:this.shape_77},{t:this.shape_76},{t:this.shape_75},{t:this.shape_74},{t:this.shape_73},{t:this.shape_72},{t:this.shape_71},{t:this.shape_70},{t:this.shape_69},{t:this.shape_68},{t:this.shape_67},{t:this.shape_66},{t:this.shape_65},{t:this.shape_64},{t:this.shape_63},{t:this.shape_62},{t:this.shape_61},{t:this.shape_60},{t:this.shape_59},{t:this.shape_58},{t:this.shape_57},{t:this.shape_56},{t:this.shape_55},{t:this.shape_54},{t:this.shape_53},{t:this.shape_52},{t:this.shape_51},{t:this.shape_50},{t:this.shape_49},{t:this.shape_48},{t:this.shape_47},{t:this.shape_46},{t:this.shape_45},{t:this.shape_44},{t:this.shape_43},{t:this.shape_42},{t:this.shape_41},{t:this.shape_40},{t:this.shape_39},{t:this.shape_38},{t:this.shape_37},{t:this.shape_36},{t:this.shape_35},{t:this.shape_34},{t:this.shape_33},{t:this.shape_32},{t:this.shape_31},{t:this.mcMenuLast},{t:this.mcMenuNext},{t:this.shape_30},{t:this.shape_29},{t:this.shape_28},{t:this.shape_27},{t:this.shape_26},{t:this.shape_25},{t:this.shape_24},{t:this.shape_23},{t:this.shape_22},{t:this.shape_21},{t:this.shape_20},{t:this.shape_19},{t:this.shape_18},{t:this.shape_17},{t:this.shape_16},{t:this.shape_15},{t:this.shape_14},{t:this.shape_13},{t:this.shape_12},{t:this.shape_11}]}).wait(1));
+	
+	
+
+	// button
+	this.butMenuNext = new lib.but_menuhighlight();
+	this.butMenuNext.setTransform(753.5,0.1,0.935,1);
+	new cjs.ButtonHelper(this.butMenuNext, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuSlices = new lib.but_menuhighlight();
+	this.butMenuSlices.setTransform(700.7,0.1,0.815,1);
+	new cjs.ButtonHelper(this.butMenuSlices, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuDiapers = new lib.but_menuhighlight();
+	this.butMenuDiapers.setTransform(636.2,0.1,0.997,1);
+	new cjs.ButtonHelper(this.butMenuDiapers, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuPotatoes = new lib.but_menuhighlight();
+	this.butMenuPotatoes.setTransform(578,0.1,0.898,1);
+	new cjs.ButtonHelper(this.butMenuPotatoes, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuShowers = new lib.but_menuhighlight();
+	this.butMenuShowers.setTransform(519.4,0.1,0.903,1);
+	new cjs.ButtonHelper(this.butMenuShowers, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuSodas = new lib.but_menuhighlight();
+	this.butMenuSodas.setTransform(475.9,0.1,0.671,1);
+	new cjs.ButtonHelper(this.butMenuSodas, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuBananas = new lib.but_menuhighlight();
+	this.butMenuBananas.setTransform(423.9,0.1,0.804,1);
+	new cjs.ButtonHelper(this.butMenuBananas, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuCarMiles = new lib.but_menuhighlight();
+	this.butMenuCarMiles.setTransform(359.6,0.1,0.994,1);
+	new cjs.ButtonHelper(this.butMenuCarMiles, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuMilks = new lib.but_menuhighlight();
+	this.butMenuMilks.setTransform(316.1,0.1,0.671,1);
+	new cjs.ButtonHelper(this.butMenuMilks, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuNewspapers = new lib.but_menuhighlight();
+	this.butMenuNewspapers.setTransform(260.4,0.1,0.859,1);
+	new cjs.ButtonHelper(this.butMenuNewspapers, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuEggs = new lib.but_menuhighlight();
+	this.butMenuEggs.setTransform(208.9,0.1,0.795,1);
+	new cjs.ButtonHelper(this.butMenuEggs, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.butMenuLast = new lib.but_menuhighlight();
+	this.butMenuLast.setTransform(144.1,0.1);
+	new cjs.ButtonHelper(this.butMenuLast, 0, 1, 2, false, new lib.but_menuhighlight(), 3);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.butMenuLast},{t:this.butMenuEggs},{t:this.butMenuNewspapers},{t:this.butMenuMilks},{t:this.butMenuCarMiles},{t:this.butMenuBananas},{t:this.butMenuSodas},{t:this.butMenuShowers},{t:this.butMenuPotatoes},{t:this.butMenuDiapers},{t:this.butMenuSlices},{t:this.butMenuNext}]}).wait(1));
+	
 
 	// bkd
 	this.shape_210 = new cjs.Shape();
@@ -12996,6 +13038,7 @@ p.nominalBounds = new cjs.Rectangle(-485.3,1.2,970,744.8);
 		/* //stop();
 		play();
 		*/
+		this.play();
 	}
 	this.frame_8 = function() {
 		/* this.dirtfalling1.gotoAndPlay("on");
@@ -13004,6 +13047,7 @@ p.nominalBounds = new cjs.Rectangle(-485.3,1.2,970,744.8);
 			auCardUp.start();
 		}
 		*/
+		this.dirtfalling1.gotoAndPlay("on");
 	}
 	this.frame_68 = function() {
 		/* stop();*/

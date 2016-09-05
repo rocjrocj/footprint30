@@ -7,8 +7,7 @@
 	5. Remove unnecessary comments before creating your template.
 -->
 <!DOCTYPE html>
-<html>
-<head>
+<html><head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
 <title>footprint30</title>
@@ -20,6 +19,46 @@
 <script src="CanvasInput.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script>
+
+/***************************** text link class *****************************/
+	// define a new TextLink class that extends / subclasses Text, and handles drawing a hit area
+	// and implementing a hover color.
+	function TextLink(text, font, color, hoverColor) {
+		// this super class constructor reference is automatically created by createjs.extends:
+		this.Text_constructor(text, font, color);
+		this.hoverColor = hoverColor;
+		this.hover = false;
+		this.hitArea = new createjs.Shape();
+		this.textBaseline = "top";
+		this.addEventListener("rollover", this);
+		this.addEventListener("rollout", this);
+	}
+	createjs.extend(TextLink, createjs.Text);
+	// use the same approach with draw:
+	TextLink.prototype.draw = function (ctx, ignoreCache) {
+		// save default color, and overwrite it with the hover color if appropriate:
+		var color = this.color;
+		if (this.hover) {
+			this.color = this.hoverColor;
+		}
+		// call Text's drawing method to do the real work of drawing to the canvas:
+		// this super class method reference is automatically created by createjs.extends for methods overridden in the subclass:
+		this.Text_draw(ctx, ignoreCache);
+		// restore the default color value:
+		this.color = color;
+		// update hit area so the full text area is clickable, not just the characters:
+		this.hitArea.graphics.clear().beginFill("#FFF").drawRect(0, 0, this.getMeasuredWidth(), this.getMeasuredHeight());
+	};
+	// set up the handlers for mouseover / out:
+	TextLink.prototype.handleEvent = function (evt) {
+		this.hover = (evt.type == "rollover");
+	};
+	// set up the inheritance relationship: TextLink extends Text.
+	createjs.promote(TextLink, "Text");
+/***************************** end text link class *****************************/
+	
+	
+	
 var canvas, stage, fp;
 
 
@@ -51,20 +90,20 @@ var doEnter = false;
 var vIntroHea = "When you eat an egg, you’re not just eating an egg.";
 var vIntroContent = "You’re eating the gas the truck used to deliver that egg, the coal used to generate electricity for it’s refrigeration, and resources used to boil, fry or poach that yummy egg. And that’s you're human footprint -- how much of the world you use in your lifetime. So, use the menu above to see how many of each item you consume during your lifetime and how that measures up with the rest of the world.";
 
-var v0question = "How many eggs do<br>you eat each week?";
+var v0question = "How many eggs do\ryou eat each week?";
 var v0usAverage = "19826";
-var v0worldAverage = "19000";
+var v0worldAverage = "13345";
 var v0factHea = "Which came first - the chicken or the 1.3 tons of eggs?";
 var v0factTxt1 = "19,826 eggs weighs 1.3 tons - that's about the curb weight of a Mini Cooper.";
 var v0factTxt2 = "You’d need almost 57 hens laying eggs for one year for your lifetime’s consumption.";
 var v0factTxt3 = "Hens produce about 211 million per day, that's 77 billion eggs every year.";
 var v0behindHea = "How do you get 19,826 eggs in a dump truck?";
-var v0behindTxt = "This is the <b>Behind the Scenes</b> video and photos of how we got all those eggs and what we did with them afterwards.";
+var v0behindTxt = "This is the Behind the Scenes video and photos of how we got all those eggs and what we did with them afterwards.";
 var v0behindVid = "05129_00_Human-Footprint-_001.flv";
 var v0behindPhotos = "flash/1egg.jpg,flash/2egg.jpg,flash/3egg.jpg,flash/4egg.jpg,flash/5egg.jpg";
-var v0japanAverage = "19000";
+var v0japanAverage = "27559";
 
-var v1question = "How many newspapers<br>do you read each week?";
+var v1question = "How many newspapers\rdo you read each week?";
 var v1usAverage = "5054";
 var v1worldAverage = "5000";
 var v1factHea = "Newspapers don't grow on trees. It takes a whole forest.";
@@ -72,12 +111,12 @@ var v1factTxt1 = "It takes about 43 trees to make a lifetime of newspapers for e
 var v1factTxt2 = "To make all of the U.S. newspapers for one year it takes 191,000,000 trees.";
 var v1factTxt3 = "1000 tons more carbon dioxide a day is released in the air without these trees.";
 var v1behindHea = "Did one kid deliver the 5,054 newspapers?";
-var v1behindTxt = "This is the <b>Behind the Scenes</b> video and photos of what we did with all those newspapers after we read them all.";
+var v1behindTxt = "This is the Behind the Scenes video and photos of what we did with all those newspapers after we read them all.";
 var v1behindVid = "05142_00_Human-Footprint-_001.flv";
 var v1behindPhotos = "flash/1newspaper.jpg,flash/2newspaper.jpg,flash/3newspaper.jpg,flash/4newspaper.jpg,flash/5newspaper.jpg";
 var v1japanAverage = "19000";
 			
-var v2question = "How many cups of milk do<br>you drink each week?";
+var v2question = "How many cups of milk do\ryou drink each week?";
 var v2usAverage = "26112";
 var v2worldAverage = "26000";
 var v2factHea = "It takes a lot of cows to make the land of milk and honey.";
@@ -85,13 +124,13 @@ var v2factTxt1 = "From the 65,000 dairy farms in the U.S. each cow pumps out 6.5
 var v2factTxt2 = "There are 9.2 million American cows hard at work keeping our cereal tasty.";
 var v2factTxt3 = "Collectively, dairy cows occupy a chunk of America about the size of Louisiana.";
 var v2behindHea = "Was the due date the same on all that milk?";
-var v2behindTxt = "This is the <b>Behind the Scenes</b> video and photos of what we did with all those delicious cartons of milk afterwards.";
+var v2behindTxt = "This is the Behind the Scenes video and photos of what we did with all those delicious cartons of milk afterwards.";
 var v2behindVid = "05128_00_Human-Footprint-_001.flv";
 var v2behindPhotos = "flash/1milk.jpg,flash/2milk.jpg,flash/3milk.jpg,flash/4milk.jpg,flash/5milk.jpg";
 var v2japanAverage = "19000";
 		
 
-var v3question = "How many miles do you<br>drive each day?";
+var v3question = "How many miles do you\rdrive each day?";
 var v3usAverage = "627000";
 var v3worldAverage = "627111";
 var v3factHea = "It's too bad you can't expense that 627,000 miles all at once.";
@@ -99,12 +138,12 @@ var v3factTxt1 = "It takes about 43 trees to make a lifetime of newspapers for e
 var v3factTxt2 = "To make all of the U.S. newspapers for one year it takes 191,000,000 trees.";
 var v3factTxt3 = "1000 tons more carbon dioxide a day is released in the air without these trees.";
 var v3behindHea = "Where do all those car parts come from?";
-var v3behindTxt = "This is the <b>Behind the Scenes</b> video and photos of where we got those car parts and how we got rid of them.";
+var v3behindTxt = "This is the Behind the Scenes video and photos of where we got those car parts and how we got rid of them.";
 var v3behindVid = "05143_00_Human-Footprint-_001.flv";
 var v3behindPhotos = "flash/1car.jpg,flash/2car.jpg,flash/3car.jpg,flash/4car.jpg,flash/5car.jpg";
 var v3japanAverage = "19000";
 		
-var v4question = "How many bananas<br>do you eat each week?";
+var v4question = "How many bananas\rdo you eat each week?";
 var v4usAverage = "5067";
 var v4worldAverage = "5000";
 var v4factHea = "The only thing funnier than one banana peel is 5,067 of them.";
@@ -112,12 +151,12 @@ var v4factTxt1 = "5,607 bananas will travel 11 million air miles to reach each o
 var v4factTxt2 = "The U.S. average equals 28 pounds per year, or 1.1 tons over a lifetime.";
 var v4factTxt3 = "A year's supply for the entire U.S. would take up 894 square miles.";
 var v4behindHea = "Were there injuries from 5,067 banana peels?";
-var v4behindTxt = "This is the <b>Behind the Scenes</b> video and photos of where we got all those bananas and where we retired them.";
+var v4behindTxt = "This is the Behind the Scenes video and photos of where we got all those bananas and where we retired them.";
 var v4behindVid = "05127_00_Human-Footprint-_001.flv";
 var v4behindPhotos = "flash/1banana.jpg,flash/2banana.jpg,flash/3banana.jpg,flash/4banana.jpg,flash/5banana.jpg";
 var v4japanAverage = "19000";
 
-var v5question = "How many cans of soda do<br>you drink each week?";
+var v5question = "How many cans of soda do\ryou drink each week?";
 var v5usAverage = "43371";
 var v5worldAverage = "25000";
 var v5factHea = "If they made a 43,371-pack it would be a lot more convenient.";
@@ -125,12 +164,12 @@ var v5factTxt1 = "U.S. lifetime of soda cans stretch 3.42 miles. That's 50 footb
 var v5factTxt2 = "Yearly, Americans recycle enough cans to power 1,118,000 homes for one year.";
 var v5factTxt3 = "Soda and beer cans are recycled at a higher rate than other aluminum containers.";
 var v5behindHea = "How long did it take to line up those cans?";
-var v5behindTxt = "This is the <b>Behind the Scenes</b> video and photos of how we stacked and lined up all those aluminum cans.";
+var v5behindTxt = "This is the Behind the Scenes video and photos of how we stacked and lined up all those aluminum cans.";
 var v5behindVid = "05126_00_Human-Footprint-_001.flv";
 var v5behindPhotos = "flash/1soda.jpg,flash/2soda.jpg,flash/3soda.jpg,flash/4soda.jpg,flash/5soda.jpg";
 var v5japanAverage = "19000";
 
-var v6question = "How many showers do<br>you take each week?";
+var v6question = "How many showers do\ryou take each week?";
 var v6usAverage = "28433";
 var v6worldAverage = "28000";
 var v6factHea = "It's a good thing there is more water than land on the earth.";
@@ -138,12 +177,12 @@ var v6factTxt1 = "28,433 5-minute showers equals running the water nonstop for 9
 var v6factTxt2 = "28,433 7-minute showers equals running the water nonstop for 136 days.";
 var v6factTxt3 = "The U.S. average equals 25 gallons of water per shower, or 700,000 in a lifetime.";
 var v6behindHea = "Where did you get all those rubber ducks?";
-var v6behindTxt = "This is the <b>Behind the Scenes</b> video and photos of how we acquired and dispensed with all the rubber ducks.";
+var v6behindTxt = "This is the Behind the Scenes video and photos of how we acquired and dispensed with all the rubber ducks.";
 var v6behindVid = "05130_00_Human-Footprint-_001.flv";
 var v6behindPhotos = "flash/1shower.jpg,flash/2shower.jpg,flash/3shower.jpg,flash/4shower.jpg,flash/5shower.jpg";
 var v6japanAverage = "19000";
 
-var v7question = "How many potatoes do<br>you eat each week?";
+var v7question = "How many potatoes do\ryou eat each week?";
 var v7usAverage = "20000";
 var v7worldAverage = "20111";
 var v7factHea = "A potato by any other name is most probably a french fry.";
@@ -151,7 +190,7 @@ var v7factTxt1 = "20,000 potatoes equals 8, 917 pounds or 4.96 tons of potatoes.
 var v7factTxt2 = "Ireland’s annual potato harvest supplies a lifetime of potatos for only 91,000 Americans.";
 var v7factTxt3 = "In a lifetime American's eat 3,500 pounds of fresh potatoes, and 6,920 processed.";
 var v7behindHea = "Where do you get that many potatoes?";
-var v7behindTxt = "This is the <b>Behind the Scenes</b> video and photos of how we collected and then removed all of those potatoes.";
+var v7behindTxt = "This is the Behind the Scenes video and photos of how we collected and then removed all of those potatoes.";
 var v7behindVid = "05131_00_Human-Footprint-_001.flv";
 var v7behindPhotos = "flash/1potato.jpg,flash/2potato.jpg,flash/3potato.jpg,flash/4potato.jpg";
 var v7japanAverage = "19000";
@@ -164,12 +203,12 @@ var v8factTxt1 = "A U.S. lifetime of diapers uses 715 pounds of plastics. That's
 var v8factTxt2 = "It takes 5.65 barrels of crude oil to make one American's lifetime supply of diapers.";
 var v8factTxt3 = "It takes 6 tankers worth of crude oil to manufacture one year of diapers for American babies.";
 var v8behindHea = "I hope all those diapers were clean.";
-var v8behindTxt = "This is the <b>Behind the Scenes</b> video and photos of which babies we got the diapers from and then what happened.";
+var v8behindTxt = "This is the Behind the Scenes video and photos of which babies we got the diapers from and then what happened.";
 var v8behindVid = "05125_00_Human-Footprint-_001.flv";
 var v8behindPhotos = "flash/1diaper.jpg,flash/2diaper.jpg,flash/3diaper.jpg,flash/4diaper.jpg";
 var v8japanAverage = "19000";
 
-var v9question = "How many slices of bread<br>do you eat each day?";
+var v9question = "How many slices of bread\rdo you eat each day?";
 var v9usAverage = "87520";
 var v9worldAverage = "87000";
 var v9factHea = "An 87,520 slice sandwich would most likely need extra mayo.";
@@ -177,7 +216,7 @@ var v9factTxt1 = "87,520 slices of bread is about 3,796 loaves or just over 2 to
 var v9factTxt2 = "The average American eats his or her weight in bread about every 3 years.";
 var v9factTxt3 = "Wheat consumption fell from 146 pounds per person in 2000 to 133 pounds.";
 var v9behindHea = "Did you have toast for lunch that day?";
-var v9behindTxt = "This is the <b>Behind the Scenes</b> video and photos of what was really in those bread packages and how we got rid of them.";
+var v9behindTxt = "This is the Behind the Scenes video and photos of what was really in those bread packages and how we got rid of them.";
 var v9behindVid = "05124_00_Human-Footprint-_001.flv";
 var v9behindPhotos = "flash/1bread.jpg,flash/2bread.jpg,flash/3bread.jpg,flash/4bread.jpg,flash/5bread.jpg";
 var v9japanAverage = "19000";
@@ -301,6 +340,7 @@ function handleComplete(evt) {
 	//auGame.start(0, 999);
 	// init intro
 	hideAll();
+	//clearTxt();
 	//fp.mcMenuMoves.gotoAndPlay("enter");
 	console.log("hideAll called");
 	showIntro()
@@ -400,12 +440,12 @@ fp.mcMenuMoves.mcMenu.butMenuDiapers.on("click", function(evt) {
 fp.mcMenuMoves.mcMenu.butMenuSlices.on("click", function(evt) {
 	menuClick(9, "menu");
 	});
-//fp.mcMenuMoves.butMenu.on("rollover", function(evt) {
-//	//showMenu();
-//	});	
-fp.mcMenuMoves.butMenu.on("click", function(evt) {
+fp.mcMenuMoves.butMenu.on("rollover", function(evt) {
 	showMenu();
-	});
+	});	
+/*fp.mcMenuMoves.butMenu.on("click", function(evt) {
+	showMenu();
+	});*/
 
 /* buttons */
 fp.mcQuestion.butEnter.on("click", function(evt) {
@@ -415,9 +455,10 @@ fp.mcQuestion.butEnter.on("click", function(evt) {
 	calculateAvg();
 	curScreen = "answer";
 	showAnswer();
+	//clearTxt();
 });
 
-fp.mcMessagesMove.mcMessages.butMessagesClose.on("click", function(evt) {
+fp.mcMessagesMove.mcMessages.butMessagesClose.butMessagesCloseBut.on("click", function(evt) {
 	//var colorClose:Color = new Color(txtClose);
 	//colorClose.setRGB(0xcccccc)
 	console.log("close clicked");
@@ -434,6 +475,108 @@ fp.mcFactCardMoves.mcFactcard.butBehind.butBehindBut.on("click", function(evt) {
 	curScreen = "behind";
 	moveEnvironment(moveDir);
 });
+
+fp.mcBehind.butBackToFacts.butBackToFactsBut.on("click", function(evt) {
+	//var colorBackToFacts:Color = new Color(txtBackToFacts);
+	//colorBackToFacts.setRGB(0x4c4c4c);
+	//var colorBakArrow:Color = new Color(mcBakArrow);
+	//colorBakArrow.setRGB(0x479cb8);
+	fp.mcBehind.butBackToFacts.mcBakArrow.alpha = 50;
+	//if (curMusicState == "on") {
+		//auBehindBack.start();
+	//}
+	//stopVid();
+	curScreen = "question-answer";
+	var moveDirBehind;
+	if (moveDir == "move_left") {
+		moveDirBehind = "move_right";
+	} else {
+		moveDirBehind = "move_left";
+	}
+	moveEnvironment(moveDirBehind);
+});
+
+/*butBackToFacts.onRollOver = function() {
+	var colorBackToFacts:Color = new Color(txtBackToFacts);
+	colorBackToFacts.setRGB(0x333333);
+	var colorBakArrow:Color = new Color(mcBakArrow);
+	colorBakArrow.setRGB(0xffffff);
+	mcBakArrow._alpha = 100;
+}
+
+butBackToFacts.onRollOut = function() {
+	var colorBackToFacts:Color = new Color(txtBackToFacts);
+	colorBackToFacts.setRGB(0x4c4c4c);
+	var colorBakArrow:Color = new Color(mcBakArrow);
+	colorBakArrow.setRGB(0x479cb8);
+	mcBakArrow._alpha = 50;
+}*/
+
+
+fp.mcBehind.butBehindNextPho.butBehindNextPhoBut.on("click", function(evt) {
+	//var colorNextPho = new Color(txtBehindNextPho);
+	//colorNextPho.setRGB(0x4c4c4c);
+	//var colorNextArrow = new Color(mcNextArrow);
+	//colorNextArrow.setRGB(0x479cb8);
+	//fp.mcBehind.mcNextArrow.alpha = 50;
+	nextPho();
+});
+
+/*butBehindNextPho.onRollOver = function() {
+	var colorNextPho:Color = new Color(txtBehindNextPho);
+	colorNextPho.setRGB(0x333333);
+	var colorNextArrow:Color = new Color(mcNextArrow);
+	colorNextArrow.setRGB(0xffffff);
+	mcNextArrow._alpha = 100;
+}
+
+butBehindNextPho.onRollOut = function() {
+	var colorNextPho:Color = new Color(txtBehindNextPho);
+	colorNextPho.setRGB(0x4c4c4c);
+	var colorNextArrow:Color = new Color(mcNextArrow);
+	colorNextArrow.setRGB(0x479cb8);
+	mcNextArrow._alpha = 50;
+}*/
+
+fp.mcMenuMoves.mcMenu.butMenuLast.on("click", function(evt) {
+	var lastItem;
+	if (curItem > 0) {
+		lastItem = curItem - 1;
+	} else {
+		lastItem = 9;
+	}
+	menuClick(lastItem, "last");
+});
+
+/*butMenuLast.onRollOver = function() {
+	if (curMusicState == "on") {
+		auMenuOver.start();
+	}
+}*/
+
+fp.mcMenuMoves.mcMenu.butMenuNext.on("click", function(evt) {
+	var nextItem;
+	if (curItem < 9) {
+		nextItem = curItem + 1;
+	} else {
+		nextItem = 0;
+	}
+	menuClick(nextItem, "next");
+});
+
+fp.butMute.butMuteBut.on("click", function(evt) {
+	if (curMusicState == "on") {
+		stopSound();
+	} else {
+		startSound();
+	}
+});
+
+/*butMenuNext.onRollOver = function() {
+	if (curMusicState == "on") {
+		auMenuOver.start();
+	}
+}*/
 
 /*butMessagesClose.onRollOver = function() {
 	var colorClose:Color = new Color(txtClose);
@@ -553,6 +696,10 @@ function showData(ani) {
 	setAvgContent();
 	fp.mcData.visible = true;
 	if (ani != false) {
+		fp.mcData.mcJapanAvg.y = 535;
+		fp.mcData.mcUSAvg.y = 535;
+		fp.mcData.mcWorldAvg.y = 535;
+		fp.mcData.mcYourAvg.y = 535;
 		animateData();
 	}
 	setFactContent();
@@ -562,17 +709,30 @@ function showData(ani) {
 function animateData() {
 	doEnter = false;
 	fp.mcQuestion.butEnter.enabled = false;
-	//var tweenMe = createjs.Tween.get(fp.mcQuestion.butEnter, {loop: false})
-			//.to({y: fp.mcQuestion.butEnter.y + 100}, 1500, createjs.Ease.getPowOut(5));
+	/*var tweenMe = createjs.Tween.get(fp.mcQuestion.butEnter, {loop: false})
+			.to({y: fp.mcQuestion.butEnter.y + 100}, 1500, createjs.Ease.getPowOut(5));*/
 	//tweenMe.start();
+			
+			
 	// order & check range
-	//var arrAvgs = [];
-	/*arrAvgs.push({mc: "mcUSAvg", avg: rawUSAvg});
+	var arrAvgs = [];
+	arrAvgs.push({mc: "mcUSAvg", avg: rawUSAvg});
 	arrAvgs.push({mc: "mcJapanAvg", avg: rawJapanAvg});
 	arrAvgs.push({mc: "mcWorldAvg", avg: rawWorldAvg});
-	arrAvgs.push({mc: "mcYourAvg", avg: rawYourAvg});*/
+	arrAvgs.push({mc: "mcYourAvg", avg: rawYourAvg});
 	//arrAvgs.sort("avg", Array.DESCENDING | Array.NUMERIC);
-	var arrAvgs = [["mcUSAvg", rawUSAvg],["mcJapanAvg", rawJapanAvg],["mcWorldAvg", rawWorldAvg],["mcYourAvg", rawYourAvg]];
+	//var arrAvgs = [{"mcUSAvg": rawUSAvg, "mcJapanAvg": rawJapanAvg],["mcWorldAvg", rawWorldAvg],["mcYourAvg", rawYourAvg]];
+	//arrAvgs.sort(arrAvgs[], Array.DESCENDING | Array.NUMERIC);
+	/*arrAvgs.sort(function(a,b){ //Array now becomes [41, 25, 8, 7]
+		return b - a
+	})*/
+	arrAvgs.sort(function(a, b) {
+		return parseFloat(b.avg) - parseFloat(a.avg);
+	});
+
+
+
+
 	//arrAvgs.push[mc: "mcJapanAvg", avg: rawJapanAvg]
 	//arrAvgs.push[mc: "mcWorldAvg", avg: rawWorldAvg];
 	//arrAvgs.push[mc: "mcYourAvg", avg: rawYourAvg];
@@ -584,36 +744,62 @@ function animateData() {
 	var mid2;
 	var mid2MC;
 	var low;
-	var lowMC;	
-	top = arrAvgs[0][0];
+	var lowMC;
+	
+	
+
+	top = arrAvgs[0].avg;
+
+	topMC = arrAvgs[0].mc;
+
+	mid1 = arrAvgs[1].avg;
+
+	mid1MC = arrAvgs[1].mc;
+
+	mid2 = arrAvgs[2].avg;
+
+	mid2MC = arrAvgs[2].mc;
+
+	low = arrAvgs[3].avg;
+
+	lowMC = arrAvgs[3].mc;	
+	
+	
+	//top = arrAvgs[0][1];
 	console.log("top: " + top);
-	topMC = arrAvgs[0][1];
+	//topMC = arrAvgs[0][0];
 	console.log("topMC: " + topMC);
-	mid1 = arrAvgs[1][0];
+	//mid1 = arrAvgs[1][1];
 	console.log("mid1: " + mid1);
-	mid1MC = arrAvgs[1][1];
+	//mid1MC = arrAvgs[1][0];
 	console.log("mid1MC: " + mid1MC);
-	mid2 = arrAvgs[2][0];
+	//mid2 = arrAvgs[2][1];
 	console.log("mid2: " + mid2);
-	mid2MC = arrAvgs[2][1];
+	//mid2MC = arrAvgs[2][0];
 	console.log("mid2MC: " + mid2MC);
-	low = arrAvgs[3][0];
+	//low = arrAvgs[3][1];
 	console.log("low: " + low);
-	lowMC = arrAvgs[3][1];
+	//lowMC = arrAvgs[3][0];
 	console.log("lowMC: " + lowMC);
 	// percentage difference between all
 	var topPercent = top/top;
+	console.log("topPercent: " + topPercent);
 	var mid1Percent = mid1/top;
+	console.log("mid1Percent: " + mid1Percent);
 	var mid2Percent = mid2/top;
+	console.log("mid2Percent: " + mid2Percent);
 	var lowPercent = low/top;
+	console.log("lowPercent: " + lowPercent);
 	var percentRange = topPercent - lowPercent;	
+	console.log("percentRange: " + percentRange);
 	var minY = 50;
 	var maxY = 410;
 	var rangeY = maxY - minY;
+	console.log("rangeY: " + rangeY);
 	var topMCY = maxY - (rangeY * topPercent);
 	var mid1MCY = maxY - (rangeY * mid1Percent);
 	var mid2MCY = maxY - (rangeY * mid2Percent);
-	var lowMCY = maxY - (rangeY * lowPercent);	
+	var lowMCY = maxY - (rangeY * lowPercent);
 	// space out mcs from top
 	if (mid1MCY <= (topMCY + 68)) {
 		mid1MCY = mid1MCY + 64;
@@ -637,34 +823,47 @@ function animateData() {
 	if (mid2MCY + 68 >= lowMCY) {
 		mid2MCY = lowMCY - 64;
 	}
-	if (mid1MCY+ 68 >= mid2MCY) {
+	if (mid1MCY + 68 >= mid2MCY) {
 		mid1MCY = mid2MCY - 64;
 	}
+	
+	
+	console.log("topMCY: " + topMCY);
+	console.log("mid1MCY: " + mid1MCY);
+	console.log("mid2MCY: " + mid2MCY);	
+	console.log("lowMCY: " + lowMCY);
+	
+	console.log("fp.mcData[topMC].y: " + fp.mcData[topMC].y);
+	console.log("fp.mcData[mid1MC].y: " + fp.mcData[mid1MC].y);
+	console.log("fp.mcData[mid2MC].y: " + fp.mcData[mid2MC].y);	
+	console.log("fp.mcData[lowMC].y: " + fp.mcData[lowMC].y);
+	
 	// tween avg mcs
 	//var tweenTop = new Tween(mcData[topMC], "y", mx.transitions.easing.Strong.easeOut, 535, topMCY, .8, true);
 	//tweenTop.stop();
 	
-	// good code commented out
-	/*var tweenTop = createjs.Tween.get(topMC, {loop: false})
-			.to({y: topMCY}, 1500, createjs.Ease.getPowOut(2.5));
-	tweenTop.start();*/
 	
-	/*var tween = createjs.Tween.get(ball, {loop: true})
-			.to({x: ball.x, y: canvas.height - 55, rotation: -360}, 1500, createjs.Ease.bounceOut)
-			.wait(1000)
-			.to({x: canvas.width - 55, rotation: 360}, 2500, createjs.Ease.bounceOut)
-			.wait(1000).call(handleComplete)
-			.to({scaleX: 2, scaleY: 2, x: canvas.width - 110, y: canvas.height - 110}, 2500, createjs.Ease.bounceOut)
-			.wait(1000)
-			.to({scaleX: .5, scaleY: .5, x: 30, rotation: -360, y: canvas.height - 30}, 2500, createjs.Ease.bounceOut);
+	tweenTop = createjs.Tween.get(fp.mcData[topMC], {loop: false})
+			.to({y: topMCY}, 800, createjs.Ease.getPowOut(2.5)).call(playMid1);
 	
-	createjs.Tween.get(target)
-         .wait(500)
-         .to({alpha:0, visible:false}, 1000)
-         .call(handleComplete);
-    function handleComplete() {
-        //Tween complete
-    }*/
+	function playMid1() {
+		tweenMid1 = createjs.Tween.get(fp.mcData[mid1MC], {loop: false})
+				.to({y: mid1MCY}, 800, createjs.Ease.getPowOut(2.5)).call(playMid2);
+	}
+	function playMid2() {
+		tweenMid2 = createjs.Tween.get(fp.mcData[mid2MC], {loop: false})
+			.to({y: mid2MCY}, 800, createjs.Ease.getPowOut(2.5)).call(playLow);
+	}
+	function playLow() {
+		tweenLow = createjs.Tween.get(fp.mcData[lowMC], {loop: false})
+				.to({y: lowMCY}, 800, createjs.Ease.getPowOut(2.5));
+	}
+	
+	
+	
+	/*var tweenMe = createjs.Tween.get(fp.mcQuestion.butEnter, {loop: false})
+			.to({y: fp.mcQuestion.butEnter.y + 100}, 1500, createjs.Ease.getPowOut(5));
+	tweenMe.start();*/
 	
 	//this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(48).call(this.frame_49).wait(1).call(this.frame_50).wait(1).call(this.frame_51).wait(48).call(this.frame_99).wait(1));
 	
@@ -674,9 +873,9 @@ function animateData() {
 	var tweenMid2 = new Tween(mcData[mid2MC], "y", mx.transitions.easing.Strong.easeOut, 535, mid2MCY, .8, true);
 	tweenMid2.stop();
 	var tweenLow = new Tween(mcData[lowMC], "y", mx.transitions.easing.Strong.easeOut, 535, lowMCY, .8, true);
-	tweenLow.stop();
+	tweenLow.stop();*/
 
-	tweenTop.onMotionStarted = function() {
+	/*tweenTop.onMotionStarted = function() {
 		callData();
 	};
 
@@ -721,6 +920,10 @@ function showQuestion() {
 	fp.curItemMC.gotoAndPlay("play");
 	setQuestionContent();
 	fp.mcQuestion.visible = true;
+	var setData = document.getElementById("setData");
+	setData.value = "";
+	setData.style.display = "block";
+	setData.focus();
 	//Selection.setFocus("txtInput");
 }
 
@@ -731,6 +934,9 @@ function showQuestionAnswer() {
 	fp.curItemMC.visible = true;
 	setQuestionContent();
 	fp.mcQuestion.visible = true;
+	var setData = document.getElementById("setData");
+	setData.style.display = "block";
+	setData.blur();
 	if (curFactCardState == "off") {
 		curFactCardState = "on";
 		fp.mcFactCardMoves.mcFactcard.gotoAndStop(0);
@@ -743,6 +949,7 @@ function showQuestionAnswer() {
 function showMessages(msg) {
 	doEnter = false;
 	fp.mcQuestion.butEnter.enabled = false;
+	document.getElementById("setData").style.display = "none";
 	//xmlNodeHandler = xmlRootHandler[2].childNodes;
 	//var txtfMessages:TextFormat = new TextFormat();
 	//txtfMessages.letterSpacing = -.7;
@@ -751,7 +958,7 @@ function showMessages(msg) {
 	if (msg == 0) {
 		fp.mcMessagesMove.mcMessages.txtMessages.text = "Well, you obviously don’t use\rthat many numbers. But numbers is all we can use.";
 	} else {
-		fp.mcMessagesMove.mcMessages.txtMessages.text = "Wow, that’s impressive\rBut we don’t believe you.<br>Give us a more realistic number.";
+		fp.mcMessagesMove.mcMessages.txtMessages.text = "Wow, that’s impressive\rBut we don’t believe you.\rGive us a more realistic number.";
 	}
 	fp.mcMessagesMove.gotoAndPlay("enter");
 }
@@ -762,6 +969,8 @@ function hideMessages() {
 	if (fp.mcMessagesMove.currentFrame == 9) {
 		doEnter = true;
 		fp.mcQuestion.butEnter.enabled = true;
+		//document.getElementById("setData").style.display = "block";
+		//document.getElementById("setData").value = "";
 		//txtInput.text = "";
 		//Selection.setFocus("txtInput");
 		fp.mcMessagesMove.gotoAndPlay("exit");
@@ -857,7 +1066,7 @@ function setOtherContent() {
 	fp.mcBehind.butBackToFacts.txtBackToFacts.text = "BACK TO THE FACTS";
 	fp.mcBehind.butBehindNextPho.txtBehindNextPho.text = "NEXT PHOTO";
 	//fp.txtBehind.setNewTextFormat(txtfOther);
-	fp.mcFactCardMoves.mcFactcard.butBehind.txtBehind.text = "Look behind the scenes";
+	fp.mcFactCardMoves.mcFactcard.butBehind.txtBehind.text = "Look behind\rthe scenes";
 	fp.mcFactCardMoves.mcFactcard.butBehind.txtBehind.alpha = 80;
 	//fp.txtJapanAvgOther.setNewTextFormat(txtfOther);
 	fp.mcData.mcJapanAvg.txtJapanAvgOther.text = "JAPAN AVERAGE\rFOR ONE LIFETIME";
@@ -1006,7 +1215,7 @@ function setFactContent() {
 		fp.mcFactCardMoves.mcFactcard.txtFactTxt2.text = v0factTxt2;
 		fp.mcFactCardMoves.mcFactcard.txtFactTxt3.text = v0factTxt3;
 	}
-	fp.mcFactCardMoves.mcFactcard.factgraphics.gotoAndStop(curItem + 1);
+	fp.mcFactCardMoves.mcFactcard.factgraphics.gotoAndStop(curItem);
 }
 
 function setBehindContent() {
@@ -1026,15 +1235,66 @@ function setBehindContent() {
 	//flvBehindVid.contentPath = strBehindVid;
 	//restartVid();
 	var strBehindPho = eval("v" + curItem + "behindPhotos");
+	console.log("strBehindPho: " + strBehindPho);
 	arrBehindPho = strBehindPho.split(",");
+	console.log("arrBehindPho: " + arrBehindPho);
 	curPho = 0;
 	phoCount = arrBehindPho.length;
-	//mcBehindPho.loadMovie(arrBehindPho[curPho]);
+	
+	var image = new Image();
+	image.src = arrBehindPho[curPho];
+	image.onload = handleImageLoad;
+			
+	//fp.mcBehind.mcBehindPho.loadMovie(arrBehindPho[curPho]);
 	//var tmNextPho:TransitionManager = new TransitionManager(mcBehindPho);
 	//tmNextPho.startTransition({type:Fade, direction:Transition.IN, duration:.5, easing:None.easeNone});
 	if (phoCount <= 1) {
 		fp.mcBehind.butBehindNextPho.visible = false;
 	}
+}
+
+function nextPho() {
+	console.log("nextPho called");
+	if (curPho < (phoCount - 1)) {
+		curPho++;
+	} else {
+		curPho = 0;
+	}
+	//var tmNextPho:TransitionManager = new TransitionManager(mcBehindPho);
+	//tmNextPho.startTransition({type:Fade, direction:Transition.OUT, duration:.5, easing:None.easeNone});
+	//var lisNextPho:Object = new Object();
+	//lisNextPho.allTransitionsOutDone = function(eventObj:Object) {
+		//trace("allTransitionsOutDone event occurred.");
+		//mcBehindPho.loadMovie(arrBehindPho[curPho]);
+		
+		var image = new Image();
+		image.src = arrBehindPho[curPho];
+		image.onload = handleImageLoad;
+	
+		//tmNextPho.startTransition({type:Fade, direction:Transition.IN, duration:.5, easing:None.easeNone});
+	//};
+	//tmNextPho.addEventListener("allTransitionsOutDone", lisNextPho);
+}
+
+function handleImageLoad(event) {
+	var image = event.target;
+	var bitmap = new createjs.Bitmap(image);
+	fp.mcBehind.mcBehindPho.addChild(bitmap);
+	stage.update();
+}
+
+function stopSound() {
+	/*stopAllSounds();*/
+	fp.butMute.gotoAndStop("off");
+	curMusicState = "off"
+	createjs.Sound.volume = 0.0;
+}
+
+function startSound() {
+	//auGame.start(0, 999);
+	fp.butMute.gotoAndStop("on");
+	curMusicState = "on"
+	createjs.Sound.volume = 1.0;
 }
 
 
@@ -1074,6 +1334,9 @@ function hideAll() {
 	fp.curItemMC.gotoAndStop("stop");
 	fp.mcIntro.visible = false;
 	fp.mcQuestion.visible = false;
+	var setData = document.getElementById("setData");
+	//setData.value = "";
+	setData.style.display = "none";
 	// items (in menu order)
 	fp.mcEggs.visible = false;
 	fp.mcNewspapers.visible = false;
@@ -1122,11 +1385,13 @@ function showMenu() {
 /* helper functions */
 function calculateAvg() {
 	//var strInput = txtInput.text;
-	var strInput = 3;
+	//var strInput = 3;
+	strInput = document.getElementById("setData").value;
+	console.log("strInput = " + strInput);
 	if (strInput == "0")	{
 		yourAvg = 0;
 	//} else if (int(strInput) == 0) {
-	} else if (strInput == null) {
+	} else if (strInput === "") {
 		yourAvg = -1;
 		showMessages(0);
 	} else {
@@ -1143,6 +1408,7 @@ function calculateAvg() {
 			avgTimeframe = 52;
 		}
 		yourAvg = Math.round((Number(strInput) * avgTimeframe) * avgLifetime);
+		console.log("yourAvg: " + yourAvg);
 		if (yourAvg > 999999) {
 			yourAvg = -1;
 			showMessages(1);
@@ -1169,11 +1435,18 @@ function addCommas(theNumber) {
 	return (newString);
 }
 
+// text input functions
+function clearTxt() {
+	document.getElementById("setData").value = "";
+}
+
+
+
 </script>
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
-	<div class="dataInput"><input id="setData" type="text"><label>enter</label></div>
+	<div id="dataInput"><input id="setData" type="text"></div>
 	<canvas id="canvas" width="960" height="535" style="display: block; background-color:rgba(142, 228, 255, 1.00)"></canvas>
 </body>
 </html>
