@@ -7,10 +7,12 @@
 	5. Remove unnecessary comments before creating your template.
 -->
 <!DOCTYPE html>
-<html><head>
+<html>
+<head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
 <title>footprint30</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- write your code here -->
 <script src="https://use.typekit.net/kiv1woh.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -412,34 +414,44 @@ fp.mcMenuMoves.mcMenu.butMenuSlices.on("rollover", function(evt) {
 //});
 fp.mcMenuMoves.mcMenu.butMenuEggs.on("click", function(evt) {
 	menuClick(0, "menu");
-	});
+	playSound("m_transition", false);
+});
 fp.mcMenuMoves.mcMenu.butMenuNewspapers.on("click", function(evt) {
 	menuClick(1, "menu");
-	});
+	playSound("m_transition", false);
+});
 fp.mcMenuMoves.mcMenu.butMenuMilks.on("click", function(evt) {
 	menuClick(2, "menu");
-	});
+	playSound("m_transition", false);
+});
 fp.mcMenuMoves.mcMenu.butMenuCarMiles.on("click", function(evt) {
 	menuClick(3, "menu");
-	});
+	playSound("m_transition", false);
+});
 fp.mcMenuMoves.mcMenu.butMenuBananas.on("click", function(evt) {
 	menuClick(4, "menu");
-	});
+	playSound("m_transition", false);
+});
 fp.mcMenuMoves.mcMenu.butMenuSodas.on("click", function(evt) {
 	menuClick(5, "menu");
-	});
+	playSound("m_transition", false);
+});
 fp.mcMenuMoves.mcMenu.butMenuShowers.on("click", function(evt) {
 	menuClick(6, "menu");
-	});
+	playSound("m_transition", false);
+});
 fp.mcMenuMoves.mcMenu.butMenuPotatoes.on("click", function(evt) {
 	menuClick(7, "menu");
-	});
+	playSound("m_transition", false);
+});
 fp.mcMenuMoves.mcMenu.butMenuDiapers.on("click", function(evt) {
 	menuClick(8, "menu");
-	});
+	playSound("m_transition", false);
+});
 fp.mcMenuMoves.mcMenu.butMenuSlices.on("click", function(evt) {
 	menuClick(9, "menu");
-	});
+	playSound("m_transition", false);
+});
 fp.mcMenuMoves.butMenu.on("rollover", function(evt) {
 	showMenu();
 	});	
@@ -655,9 +667,9 @@ butBehindNextPho.onRollOut = function() {
 function tick(event) {
 	stage.update();
 }
-function playSound(id, loop) {
-	return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
-}
+/*function stopSound(id) {
+	return createjs.Sound.stop(id);
+}*/
 
 /*------------------------------------------------------------------------------------------*/
 
@@ -847,16 +859,19 @@ function animateData() {
 			.to({y: topMCY}, 800, createjs.Ease.getPowOut(2.5)).call(playMid1);
 	
 	function playMid1() {
+		playDataAu();
 		tweenMid1 = createjs.Tween.get(fp.mcData[mid1MC], {loop: false})
 				.to({y: mid1MCY}, 800, createjs.Ease.getPowOut(2.5)).call(playMid2);
 	}
 	function playMid2() {
+		playDataAu();
 		tweenMid2 = createjs.Tween.get(fp.mcData[mid2MC], {loop: false})
 			.to({y: mid2MCY}, 800, createjs.Ease.getPowOut(2.5)).call(playLow);
 	}
 	function playLow() {
+		playDataAu();
 		tweenLow = createjs.Tween.get(fp.mcData[lowMC], {loop: false})
-				.to({y: lowMCY}, 800, createjs.Ease.getPowOut(2.5));
+				.to({y: lowMCY}, 800, createjs.Ease.getPowOut(2.5)).call(playDataAu);
 	}
 	
 	
@@ -912,6 +927,22 @@ function animateData() {
 	//tweenTop.start();	
 }
 
+var intervalIdData;
+function callData() {
+	intervalIdData = setInterval(this, "playDataAu", 400);
+}
+
+function playDataAu() {
+	//var au = playSound("Footprint_Egg_EggGrow");
+	//au.volume = 0.5;
+	
+	//clearInterval(intervalIdData);
+	//if (curMusicState == "on") {
+		//auData.start();
+	//}
+
+}
+
 function showQuestion() {
 	doEnter = true;
 	fp.curItemMC = getItem();
@@ -924,7 +955,57 @@ function showQuestion() {
 	setData.value = "";
 	setData.style.display = "block";
 	setData.focus();
+	//handleAu();
+	//var au = playSound("Footprint_Egg_EggGrow");
+	//au.volume = 0.5;
 	//Selection.setFocus("txtInput");
+}
+function handleAu(f) {
+	if (curItem == 0) {
+		//fp.mcEggs
+		if (f == 1) {
+			var au = playSound("Footprint_Egg_EggGrow");
+			//au.volume = 0.5;
+		} else if (f == 39) {
+			var au1 = playSound("Footprint_Egg_Flapping");
+			var au1 = playSound("Footprint_Egg_Bgock");
+		}
+	} else if (curItem == 1) {
+		//fp.mcNewspapers;
+		if (f == 158) {
+			var au = playSound("Footprint_Paper_Fall");
+		} else if (f == 334) {
+			var au = playSound("Footprint_Paper_Fall");
+		} else if (f == 426) {
+			var au = playSound("Footprint_Paper_Fall");
+		}
+	} else if (curItem == 2) {
+		//fp.mcMilks;
+		if (f == 129) {
+			var au = playSound("Footprint_Milk_Sucking3");
+		} else if (f == 174) {
+			var au = playSound("Footprint_Milk_Cow2");
+		}
+	} else if (curItem == 3) {
+		//fp.mcCarMiles;
+		if (f == 129) {
+			var au = playSound("Footprint_Milk_Sucking3");
+		} else if (f == 174) {
+			var au = playSound("Footprint_Milk_Cow2");
+		}
+	} else if (curItem == 4) {
+		return fp.mcBananas;
+	} else if (curItem == 5) {
+		return fp.mcSodas;
+	} else if (curItem == 6) {
+		return fp.mcShowers;
+	} else if (curItem == 7) {
+		return fp.mcPotatoes;
+	} else if (curItem == 8) {
+		return fp.mcDiapers;
+	} else if (curItem == 9) {
+		return fp.mcSlices;
+	}
 }
 
 function showQuestionAnswer() {
@@ -1441,6 +1522,19 @@ function clearTxt() {
 }
 
 
+function playSound(id) {
+	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+	//var au = createjs.Sound.play(id, {interrupt: createjs.Sound.INTERRUPT_ANY, loop:0});
+	var au = createjs.Sound.play(id, {loop:0});
+	au.volume = 0.5;
+	return au;
+}
+function loopSound(id) {
+	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+	var au = createjs.Sound.play(id, {loop:-1});
+	au.volume = 0.5;
+	return au;
+}
 
 </script>
 <!-- write your code here -->

@@ -7,7 +7,7 @@ lib.webFontTxtFilters = {};
 lib.properties = {
 	width: 960,
 	height: 535,
-	fps: 30,
+	fps: 60,
 	color: "#8EE4FF",
 	opacity: 1.00,
 	webfonts: {},
@@ -21,7 +21,31 @@ lib.properties = {
 		{src:"sounds/m_intro.mp3", id:"m_intro"},
 		{src:"sounds/m_transition.mp3", id:"m_transition"},
 		{src:"sounds/m_menu_rollover.mp3", id:"m_menu_rollover"},
-		{src:"sounds/background_loop.mp3", id:"background_loop"}
+		{src:"sounds/background_loop.mp3", id:"background_loop"},
+		{src:"sounds/Footprint_Banana_Peellin2.mp3", id:"Footprint_Banana_Peellin2"},
+		{src:"sounds/Footprint_Banana_Thud.mp3", id:"Footprint_Banana_Thud"},
+		{src:"sounds/Footprint_Bread_Arrow2.mp3", id:"Footprint_Bread_Arrow2"},
+		{src:"sounds/Footprint_Bread_Squish.mp3", id:"Footprint_Bread_Squish"},
+		{src:"sounds/Footprint_Cars_Enter.mp3", id:"Footprint_Cars_Enter"},
+		{src:"sounds/Footprint_Cars_Exit.mp3", id:"Footprint_Cars_Exit"},
+		{src:"sounds/Footprint_Cars_Horn.mp3", id:"Footprint_Cars_Horn"},
+		{src:"sounds/Footprint_cars_idle.mp3", id:"Footprint_cars_idle"},
+		{src:"sounds/Footprint_Diaper_Thud.mp3", id:"Footprint_Diaper_Thud"},
+		{src:"sounds/Footprint_Diapers_Flies.mp3", id:"Footprint_Diapers_Flies"},
+		{src:"sounds/Footprint_Egg_Bgock.mp3", id:"Footprint_Egg_Bgock"},
+		{src:"sounds/Footprint_Egg_EggGrow.mp3", id:"Footprint_Egg_EggGrow"},
+		{src:"sounds/Footprint_Egg_Flapping.mp3", id:"Footprint_Egg_Flapping"},
+		{src:"sounds/Footprint_Milk_Cow2.mp3", id:"Footprint_Milk_Cow2"},
+		{src:"sounds/Footprint_Milk_Sucking3.mp3", id:"Footprint_Milk_Sucking3"},
+		{src:"sounds/Footprint_Paper_Fall.mp3", id:"Footprint_Paper_Fall"},
+		{src:"sounds/Footprint_Paper_Growpop2.mp3", id:"Footprint_Paper_Growpop2"},
+		{src:"sounds/Footprint_Potato_Butter.mp3", id:"Footprint_Potato_Butter"},
+		{src:"sounds/Footprint_Potato_Grow2.mp3", id:"Footprint_Potato_Grow2"},
+		{src:"sounds/Footprint_Potato_SourCr.mp3", id:"Footprint_Potato_SourCr"},
+		{src:"sounds/Footprint_Shower_Duck4.mp3", id:"Footprint_Shower_Duck4"},
+		{src:"sounds/Footprint_showerloop.mp3", id:"Footprint_showerloop"},
+		{src:"sounds/Footprint_showerstart.mp3", id:"Footprint_showerstart"},
+		{src:"sounds/Footprint_Soda_Fill.mp3", id:"Footprint_Soda_Fill"}
 	]
 };
 
@@ -4894,6 +4918,7 @@ p.nominalBounds = new cjs.Rectangle(-16.3,-22.5,33.5,46.7);
 		if (_parent.curMusicState == "on") {
 			auMilkSucking.start();
 		}*/
+		parent.handleAu(129);
 	}
 	this.frame_174 = function() {
 		/* 
@@ -4903,6 +4928,7 @@ p.nominalBounds = new cjs.Rectangle(-16.3,-22.5,33.5,46.7);
 		
 		stop();
 		*/
+		parent.handleAu(174);
 		this.stop();
 	}
 
@@ -5264,6 +5290,9 @@ p.nominalBounds = null;
 		//var myInstance23 = createjs.Sound.play("egg");
 	 	//myInstance23.volume = 0.2;
 		//playSound("egg", false);
+		//stopSound("Footprint_Egg_EggGrow");
+	//var auEggGrow = createjs.Sound.play("Footprint_Egg_EggGrow", {loop:0});
+	//auEggGrow.volume = 0.3;
 		this.stop();
 	}
 	this.frame_1 = function() {
@@ -5275,7 +5304,11 @@ p.nominalBounds = null;
 		play();
 		*/
 		//playSound("egg", false);
+		parent.handleAu(1);
 		this.play();
+		//parent.playSound("Footprint_Egg_EggGrow");
+		//var auEggGrow = createjs.Sound.play("Footprint_Egg_EggGrow", {loop:0});
+		//auEggGrow.volume = 0.3;
 	}
 	this.frame_39 = function() {
 		/* 
@@ -5286,6 +5319,11 @@ p.nominalBounds = null;
 		
 		play();
 		*/
+		//parent.playSound("Footprint_Egg_Flapping");
+		//parent.playSound("Footprint_Egg_Bgock");
+		//parent.pEgg();
+		
+		parent.handleAu(39);
 		this.play();
 	}
 	this.frame_214 = function() {
@@ -5294,7 +5332,7 @@ p.nominalBounds = null;
 		
 		
 		*/
-		this.gotoAndPlay(40);
+		this.gotoAndPlay(39);
 	}
 
 	// actions tween:
@@ -5582,6 +5620,8 @@ p.nominalBounds = new cjs.Rectangle(-1.3,1.1,2.3,5.9);
 		
 		play();
 		*/
+		this.play();
+		parent.handleAu(1);
 	}
 	this.frame_89 = function() {
 		/* 
@@ -5589,6 +5629,7 @@ p.nominalBounds = new cjs.Rectangle(-1.3,1.1,2.3,5.9);
 			auCarIdle.start(0, 999);
 		}
 		*/
+		parent.handleAu(89);
 	}
 	this.frame_99 = function() {
 		/* 
@@ -5617,6 +5658,8 @@ p.nominalBounds = new cjs.Rectangle(-1.3,1.1,2.3,5.9);
 		var intervalId2:Number = setInterval(this, "playCarEnter", 1500);
 		
 		stop();*/
+		parent.handleAu(99);
+		this.stop;
 	}
 	this.frame_100 = function() {
 		/* 
@@ -5626,6 +5669,7 @@ p.nominalBounds = new cjs.Rectangle(-1.3,1.1,2.3,5.9);
 		
 		play();
 		*/
+		this.play();
 	}
 	this.frame_142 = function() {
 		/* 
@@ -10045,18 +10089,21 @@ p.nominalBounds = new cjs.Rectangle(44.2,420.3,301.6,39.6);
 		if (_parent.curMusicState == "on") {
 			auPaperFall.start();
 		}*/
+		parent.handleAu(158);
 	}
 	this.frame_334 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auPaperFall.start();
 		}*/
+		parent.handleAu(334);
 	}
 	this.frame_426 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auPaperFall.start();
 		}*/
+		parent.handleAu(426);
 	}
 	this.frame_504 = function() {
 		/* stop();
