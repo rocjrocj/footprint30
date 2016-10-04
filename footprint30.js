@@ -4388,30 +4388,35 @@ p.nominalBounds = null;
 		if (_parent.curMusicState == "on") {
 			auBreadSquish.start();
 		}*/
+		parent.handleAu(39);
 	}
 	this.frame_77 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auBreadSquish.start();
 		}*/
+		parent.handleAu(77);
 	}
 	this.frame_109 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auBreadSquish.start();
 		}*/
+		parent.handleAu(109);
 	}
 	this.frame_145 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auBreadSquish.start();
 		}*/
+		parent.handleAu(145);
 	}
 	this.frame_164 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auBreadArrow.start();
 		}*/
+		parent.handleAu(164);
 	}
 	this.frame_195 = function() {
 		/* stop();
@@ -4859,7 +4864,7 @@ p.nominalBounds = new cjs.Rectangle(-207,-321.4,173.2,122);
 		auPaperGrow.attachSound("paper_grow");
 		auPaperGrow.setVolume(30);
 		*/
-		this.stop();
+		//this.stop();
 	}
 	this.frame_6 = function() {
 		/* 
@@ -4879,6 +4884,7 @@ p.nominalBounds = new cjs.Rectangle(-207,-321.4,173.2,122);
 	// Layer 1
 	this.instance = new lib.newspaper();
 	this.instance.setTransform(0,0,0.122,0.087);
+	//this.instance.cache(0,0,33.5,46.7);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:1,scaleY:1},19,cjs.Ease.get(-1)).wait(1));
 
@@ -5219,6 +5225,7 @@ p.nominalBounds = new cjs.Rectangle(150.9,-72.3,405.4,476.7);
 		if (_parent._parent.curMusicState == "on") {
 			auDiaperFlies.start();
 		}*/
+		parent.handleAu(0);
 	}
 	this.frame_1 = function() {
 		/* play();
@@ -5393,18 +5400,21 @@ p.nominalBounds = new cjs.Rectangle(-44.9,-60.2,94.5,58.9);
 		if (_parent.curMusicState == "on") {
 			auDiaperThud.start();
 		}*/
+		parent.handleAu(8);
 	}
 	this.frame_88 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auDiaperThud.start();
 		}*/
+		parent.handleAu(88);
 	}
 	this.frame_184 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auDiaperThud.start();
 		}*/
+		parent.handleAu(184);
 	}
 	this.frame_255 = function() {
 		this.gotoAndPlay(2);
@@ -5608,6 +5618,9 @@ p.nominalBounds = new cjs.Rectangle(-1.3,1.1,2.3,5.9);
 		//
 		//stop();
 		//
+		
+		//var intervalId;
+		//window.clearInterval(intervalId);
 		this.stop();
 	}
 	this.frame_1 = function() {
@@ -5658,8 +5671,37 @@ p.nominalBounds = new cjs.Rectangle(-1.3,1.1,2.3,5.9);
 		var intervalId2:Number = setInterval(this, "playCarEnter", 1500);
 		
 		stop();*/
+		
+		
+		
+		
+		//var intervalId = window.setInterval(function() {
+			// action to be repeated every 3 seconds
+			//playCars();
+		//}, 8000);
+			//(this, "playCars", 3000);
+		
+		 function playCarEnter() {
+			//window.clearInterval(intervalId2);
+			//console.log("intervalId2 cleared");
+			//auCarEnter.start();
+			//parent.handleAu(99);
+		}
+		//var intervalId2 = setInterval(this, "playCarEnter", 1500);
+		//var intervalId2  = window.setInterval(function() {
+			// action to be repeated every 1.5 seconds
+			//playCarEnter();
+		//}, 15000);
+		
+		// start interval
+//var interval = window.setInterval(function() {
+//    // action to be repeated every 2 seconds
+//}, 2000);
+//
+//// clear interval
+//interval = window.clearInterval(interval);
 		parent.handleAu(99);
-		this.stop;
+		this.stop();
 	}
 	this.frame_100 = function() {
 		/* 
@@ -5674,6 +5716,7 @@ p.nominalBounds = new cjs.Rectangle(-1.3,1.1,2.3,5.9);
 	this.frame_142 = function() {
 		/* 
 		auCarIdle.setVolume(70);*/
+		parent.handleAu(142);
 	}
 	this.frame_147 = function() {
 		/* 
@@ -5688,6 +5731,8 @@ p.nominalBounds = new cjs.Rectangle(-1.3,1.1,2.3,5.9);
 		
 		stop();
 		*/
+		parent.handleAu(147);
+		this.stop();
 	}
 	this.frame_148 = function() {
 		/* 
@@ -5700,10 +5745,13 @@ p.nominalBounds = new cjs.Rectangle(-1.3,1.1,2.3,5.9);
 		
 		play();
 		*/
+		parent.handleAu(148);
+		this.play();
 	}
 	this.frame_201 = function() {
 		/* 
 		auCarIdle.stop();*/
+		parent.handleAu(201);
 	}
 	this.frame_232 = function() {
 		/* stop();
@@ -9719,6 +9767,7 @@ p.nominalBounds = new cjs.Rectangle(0,0.1,960,58.9);
 		if (_parent.curMusicState == "on") {
 			auSodaFill.start();
 		}*/
+		parent.handleAu(7);
 	}
 	this.frame_60 = function() {
 		/* stop();
@@ -9836,30 +9885,35 @@ p.nominalBounds = new cjs.Rectangle(-5.3,-8.8,970,529.7);
 		
 		play();
 		*/
+		parent.handleAu(1);
 	}
 	this.frame_24 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auPotatoGrow1.start();
 		}*/
+		parent.handleAu(24);
 	}
 	this.frame_49 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auPotatoGrow2.start();
 		}*/
+		parent.handleAu(49);
 	}
 	this.frame_94 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auPotatoButter.start();
 		}*/
+		parent.handleAu(94);
 	}
 	this.frame_169 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auPotatoSourCream.start();
 		}*/
+		parent.handleAu(169);
 	}
 	this.frame_279 = function() {
 		/* stop();
@@ -10116,9 +10170,11 @@ p.nominalBounds = new cjs.Rectangle(44.2,420.3,301.6,39.6);
 
 	// newspaper_grow
 	this.instance = new lib.newspaper_grow();
+	this.instance.cache(0,0,33.5,46.7);
 	this.instance.setTransform(90.6,232,0.999,0.999,-75,0,0,0.3,0.8);
 
 	this.instance_1 = new lib.newspaper();
+	this.instance_1.cache(0,0,33.5,46.7);
 	this.instance_1.setTransform(90.6,232,0.999,0.999,-75,0,0,0.3,0.8);
 	this.instance_1._off = true;
 
@@ -12290,12 +12346,14 @@ p.nominalBounds = new cjs.Rectangle(-0.2,-15.6,339.8,514.7);
 		if (_parent.curMusicState == "on") {
 			auBananaThud.start();
 		}*/
+		parent.handleAu(4);
 	}
 	this.frame_17 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auBananaPeelin.start();
 		}*/
+		parent.handleAu(17);
 	}
 	this.frame_39 = function() {
 		/* stop();
@@ -13027,18 +13085,21 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,84.8);
 		
 		play();
 		*/
+		parent.handleAu(1);
 	}
 	this.frame_99 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auShowerLoop.start(0, 20);
 		}*/
+		parent.handleAu(99);
 	}
 	this.frame_212 = function() {
 		/* 
 		if (_parent.curMusicState == "on") {
 			auShowerDuck.start();
 		}*/
+		parent.handleAu(212);
 	}
 	this.frame_299 = function() {
 		/* stop();

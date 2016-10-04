@@ -481,6 +481,8 @@ fp.mcMessagesMove.mcMessages.butMessagesClose.butMessagesCloseBut.on("click", fu
 fp.mcFactCardMoves.mcFactcard.butBehind.butBehindBut.on("click", function(evt) {
 	//if (curMusicState == "on") {
 		//auBehindForward.start();
+			var auBehindForward = playSound("m_behind_forward");
+			//auBehindForward.volume = 1.0;
 	//}
 	console.log("butBehind clicked");
 	fp.mcFactCardMoves.mcFactcard.butBehind.txtBehind.alpha = 80;
@@ -496,6 +498,8 @@ fp.mcBehind.butBackToFacts.butBackToFactsBut.on("click", function(evt) {
 	fp.mcBehind.butBackToFacts.mcBakArrow.alpha = 50;
 	//if (curMusicState == "on") {
 		//auBehindBack.start();
+			var auBehindBack = playSound("m_behind_bak");
+			//auBehindBack.volume = 1.0;
 	//}
 	//stopVid();
 	curScreen = "question-answer";
@@ -871,9 +875,21 @@ function animateData() {
 	function playLow() {
 		playDataAu();
 		tweenLow = createjs.Tween.get(fp.mcData[lowMC], {loop: false})
-				.to({y: lowMCY}, 800, createjs.Ease.getPowOut(2.5)).call(playDataAu);
+				.to({y: lowMCY}, 800, createjs.Ease.getPowOut(2.5)).call(playFactCard);
 	}
-	
+	function playFactCard() {
+		doEnter = true;
+		fp.mcQuestion.butEnter.enabled = true;
+		console.log("curFactCardState: " + curFactCardState);
+		if (curFactCardState == "off") {
+			curFactCardState = "on";
+			fp.mcFactCardMoves.gotoAndStop(0);
+			fp.mcFactCardMoves.mcFactcard.gotoAndStop(0);
+			fp.mcFactCardMoves.gotoAndPlay("enter");
+			var auCardUp = playSound("m_cardup");
+			auCardUp.volume = 1.0;
+		}
+	}
 	
 	
 	/*var tweenMe = createjs.Tween.get(fp.mcQuestion.butEnter, {loop: false})
@@ -914,15 +930,15 @@ function animateData() {
 	};*/
 
 	//tweenLow.onMotionFinished = function() {
-		doEnter = true;
-		fp.mcQuestion.butEnter.enabled = true;
-		console.log("curFactCardState: " + curFactCardState);
-		if (curFactCardState == "off") {
-			curFactCardState = "on";
-			fp.mcFactCardMoves.gotoAndStop(0);
-			fp.mcFactCardMoves.mcFactcard.gotoAndStop(0);
-			fp.mcFactCardMoves.gotoAndPlay("enter");
-		}
+		//doEnter = true;
+//		fp.mcQuestion.butEnter.enabled = true;
+//		console.log("curFactCardState: " + curFactCardState);
+//		if (curFactCardState == "off") {
+//			curFactCardState = "on";
+//			fp.mcFactCardMoves.gotoAndStop(0);
+//			fp.mcFactCardMoves.mcFactcard.gotoAndStop(0);
+//			fp.mcFactCardMoves.gotoAndPlay("enter");
+//		}
 	//}
 	//tweenTop.start();	
 }
@@ -960,6 +976,8 @@ function showQuestion() {
 	//au.volume = 0.5;
 	//Selection.setFocus("txtInput");
 }
+var auShowerLoop;
+var auFlies;
 function handleAu(f) {
 	if (curItem == 0) {
 		//fp.mcEggs
@@ -968,7 +986,7 @@ function handleAu(f) {
 			//au.volume = 0.5;
 		} else if (f == 39) {
 			var au1 = playSound("Footprint_Egg_Flapping");
-			var au1 = playSound("Footprint_Egg_Bgock");
+			var au2 = playSound("Footprint_Egg_Bgock");
 		}
 	} else if (curItem == 1) {
 		//fp.mcNewspapers;
@@ -988,23 +1006,123 @@ function handleAu(f) {
 		}
 	} else if (curItem == 3) {
 		//fp.mcCarMiles;
-		if (f == 129) {
-			var au = playSound("Footprint_Milk_Sucking3");
-		} else if (f == 174) {
-			var au = playSound("Footprint_Milk_Cow2");
+		//createjs.Sound.registerSound("Footprint_cars_idle", "auIdle");
+		 function handleAuIdle(event) {
+			console.log("Stop happened");
+		 }
+		if (f == 1) {
+			var au = playSound("Footprint_Cars_Enter");
+		} else if (f == 89) {
+			auIdle = loopSound("Footprint_cars_idle");
+			console.log("auIdle: " + auIdle);
+			auIdle.addEventListener("stop", handleAuIdle);
+		} else if (f == 99) {
+				console.log("auIdle: " + auIdle);
+			setTimeout(function () {
+				playCars();
+			}, 3000);
+			 function playCars() {
+				console.log("playCars");
+				fp.mcCarMiles.gotoAndPlay(100);
+			}
+			setTimeout(function () {
+				playCarEnterAu();
+			}, 1500);
+			 function playCarEnterAu() {
+				//window.clearInterval(intervalId2);
+				console.log("playCarEnterAu");
+				var au = playSound("Footprint_Cars_Enter");
+			}
+		} else if (f == 142) {
+			this.auIdle.volume = 0.7;
+		} else if (f == 147) {
+			setTimeout(function () {
+				playCars2();
+			}, 5000);
+			 function playCars2() {
+				console.log("playCars2");
+				fp.mcCarMiles.gotoAndPlay(148);
+			}
+		} else if (f == 148) {
+			var au = playSound("Footprint_Cars_Horn");
+			var auExit = playSound("Footprint_Cars_Exit");
+			auExit.volume = 0.3;
+		} else if (f == 201) {
+			//auIdle.stop();
+			createjs.Sound.removeSound(auIdle);
 		}
 	} else if (curItem == 4) {
-		return fp.mcBananas;
+		//fp.mcBananas;
+		if (f == 4) {
+			var au = playSound("Footprint_Banana_Thud");
+		} else if (f == 17) {
+			var au = playSound("Footprint_Banana_Peellin2");
+		}
 	} else if (curItem == 5) {
-		return fp.mcSodas;
+		//fp.mcSodas;
+		if (f == 7) {
+			var au = playSound("Footprint_Soda_Fill");
+		}
 	} else if (curItem == 6) {
-		return fp.mcShowers;
+		//fp.mcShowers;
+		if (f == 1) {
+			var auShowerStart = playSound("Footprint_showerstart");
+			auShowerStart.volume = 0.3;
+		} else if (f == 99) {
+			auShowerLoop = loopSound("Footprint_showerloop");
+			auShowerLoop.volume = 0.3;
+		} else if (f == 212) {
+			var auDuck = playSound("Footprint_Shower_Duck4");
+			auDuck.volume = 0.3;
+		}
 	} else if (curItem == 7) {
-		return fp.mcPotatoes;
+		//fp.mcPotatoes;
+		if (f == 1) {
+			var au = playSound("Footprint_Potato_Grow2");
+		} else if (f == 24) {
+			var au = playSound("Footprint_Potato_Grow2");
+		} else if (f == 49) {
+			var auPotatoGrow2 = playSound("Footprint_Potato_Grow2");
+			auPotatoGrow2.volume = 0.7;
+		} else if (f == 94) {
+			var au = playSound("Footprint_Potato_Butter");
+		} else if (f == 169) {
+			var au = playSound("Footprint_Potato_SourCr");
+		}
 	} else if (curItem == 8) {
-		return fp.mcDiapers;
+		//fp.mcDiapers;
+		if (f == 0) {
+			auFlies = loopSound("Footprint_Diapers_Flies");
+			auFlies.volume = 0.3;
+		}
+		if (f == 8) {
+			var auDiaperThud1 = playSound("Footprint_Diaper_Thud");
+			auDiaperThud1.volume = 0.7;
+		} else if (f == 88) {
+			var auDiaperThud2 = playSound("Footprint_Diaper_Thud");
+			auDiaperThud2.volume = 0.7;
+		} else if (f == 184) {
+			var auDiaperThud3 = playSound("Footprint_Diaper_Thud");
+			auDiaperThud3.volume = 0.7;
+		}
 	} else if (curItem == 9) {
-		return fp.mcSlices;
+		//fp.mcSlices;
+		if (f == 39) {
+			var auBreadSquish1 = playSound("Footprint_Bread_Squish");
+			auBreadSquish1.volume = 0.3;
+		} else if (f == 77) {
+			var auBreadSquish2 = playSound("Footprint_Bread_Squish");
+			auBreadSquish2.volume = 0.3;
+		} else if (f == 109) {
+			var auBreadSquish3 = playSound("Footprint_Bread_Squish");
+			auBreadSquish3.volume = 0.3;
+		} else if (f == 145) {
+			var auBreadSquish4 = playSound("Footprint_Bread_Squish");
+			auBreadSquish4.volume = 0.3;
+		} else if (f == 164) {
+			var auBreadArrow = playSound("Footprint_Bread_Arrow2");
+			auBreadArrow.volume = 0.3;
+		}
 	}
 }
 
@@ -1023,6 +1141,8 @@ function showQuestionAnswer() {
 		fp.mcFactCardMoves.mcFactcard.gotoAndStop(0);
 		fp.mcFactCardMoves.gotoAndStop(0);
 		fp.mcFactCardMoves.gotoAndPlay("enter");
+			var auCardUp = playSound("m_cardup");
+			auCardUp.volume = 1.0;
 	}
 	showData(false);
 }
@@ -1061,6 +1181,13 @@ function hideMessages() {
 function menuClick(item, but) {
 	console.log("itemx: " + item);
 	hideMenu();
+	// remove any au loops
+	if (curItem == 6) {
+		createjs.Sound.removeSound(auShowerLoop);
+	}
+	if (curItem == 8) {
+		createjs.Sound.removeSound(auFlies);
+	}
 	if (curItem != item) {
 		hideMessages();
 		fp.curItemMC.gotoAndStop("stop");
@@ -1525,15 +1652,15 @@ function clearTxt() {
 function playSound(id) {
 	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
 	//var au = createjs.Sound.play(id, {interrupt: createjs.Sound.INTERRUPT_ANY, loop:0});
-	var au = createjs.Sound.play(id, {loop:0});
-	au.volume = 0.5;
-	return au;
+	var auPlay = createjs.Sound.play(id, {loop:0});
+	auPlay.volume = 0.5;
+	return auPlay;
 }
 function loopSound(id) {
 	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
-	var au = createjs.Sound.play(id, {loop:-1});
-	au.volume = 0.5;
-	return au;
+	var auLoop = createjs.Sound.play(id, {loop:-1});
+	auLoop.volume = 0.5;
+	return auLoop;
 }
 
 </script>
