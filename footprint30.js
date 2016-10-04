@@ -7,7 +7,7 @@ lib.webFontTxtFilters = {};
 lib.properties = {
 	width: 960,
 	height: 535,
-	fps: 60,
+	fps: 30,
 	color: "#8EE4FF",
 	opacity: 1.00,
 	webfonts: {},
@@ -8736,9 +8736,14 @@ p.nominalBounds = new cjs.Rectangle(0,0,145.1,19.6);
 	this.initialize(mode,startPosition,loop,{});
 
 	// frames
+	//this.shape = new cjs.Shape();
+//	this.shape.graphics.f("#FFFFFF").s().p("AYnYDMAAAgwGMAlqAAAMAAAAwGgAZEXlMAkuAAAMAAAgvJMgkuAAAgEg+QAYDMAAAgwGMBVJAAAMAAAAwGgEg9xAXlMBULAAAMAAAgvJMhULAAAg");
+//	this.shape.setTransform(481.5,282);
+//
+//	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#FFFFFF").s().p("AYnYDMAAAgwGMAlqAAAMAAAAwGgAZEXlMAkuAAAMAAAgvJMgkuAAAgEg+QAYDMAAAgwGMBVJAAAMAAAAwGgEg9xAXlMBULAAAMAAAgvJMhULAAAg");
-	this.shape.setTransform(481.5,282);
+	this.shape.graphics.f("#FFFFFF").s().p("Ay0YDMAAAgwGMAlpAAAMAAAAwGgAyWXlMAksAAAMAAAgvJMgksAAAg");
+	this.shape.setTransform(759.5,282);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
@@ -10167,14 +10172,11 @@ p.nominalBounds = new cjs.Rectangle(44.2,420.3,301.6,39.6);
 
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(157).call(this.frame_158).wait(176).call(this.frame_334).wait(92).call(this.frame_426).wait(78).call(this.frame_504).wait(1));
-
-	// newspaper_grow
+// newspaper_grow
 	this.instance = new lib.newspaper_grow();
-	this.instance.cache(0,0,33.5,46.7);
 	this.instance.setTransform(90.6,232,0.999,0.999,-75,0,0,0.3,0.8);
 
 	this.instance_1 = new lib.newspaper();
-	this.instance_1.cache(0,0,33.5,46.7);
 	this.instance_1.setTransform(90.6,232,0.999,0.999,-75,0,0,0.3,0.8);
 	this.instance_1._off = true;
 
@@ -10300,6 +10302,7 @@ p.nominalBounds = new cjs.Rectangle(44.2,420.3,301.6,39.6);
 	this.instance_19._off = true;
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_19).wait(4).to({_off:false},0).wait(501));
+
 
 	// tree
 	this.shape = new cjs.Shape();

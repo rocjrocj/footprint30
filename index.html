@@ -85,6 +85,10 @@ var rawUSAvg;
 var rawWorldAvg;
 var rawYourAvg;
 var doEnter = false;
+var strBehindVid;
+var vidId;
+var divId;
+var auGame;
 
 // content setting
 
@@ -101,7 +105,7 @@ var v0factTxt2 = "You’d need almost 57 hens laying eggs for one year for your 
 var v0factTxt3 = "Hens produce about 211 million per day, that's 77 billion eggs every year.";
 var v0behindHea = "How do you get 19,826 eggs in a dump truck?";
 var v0behindTxt = "This is the Behind the Scenes video and photos of how we got all those eggs and what we did with them afterwards.";
-var v0behindVid = "05129_00_Human-Footprint-_001.flv";
+var v0behindVid = "Egg";
 var v0behindPhotos = "flash/1egg.jpg,flash/2egg.jpg,flash/3egg.jpg,flash/4egg.jpg,flash/5egg.jpg";
 var v0japanAverage = "27559";
 
@@ -114,7 +118,7 @@ var v1factTxt2 = "To make all of the U.S. newspapers for one year it takes 191,0
 var v1factTxt3 = "1000 tons more carbon dioxide a day is released in the air without these trees.";
 var v1behindHea = "Did one kid deliver the 5,054 newspapers?";
 var v1behindTxt = "This is the Behind the Scenes video and photos of what we did with all those newspapers after we read them all.";
-var v1behindVid = "05142_00_Human-Footprint-_001.flv";
+var v1behindVid = "News";
 var v1behindPhotos = "flash/1newspaper.jpg,flash/2newspaper.jpg,flash/3newspaper.jpg,flash/4newspaper.jpg,flash/5newspaper.jpg";
 var v1japanAverage = "19000";
 			
@@ -127,7 +131,7 @@ var v2factTxt2 = "There are 9.2 million American cows hard at work keeping our c
 var v2factTxt3 = "Collectively, dairy cows occupy a chunk of America about the size of Louisiana.";
 var v2behindHea = "Was the due date the same on all that milk?";
 var v2behindTxt = "This is the Behind the Scenes video and photos of what we did with all those delicious cartons of milk afterwards.";
-var v2behindVid = "05128_00_Human-Footprint-_001.flv";
+var v2behindVid = "Milk";
 var v2behindPhotos = "flash/1milk.jpg,flash/2milk.jpg,flash/3milk.jpg,flash/4milk.jpg,flash/5milk.jpg";
 var v2japanAverage = "19000";
 		
@@ -141,7 +145,7 @@ var v3factTxt2 = "To make all of the U.S. newspapers for one year it takes 191,0
 var v3factTxt3 = "1000 tons more carbon dioxide a day is released in the air without these trees.";
 var v3behindHea = "Where do all those car parts come from?";
 var v3behindTxt = "This is the Behind the Scenes video and photos of where we got those car parts and how we got rid of them.";
-var v3behindVid = "05143_00_Human-Footprint-_001.flv";
+var v3behindVid = "Car";
 var v3behindPhotos = "flash/1car.jpg,flash/2car.jpg,flash/3car.jpg,flash/4car.jpg,flash/5car.jpg";
 var v3japanAverage = "19000";
 		
@@ -154,7 +158,7 @@ var v4factTxt2 = "The U.S. average equals 28 pounds per year, or 1.1 tons over a
 var v4factTxt3 = "A year's supply for the entire U.S. would take up 894 square miles.";
 var v4behindHea = "Were there injuries from 5,067 banana peels?";
 var v4behindTxt = "This is the Behind the Scenes video and photos of where we got all those bananas and where we retired them.";
-var v4behindVid = "05127_00_Human-Footprint-_001.flv";
+var v4behindVid = "Banana";
 var v4behindPhotos = "flash/1banana.jpg,flash/2banana.jpg,flash/3banana.jpg,flash/4banana.jpg,flash/5banana.jpg";
 var v4japanAverage = "19000";
 
@@ -167,7 +171,7 @@ var v5factTxt2 = "Yearly, Americans recycle enough cans to power 1,118,000 homes
 var v5factTxt3 = "Soda and beer cans are recycled at a higher rate than other aluminum containers.";
 var v5behindHea = "How long did it take to line up those cans?";
 var v5behindTxt = "This is the Behind the Scenes video and photos of how we stacked and lined up all those aluminum cans.";
-var v5behindVid = "05126_00_Human-Footprint-_001.flv";
+var v5behindVid = "Soda";
 var v5behindPhotos = "flash/1soda.jpg,flash/2soda.jpg,flash/3soda.jpg,flash/4soda.jpg,flash/5soda.jpg";
 var v5japanAverage = "19000";
 
@@ -180,7 +184,7 @@ var v6factTxt2 = "28,433 7-minute showers equals running the water nonstop for 1
 var v6factTxt3 = "The U.S. average equals 25 gallons of water per shower, or 700,000 in a lifetime.";
 var v6behindHea = "Where did you get all those rubber ducks?";
 var v6behindTxt = "This is the Behind the Scenes video and photos of how we acquired and dispensed with all the rubber ducks.";
-var v6behindVid = "05130_00_Human-Footprint-_001.flv";
+var v6behindVid = "Duck";
 var v6behindPhotos = "flash/1shower.jpg,flash/2shower.jpg,flash/3shower.jpg,flash/4shower.jpg,flash/5shower.jpg";
 var v6japanAverage = "19000";
 
@@ -193,7 +197,7 @@ var v7factTxt2 = "Ireland’s annual potato harvest supplies a lifetime of potat
 var v7factTxt3 = "In a lifetime American's eat 3,500 pounds of fresh potatoes, and 6,920 processed.";
 var v7behindHea = "Where do you get that many potatoes?";
 var v7behindTxt = "This is the Behind the Scenes video and photos of how we collected and then removed all of those potatoes.";
-var v7behindVid = "05131_00_Human-Footprint-_001.flv";
+var v7behindVid = "Potato";
 var v7behindPhotos = "flash/1potato.jpg,flash/2potato.jpg,flash/3potato.jpg,flash/4potato.jpg";
 var v7japanAverage = "19000";
 
@@ -206,7 +210,7 @@ var v8factTxt2 = "It takes 5.65 barrels of crude oil to make one American's life
 var v8factTxt3 = "It takes 6 tankers worth of crude oil to manufacture one year of diapers for American babies.";
 var v8behindHea = "I hope all those diapers were clean.";
 var v8behindTxt = "This is the Behind the Scenes video and photos of which babies we got the diapers from and then what happened.";
-var v8behindVid = "05125_00_Human-Footprint-_001.flv";
+var v8behindVid = "Diaper";
 var v8behindPhotos = "flash/1diaper.jpg,flash/2diaper.jpg,flash/3diaper.jpg,flash/4diaper.jpg";
 var v8japanAverage = "19000";
 
@@ -219,7 +223,7 @@ var v9factTxt2 = "The average American eats his or her weight in bread about eve
 var v9factTxt3 = "Wheat consumption fell from 146 pounds per person in 2000 to 133 pounds.";
 var v9behindHea = "Did you have toast for lunch that day?";
 var v9behindTxt = "This is the Behind the Scenes video and photos of what was really in those bread packages and how we got rid of them.";
-var v9behindVid = "05124_00_Human-Footprint-_001.flv";
+var v9behindVid = "Bread";
 var v9behindPhotos = "flash/1bread.jpg,flash/2bread.jpg,flash/3bread.jpg,flash/4bread.jpg,flash/5bread.jpg";
 var v9japanAverage = "19000";
 
@@ -334,7 +338,7 @@ function handleComplete(evt) {
 	// set other text
 	setOtherContent();
 	// start audio
-	var auGame = createjs.Sound.play("background_loop", {loop:-1});
+	auGame = createjs.Sound.play("background_loop", {loop:-1});
 	auGame.volume = 0.3;
 	var auIntro = createjs.Sound.play("m_intro");
 	auIntro.volume = 0.2;
@@ -501,7 +505,7 @@ fp.mcBehind.butBackToFacts.butBackToFactsBut.on("click", function(evt) {
 			var auBehindBack = playSound("m_behind_bak");
 			//auBehindBack.volume = 1.0;
 	//}
-	//stopVid();
+	stopVid();
 	curScreen = "question-answer";
 	var moveDirBehind;
 	if (moveDir == "move_left") {
@@ -1178,9 +1182,7 @@ function hideMessages() {
 	}
 }
 
-function menuClick(item, but) {
-	console.log("itemx: " + item);
-	hideMenu();
+function removeAuLoops() {
 	// remove any au loops
 	if (curItem == 6) {
 		createjs.Sound.removeSound(auShowerLoop);
@@ -1188,13 +1190,19 @@ function menuClick(item, but) {
 	if (curItem == 8) {
 		createjs.Sound.removeSound(auFlies);
 	}
+}
+
+function menuClick(item, but) {
+	console.log("itemx: " + item);
+	hideMenu();
+	removeAuLoops();
 	if (curItem != item) {
 		hideMessages();
 		fp.curItemMC.gotoAndStop("stop");
 		/*if (curMusicState == "on") {
 			auTransition.start();
-		}
-		stopVid();*/
+		}*/
+		//stopVid();
 		//var auTransition = playSound("m_transition", false);
 		//auTransition.volume = 0.2;
 		curScreen = "question";
@@ -1439,9 +1447,11 @@ function setBehindContent() {
 	//txtfBehindTxt.kerning = true;
 	//txtBehindTxt.setNewTextFormat(txtfBehindTxt);
 	fp.mcBehind.txtBehindTxt.text = eval("v" + curItem + "behindTxt");
-	//var strBehindVid = xmlNodeHandler2[9].firstChild.nodeValue;
+	
+	strBehindVid = eval("v" + curItem + "behindVid");
 	//flvBehindVid.contentPath = strBehindVid;
-	//restartVid();
+	//vidId = strBehindVid;
+	restartVid();
 	var strBehindPho = eval("v" + curItem + "behindPhotos");
 	console.log("strBehindPho: " + strBehindPho);
 	arrBehindPho = strBehindPho.split(",");
@@ -1503,6 +1513,39 @@ function startSound() {
 	fp.butMute.gotoAndStop("on");
 	curMusicState = "on"
 	createjs.Sound.volume = 1.0;
+}
+
+function stopVid() {
+	//if (vidId.paused == false) {
+		var divId = "div" + strBehindVid;
+		var vidId = "vid" + strBehindVid
+		document.getElementById(vidId).pause();
+		document.getElementById(divId).style.display = "none";
+		document.getElementById("vidBorder").style.display = "none";
+		// start music
+		if (curMusicState == "on") {
+			auGame.play();
+			//createjs.Sound.volume = 1.0;
+		}
+	//}
+}
+
+function restartVid() {
+	//if (vidId.paused == true) {
+		// stop music
+		removeAuLoops();
+		if (curMusicState == "on") {
+			auGame.stop();
+			//createjs.Sound.volume = 0.0;
+		}
+		var divId = "div" + strBehindVid;
+		console.log("divId: " + vidId);
+		var vidId = "vid" + strBehindVid;
+		console.log("vidId: " + vidId);
+		document.getElementById(divId).style.display = "block";
+		document.getElementById("vidBorder").style.display = "block";
+		document.getElementById(vidId).play();
+	//}
 }
 
 
@@ -1668,6 +1711,19 @@ function loopSound(id) {
 </head>
 <body onload="init();" style="margin:0px;">
 	<div id="dataInput"><input id="setData" type="text"></div>
+	<div id="vidContainer">
+		<div id="vidBorder"></div>
+		<div id="divEgg" class="video"><video src="vid/05129_00_Human-Footprint-_001.mp4" id="vidEgg" class="vid" controls></video></div>
+		<div id="divNews" class="video"><video src="vid/05142_00_Human-Footprint-_001.mp4" id="vidNews" class="vid" controls></video></div>
+		<div id="divMilk" class="video"><video src="vid/05148_00_Human-Footprint-_001.mp4" id="vidMilk" class="vid" controls></video></div>
+		<div id="divCar" class="video"><video src="vid/05143_00_Human-Footprint-_001.mp4" id="vidCar" class="vid" controls></video></div>
+		<div id="divBanana" class="video"><video src="vid/05127_00_Human-Footprint-_001.mp4" id="vidBanana" class="vid" controls></video></div>
+		<div id="divSoda" class="video"><video src="vid/05126_00_Human-Footprint-_001.mp4" id="vidSoda" class="vid" controls></video></div>
+		<div id="divDuck" class="video"><video src="vid/05130_00_Human-Footprint-_001.mp4" id="vidDuck" class="vid" controls></video></div>
+		<div id="divPotato" class="video"><video src="vid/05131_00_Human-Footprint-_001.mp4" id="vidPotato" class="vid" controls></video></div>
+		<div id="divDiaper" class="video"><video src="vid/05125_00_Human-Footprint-_001.mp4" id="vidDiaper" class="vid" controls></video></div>
+		<div id="divBread" class="video"><video src="vid/05124_00_Human-Footprint-_001.mp4" id="vidBread" class="vid" controls></video></div>
+	</div>
 	<canvas id="canvas" width="960" height="535" style="display: block; background-color:rgba(142, 228, 255, 1.00)"></canvas>
 </body>
 </html>

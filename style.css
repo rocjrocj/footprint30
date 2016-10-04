@@ -12,3 +12,25 @@
 	border: none;
 	display: none;
 }
+#vidContainer {
+	position: absolute;
+	top: 146px;
+	left: 82px;
+	z-index: 99;
+}
+.video {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#vidBorder {
+	display: none;
+	position: absolute;
+	border: 3px solid #fff;
+	width: 540px;
+	height: 302px;
+	z-index: 999;
+}
+.vid {
+}
