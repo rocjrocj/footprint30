@@ -11,13 +11,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>footprint30</title>
+<title>Human Footprint</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- write your code here -->
 <script src="https://use.typekit.net/kiv1woh.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="footprint30.js?1467475395896"></script>
+<script src="min/footprint30-min.js?1467475395896"></script>
 <script src="CanvasInput.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script>
@@ -227,30 +227,6 @@ var v9behindVid = "Bread";
 var v9behindPhotos = "flash/1bread.jpg,flash/2bread.jpg,flash/3bread.jpg,flash/4bread.jpg,flash/5bread.jpg";
 var v9japanAverage = "19000";
 
-	/*<messages>
-	  var v0message><![CDATA[Well, you obviously don’t use<br>that many numbers. But numbers is all we can use.]]></message>
-	  var v1message><![CDATA[Wow, that’s impressive.<br>But we don’t believe you.<br>Give us a more realistic number.]]></message>
-	</messages>
-
-	<other>
-	  <item><![CDATA[MENU]]></item>
-	  <item><![CDATA[THE LAST ONE]]></item>
-	  <item><![CDATA[THE NEXT ONE]]></item>
-	  <item><![CDATA[enter]]></item>
-	  <item><![CDATA[BACK TO THE FACTS]]></item>
-	  <item><![CDATA[NEXT PHOTO]]></item>
-	  <item><![CDATA[Look behind the scenes]]></item>
-	  <item><![CDATA[U.S. AVERAGE FOR ONE LIFETIME]]></item>
-	  <item><![CDATA[WORLD AVERAGE FOR ONE LIFETIME]]></item>
-	  <item><![CDATA[YOUR AVERAGE FOR YOUR LIFETIME]]></item>
-	  <item><![CDATA[LIFETIME AVERAGE FOR YOUR ANSWER]]></item>
-	  <item><![CDATA[CLOSE]]></item>
-	  <item><![CDATA[JAPAN AVERAGE<br>FOR ONE LIFETIME]]></item>
-	  <item><![CDATA[USE]]></item>
-	  <item><![CDATA[THIS MENU TO BEGIN AND TO GET AROUND.]]></item>
-	</other>
-*/
-
 
 
 function init() {
@@ -317,9 +293,6 @@ function handleComplete(evt) {
 	
 	stage.enableMouseOver(10);
 	
-	//var showme = this;
-	//console.log("this: " + showme);
-	
 	
 	// init functions
 	// init vars
@@ -354,27 +327,6 @@ function handleComplete(evt) {
 	showMenu();
 	console.log("showMenu called");
 	
-	// Create and place our text field on the canvas
-/*const textField = new TextInput();
-textField.y = textField.x = 100;
-textField.placeHolder = "Input Field"; // updates the default text
-stage.addChild(textField);*/
-
-/*var input = new CanvasInput({
-  canvas: document.getElementById('canvas'),
-  fontSize: 18,
-  fontFamily: 'franklin-gothic-urw',
-  fontColor: '#212121',
-  fontWeight: 'bold',
-  width: 300,
-  padding: 8,
-  borderWidth: 1,
-  borderColor: '#000',
-  borderRadius: 3,
-  boxShadow: '1px 1px 0px #fff',
-  innerShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
-  placeHolder: 'Enter message here...'
-});*/
 	
 	
 
@@ -411,11 +363,6 @@ fp.mcMenuMoves.mcMenu.butMenuSlices.on("rollover", function(evt) {
 	});
 		
 	
-// menu buttons click
-//fp.mcMenuMoves.mcMenu.butMenuNext.on("click", function(evt) {
-//	//console.log("butMenuNext clicked");
-//	showMenu();
-//});
 fp.mcMenuMoves.mcMenu.butMenuEggs.on("click", function(evt) {
 	menuClick(0, "menu");
 	playSound("m_transition", false);
@@ -459,9 +406,6 @@ fp.mcMenuMoves.mcMenu.butMenuSlices.on("click", function(evt) {
 fp.mcMenuMoves.butMenu.on("rollover", function(evt) {
 	showMenu();
 	});	
-/*fp.mcMenuMoves.butMenu.on("click", function(evt) {
-	showMenu();
-	});*/
 
 /* buttons */
 fp.mcQuestion.butEnter.on("click", function(evt) {
@@ -481,7 +425,7 @@ fp.mcMessagesMove.mcMessages.butMessagesClose.butMessagesCloseBut.on("click", fu
 	hideMessages();
 });
 
-	///////// good code commented out to supress error
+
 fp.mcFactCardMoves.mcFactcard.butBehind.butBehindBut.on("click", function(evt) {
 	//if (curMusicState == "on") {
 		//auBehindForward.start();
@@ -516,47 +460,11 @@ fp.mcBehind.butBackToFacts.butBackToFactsBut.on("click", function(evt) {
 	moveEnvironment(moveDirBehind);
 });
 
-/*butBackToFacts.onRollOver = function() {
-	var colorBackToFacts:Color = new Color(txtBackToFacts);
-	colorBackToFacts.setRGB(0x333333);
-	var colorBakArrow:Color = new Color(mcBakArrow);
-	colorBakArrow.setRGB(0xffffff);
-	mcBakArrow._alpha = 100;
-}
-
-butBackToFacts.onRollOut = function() {
-	var colorBackToFacts:Color = new Color(txtBackToFacts);
-	colorBackToFacts.setRGB(0x4c4c4c);
-	var colorBakArrow:Color = new Color(mcBakArrow);
-	colorBakArrow.setRGB(0x479cb8);
-	mcBakArrow._alpha = 50;
-}*/
-
 
 fp.mcBehind.butBehindNextPho.butBehindNextPhoBut.on("click", function(evt) {
-	//var colorNextPho = new Color(txtBehindNextPho);
-	//colorNextPho.setRGB(0x4c4c4c);
-	//var colorNextArrow = new Color(mcNextArrow);
-	//colorNextArrow.setRGB(0x479cb8);
-	//fp.mcBehind.mcNextArrow.alpha = 50;
 	nextPho();
 });
 
-/*butBehindNextPho.onRollOver = function() {
-	var colorNextPho:Color = new Color(txtBehindNextPho);
-	colorNextPho.setRGB(0x333333);
-	var colorNextArrow:Color = new Color(mcNextArrow);
-	colorNextArrow.setRGB(0xffffff);
-	mcNextArrow._alpha = 100;
-}
-
-butBehindNextPho.onRollOut = function() {
-	var colorNextPho:Color = new Color(txtBehindNextPho);
-	colorNextPho.setRGB(0x4c4c4c);
-	var colorNextArrow:Color = new Color(mcNextArrow);
-	colorNextArrow.setRGB(0x479cb8);
-	mcNextArrow._alpha = 50;
-}*/
 
 fp.mcMenuMoves.mcMenu.butMenuLast.on("click", function(evt) {
 	var lastItem;
@@ -568,11 +476,6 @@ fp.mcMenuMoves.mcMenu.butMenuLast.on("click", function(evt) {
 	menuClick(lastItem, "last");
 });
 
-/*butMenuLast.onRollOver = function() {
-	if (curMusicState == "on") {
-		auMenuOver.start();
-	}
-}*/
 
 fp.mcMenuMoves.mcMenu.butMenuNext.on("click", function(evt) {
 	var nextItem;
@@ -592,100 +495,20 @@ fp.butMute.butMuteBut.on("click", function(evt) {
 	}
 });
 
-/*butMenuNext.onRollOver = function() {
-	if (curMusicState == "on") {
-		auMenuOver.start();
-	}
-}*/
-
-/*butMessagesClose.onRollOver = function() {
-	var colorClose:Color = new Color(txtClose);
-	colorClose.setRGB(0xffffff);
 }
 
-butMessagesClose.onRollOut = function() {
-	var colorClose:Color = new Color(txtClose);
-	colorClose.setRGB(0xcccccc);
-}*/
-
-}
-
-/*fp.mcQuestion.butEnter.on("click", function(evt) {
-	var colorEnter = new Color(txtEnter);
-	colorEnter.setRGB(0x4c4c4c);
-}
-
-fp.mcQuestion.butEnter.on("click", function(evt) {
-	var colorEnter = new Color(txtEnter);
-	colorEnter.setRGB(0x4c4c4c);
-}
-
-fp.mcQuestion.butEnter.on("click", function(evt) {
-	var colorEnter = new Color(txtEnter);
-	colorEnter.setRGB(0x990000);
-}
-
-fp.mcQuestion.butEnter.onR("click", function(evt) {
-	var colorEnter = new Color(txtEnter);
-	colorEnter.setRGB(0x4c4c4c);
-}*/
-
-//fp.mcQuestion.butEnter.on("click", function(evt) {
-	
 
 
-
-/*butBehind.onRollOver = function() {
-	txtBehind._alpha = 100;
-	if (curMusicState == "on") {
-		auBehindOver.start();
-	}
-}
-
-butBehind.onRollOut = function() {
-	txtBehind._alpha = 80;
-}
-
-butBehindNextPho.onPress = function() {
-	var colorNextPho:Color = new Color(txtBehindNextPho);
-	colorNextPho.setRGB(0x4c4c4c);
-	var colorNextArrow:Color = new Color(mcNextArrow);
-	colorNextArrow.setRGB(0x479cb8);
-	mcNextArrow._alpha = 50;
-	nextPho();
-}
-
-butBehindNextPho.onRollOver = function() {
-	var colorNextPho:Color = new Color(txtBehindNextPho);
-	colorNextPho.setRGB(0x333333);
-	var colorNextArrow:Color = new Color(mcNextArrow);
-	colorNextArrow.setRGB(0xffffff);
-	mcNextArrow._alpha = 100;
-}
-
-butBehindNextPho.onRollOut = function() {
-	var colorNextPho:Color = new Color(txtBehindNextPho);
-	colorNextPho.setRGB(0x4c4c4c);
-	var colorNextArrow:Color = new Color(mcNextArrow);
-	colorNextArrow.setRGB(0x479cb8);
-	mcNextArrow._alpha = 50;
-}*/
 
 
 function tick(event) {
 	stage.update();
 }
-/*function stopSound(id) {
-	return createjs.Sound.stop(id);
-}*/
 
 /*------------------------------------------------------------------------------------------*/
 
 
 		
-/*function test() {
-	console.log("test!");
-}*/
 
 /* intro function */
 function showIntro() {
@@ -703,10 +526,6 @@ function showAnswer() {
 
 function showBehind() {
 	doEnter = false;
-	// stop music
-	//if (curMusicState == "on") {
-		//auGame.stop();
-	//}
 	fp.curItemMC.gotoAndStop("stop");
 	setBehindContent();
 	fp.mcBehind.visible = true;
@@ -729,9 +548,6 @@ function showData(ani) {
 function animateData() {
 	doEnter = false;
 	fp.mcQuestion.butEnter.enabled = false;
-	/*var tweenMe = createjs.Tween.get(fp.mcQuestion.butEnter, {loop: false})
-			.to({y: fp.mcQuestion.butEnter.y + 100}, 1500, createjs.Ease.getPowOut(5));*/
-	//tweenMe.start();
 			
 			
 	// order & check range
@@ -740,12 +556,6 @@ function animateData() {
 	arrAvgs.push({mc: "mcJapanAvg", avg: rawJapanAvg});
 	arrAvgs.push({mc: "mcWorldAvg", avg: rawWorldAvg});
 	arrAvgs.push({mc: "mcYourAvg", avg: rawYourAvg});
-	//arrAvgs.sort("avg", Array.DESCENDING | Array.NUMERIC);
-	//var arrAvgs = [{"mcUSAvg": rawUSAvg, "mcJapanAvg": rawJapanAvg],["mcWorldAvg", rawWorldAvg],["mcYourAvg", rawYourAvg]];
-	//arrAvgs.sort(arrAvgs[], Array.DESCENDING | Array.NUMERIC);
-	/*arrAvgs.sort(function(a,b){ //Array now becomes [41, 25, 8, 7]
-		return b - a
-	})*/
 	arrAvgs.sort(function(a, b) {
 		return parseFloat(b.avg) - parseFloat(a.avg);
 	});
@@ -753,9 +563,6 @@ function animateData() {
 
 
 
-	//arrAvgs.push[mc: "mcJapanAvg", avg: rawJapanAvg]
-	//arrAvgs.push[mc: "mcWorldAvg", avg: rawWorldAvg];
-	//arrAvgs.push[mc: "mcYourAvg", avg: rawYourAvg];
 	// set order
 	var top;
 	var topMC;
@@ -858,10 +665,6 @@ function animateData() {
 	console.log("fp.mcData[mid2MC].y: " + fp.mcData[mid2MC].y);	
 	console.log("fp.mcData[lowMC].y: " + fp.mcData[lowMC].y);
 	
-	// tween avg mcs
-	//var tweenTop = new Tween(mcData[topMC], "y", mx.transitions.easing.Strong.easeOut, 535, topMCY, .8, true);
-	//tweenTop.stop();
-	
 	
 	tweenTop = createjs.Tween.get(fp.mcData[topMC], {loop: false})
 			.to({y: topMCY}, 800, createjs.Ease.getPowOut(2.5)).call(playMid1);
@@ -896,55 +699,8 @@ function animateData() {
 	}
 	
 	
-	/*var tweenMe = createjs.Tween.get(fp.mcQuestion.butEnter, {loop: false})
-			.to({y: fp.mcQuestion.butEnter.y + 100}, 1500, createjs.Ease.getPowOut(5));
-	tweenMe.start();*/
 	
-	//this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(48).call(this.frame_49).wait(1).call(this.frame_50).wait(1).call(this.frame_51).wait(48).call(this.frame_99).wait(1));
-	
-	// good code commented out
-	/*var tweenMid1 = new Tween(mcData[mid1MC], "y", mx.transitions.easing.Strong.easeOut, 535, mid1MCY, .8, true);
-	tweenMid1.stop();
-	var tweenMid2 = new Tween(mcData[mid2MC], "y", mx.transitions.easing.Strong.easeOut, 535, mid2MCY, .8, true);
-	tweenMid2.stop();
-	var tweenLow = new Tween(mcData[lowMC], "y", mx.transitions.easing.Strong.easeOut, 535, lowMCY, .8, true);
-	tweenLow.stop();*/
 
-	/*tweenTop.onMotionStarted = function() {
-		callData();
-	};
-
-	tweenMid1.onMotionStarted = function() {
-		callData();
-	};	
-
-	tweenMid1.onMotionFinished = function() {
-		tweenMid2.start();
-	};
-
-	tweenMid2.onMotionStarted = function() {
-		callData();
-	};
-	tweenMid2.onMotionFinished = function() {
-		tweenLow.start();
-	};
-
-	tweenLow.onMotionStarted = function() {
-		callData();
-	};*/
-
-	//tweenLow.onMotionFinished = function() {
-		//doEnter = true;
-//		fp.mcQuestion.butEnter.enabled = true;
-//		console.log("curFactCardState: " + curFactCardState);
-//		if (curFactCardState == "off") {
-//			curFactCardState = "on";
-//			fp.mcFactCardMoves.gotoAndStop(0);
-//			fp.mcFactCardMoves.mcFactcard.gotoAndStop(0);
-//			fp.mcFactCardMoves.gotoAndPlay("enter");
-//		}
-	//}
-	//tweenTop.start();	
 }
 
 var intervalIdData;
@@ -953,13 +709,6 @@ function callData() {
 }
 
 function playDataAu() {
-	//var au = playSound("Footprint_Egg_EggGrow");
-	//au.volume = 0.5;
-	
-	//clearInterval(intervalIdData);
-	//if (curMusicState == "on") {
-		//auData.start();
-	//}
 
 }
 
@@ -975,10 +724,6 @@ function showQuestion() {
 	setData.value = "";
 	setData.style.display = "block";
 	setData.focus();
-	//handleAu();
-	//var au = playSound("Footprint_Egg_EggGrow");
-	//au.volume = 0.5;
-	//Selection.setFocus("txtInput");
 }
 var auShowerLoop;
 var auFlies;
@@ -1155,11 +900,6 @@ function showMessages(msg) {
 	doEnter = false;
 	fp.mcQuestion.butEnter.enabled = false;
 	document.getElementById("setData").style.display = "none";
-	//xmlNodeHandler = xmlRootHandler[2].childNodes;
-	//var txtfMessages:TextFormat = new TextFormat();
-	//txtfMessages.letterSpacing = -.7;
-	//txtfMessages.kerning = true;
-	//txtMessages.setNewTextFormat(txtfMessages);
 	if (msg == 0) {
 		fp.mcMessagesMove.mcMessages.txtMessages.text = "Well, you obviously don’t use\rthat many numbers. But numbers is all we can use.";
 	} else {
@@ -1174,10 +914,6 @@ function hideMessages() {
 	if (fp.mcMessagesMove.currentFrame == 9) {
 		doEnter = true;
 		fp.mcQuestion.butEnter.enabled = true;
-		//document.getElementById("setData").style.display = "block";
-		//document.getElementById("setData").value = "";
-		//txtInput.text = "";
-		//Selection.setFocus("txtInput");
 		fp.mcMessagesMove.gotoAndPlay("exit");
 	}
 }
@@ -1199,12 +935,6 @@ function menuClick(item, but) {
 	if (curItem != item) {
 		hideMessages();
 		fp.curItemMC.gotoAndStop("stop");
-		/*if (curMusicState == "on") {
-			auTransition.start();
-		}*/
-		//stopVid();
-		//var auTransition = playSound("m_transition", false);
-		//auTransition.volume = 0.2;
 		curScreen = "question";
 		//txtInput.text = "";
 		oldItem = curItem;
@@ -1224,16 +954,10 @@ function menuClick(item, but) {
 	}
 }
 
-//this.showBehind = function() {}
-//this.pulse();
 
 
 function showBehind() {
 	doEnter = false;
-	// stop music
-	/*if (curMusicState == "on") {
-		auGame.stop();
-	}*/
 	fp.curItemMC.gotoAndStop("stop");
 	setBehindContent();
 	fp.mcBehind.visible = true;
@@ -1248,31 +972,16 @@ function moveEnvironment(dir) {
 	fp.mcGroundMoves.gotoAndPlay(dir);
 	fp.mcMountainMoves.gotoAndPlay(dir);
 	fp.mcTreesMoves.gotoAndPlay(dir);
-	//fp.mcTreesMoves.onAnimationEnd = test();
-	//console.log("end moveEnviro");
 }
 
 // content
 function setIntroContent() {
-	//xmlNodeHandler = xmlRootHandler[0].childNodes;
-	//var txtfIntroHea = new TextFormat();
-	//txtfIntroHea.letterSpacing = -1.5;
-	//txtfIntroHea.kerning = true;
-	//fp.mcIntro.txtIntroHea.setNewTextFormat(txtfIntroHea);
 	fp.mcIntro.txtIntroHea.text = "When you eat an egg, you’re not just eating an egg.\n\n";
-	//var txtfIntroTxt = new TextFormat();
-	//txtfIntroTxt.letterSpacing = -.05;
-	//txtfIntroTxt.kerning = true;
-	//fp.mcIntro.txtIntroTxt.setNewTextFormat(txtfIntroTxt);
 	fp.mcIntro.txtIntroTxt.text = "You’re eating the gas the truck used to deliver that egg, the coal used to generate electricity for it’s refrigeration, and resources used to boil, fry or poach that yummy egg. And that’s you're human footprint — how much of the world you use in your lifetime. So, use the menu above to see how many of each item you consume during your lifetime and how that measures up with the rest of the world.\n\n";
 }
 
 
 function setOtherContent() {
-	//xmlNodeHandler = xmlRootHandler[3].childNodes;
-	//var txtfOther = new TextFormat();
-	//txtfOther.letterSpacing = -.5;
-	//txtfOther.kerning = true;
 	fp.mcMenuMoves.butMenu.txtMenu.text = "MENU";
 	//fp.txtMenuLast.setNewTextFormat(txtfOther);
 	fp.mcMenuMoves.mcMenu.mcMenuLast.txtMenuLast.text = "THE LAST ONE";
@@ -1304,13 +1013,6 @@ function setOtherContent() {
 }
 
 function setQuestionContent() {
-	//xmlNodeHandler = xmlRootHandler[1].childNodes;
-	//xmlNodeHandler2 = xmlNodeHandler[curItem].childNodes;
-	//var txtfQuestion = new TextFormat();
-	//txtfQuestion.letterSpacing = -1.7;
-	//txtfQuestion.kerning = true;
-	//fp.mcQuestion.txtQuestion.setNewTextFormat(txtfQuestion);
-	//txtQuestion.htmlText = xmlNodeHandler2[0].firstChild.nodeValue;
 	if (curItem == 0) {
 		fp.mcQuestion.txtQuestion.text = "How many eggs do\ryou eat each week?";
 	} else if (curItem == 1) {
@@ -1361,18 +1063,6 @@ function setAvgContent() {
 }
 
 function setFactContent() {
-	//xmlNodeHandler = xmlRootHandler[1].childNodes;
-	//xmlNodeHandler2 = xmlNodeHandler[curItem].childNodes;
-	//var txtfFactHea:TextFormat = new TextFormat();
-	//txtfFactHea.letterSpacing = -1;
-	//txtfFactHea.kerning = true;
-	//txtFactHea.setNewTextFormat(txtfFactHea);
-	//var txtfFactTxt:TextFormat = new TextFormat();
-	//txtfFactTxt.letterSpacing = -.5;
-	//txtfFactTxt.kerning = true;
-	//txtFactTxt1.setNewTextFormat(txtfFactTxt);
-	//txtFactTxt2.setNewTextFormat(txtfFactTxt);
-	//txtFactTxt3.setNewTextFormat(txtfFactTxt);
 	console.log("setFactContent");
 	console.log("curItem: " + curItem);
 	if (curItem == 0) {
@@ -1435,22 +1125,10 @@ function setFactContent() {
 }
 
 function setBehindContent() {
-	//xmlNodeHandler = xmlRootHandler[1].childNodes;
-	//xmlNodeHandler2 = xmlNodeHandler[curItem].childNodes;
-	//var txtfBehindHea:TextFormat = new TextFormat();
-	//txtfBehindHea.letterSpacing = -1.3;
-	//txtfBehindHea.kerning = true;
-	//txtBehindHea.setNewTextFormat(txtfBehindHea);
 	fp.mcBehind.txtBehindHea.text = eval("v" + curItem + "behindHea");
-	//var txtfBehindTxt:TextFormat = new TextFormat();
-	//txtfBehindTxt.letterSpacing = .2;
-	//txtfBehindTxt.kerning = true;
-	//txtBehindTxt.setNewTextFormat(txtfBehindTxt);
 	fp.mcBehind.txtBehindTxt.text = eval("v" + curItem + "behindTxt");
 	
 	strBehindVid = eval("v" + curItem + "behindVid");
-	//flvBehindVid.contentPath = strBehindVid;
-	//vidId = strBehindVid;
 	restartVid();
 	var strBehindPho = eval("v" + curItem + "behindPhotos");
 	console.log("strBehindPho: " + strBehindPho);
@@ -1462,10 +1140,6 @@ function setBehindContent() {
 	var image = new Image();
 	image.src = arrBehindPho[curPho];
 	image.onload = handleImageLoad;
-			
-	//fp.mcBehind.mcBehindPho.loadMovie(arrBehindPho[curPho]);
-	//var tmNextPho:TransitionManager = new TransitionManager(mcBehindPho);
-	//tmNextPho.startTransition({type:Fade, direction:Transition.IN, duration:.5, easing:None.easeNone});
 	if (phoCount <= 1) {
 		fp.mcBehind.butBehindNextPho.visible = false;
 	}
@@ -1478,20 +1152,11 @@ function nextPho() {
 	} else {
 		curPho = 0;
 	}
-	//var tmNextPho:TransitionManager = new TransitionManager(mcBehindPho);
-	//tmNextPho.startTransition({type:Fade, direction:Transition.OUT, duration:.5, easing:None.easeNone});
-	//var lisNextPho:Object = new Object();
-	//lisNextPho.allTransitionsOutDone = function(eventObj:Object) {
-		//trace("allTransitionsOutDone event occurred.");
-		//mcBehindPho.loadMovie(arrBehindPho[curPho]);
 		
 		var image = new Image();
 		image.src = arrBehindPho[curPho];
 		image.onload = handleImageLoad;
 	
-		//tmNextPho.startTransition({type:Fade, direction:Transition.IN, duration:.5, easing:None.easeNone});
-	//};
-	//tmNextPho.addEventListener("allTransitionsOutDone", lisNextPho);
 }
 
 function handleImageLoad(event) {
@@ -1599,12 +1264,6 @@ function hideAll() {
 	fp.mcPotatoes.visible = false;
 	fp.mcDiapers.visible = false;
 	fp.mcSlices.visible = false;
-	//fp.mcMenuMoves.visible = false;
-	//fp.mcMenuMoves.mcMenu.butMenuLast.visible = false;
-	//fp.mcMenuMoves.mcMenu.mcMenuLast.visible = false;
-	//fp.mcMenuMoves.mcMenu.butMenuLast.visible = false;
-	//fp.mcMenuMoves.mcMenu.mcMenuNext.visible = false;
-	//fp.mcMenuMoves.mcMenu.butMenuNext.visible = false;
 	
 }
 
